@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Analysis Results | Smart Career Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+      margin: 0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 20px;
+      width: 65%;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      text-align: left;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(147,197,253,0.3);
+    }
+
+    h3 {
+      color: #93c5fd;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 8px;
+    }
+
+    .job-item, .course-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .job-item:last-child, .course-item:last-child {
+      border-bottom: none;
+    }
+
+    b {
+      color: #bfdbfe;
+    }
+
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #93c5fd;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #2563eb, #1e3a8a);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #1d4ed8, #1e40af);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h2>📄 Resume Analysis Complete</h2>
+  <p><b>Predicted Job Type:</b> {{ predicted_job_type|capitalize }}</p>
+
+  <!-- Job Matches -->
+  <div class="card">
+    <h3>💼 Top Job Matches</h3>
+    {% for item in matches %}
+      <div class="job-item">
+        <p><b>{{ item.job[1] }}</b> <span style="color:#a5b4fc;">({{ item.score }}%)</span></p>
+        <p style="font-size: 0.9rem; color: #94a3b8;"><i class="fas fa-building"></i> {{ item.job[4] }}</p>
+        <p>{{ item.job[2] }}</p>
+      </div>
+    {% else %}
+      <p>No job matches found.</p>
+    {% endfor %}
+  </div>
+
+  <!-- Recommended Courses -->
+  <div class="card">
+    <h3>🎓 Recommended Courses</h3>
+    {% if courses %}
+      {% for c in courses %}
+        <div class="course-item">
+          <p><b>{{ c[1] }}</b> — {{ c[2] }}</p>
+          <p><a href="{{ c[3] }}" target="_blank">🔗 View Course</a></p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No course recommendations yet.</p>
+    {% endif %}
+  </div>
+
+  <a href="/dashboard" class="back-link">⬅ Back to Dashboard</a>
+<a href="/download/{{ ats_report }}" class="btn btn-primary">⬇ Download ATS Report</a>
+
+</body>
+</html>
