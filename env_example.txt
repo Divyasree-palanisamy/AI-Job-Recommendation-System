@@ -1,0 +1,8 @@
+# OAuth Configuration
+# Get these from Facebook Developers Console: https://developers.facebook.com/
+FACEBOOK_APP_ID=your_facebook_app_id_here
+FACEBOOK_APP_SECRET=your_facebook_app_secret_here
+
+# Get these from Google Cloud Console: https://console.cloud.google.com/
+GOOGLE_CLIENT_ID=your_google_client_id_here
+GOOGLE_CLIENT_SECRET=your_google_client_secret_here

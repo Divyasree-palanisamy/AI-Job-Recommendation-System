@@ -1,0 +1,58 @@
+# PWA Icons Creation Guide
+
+Your PWA needs these icon files in the `/static/` folder:
+
+## Required Icons:
+
+### 1. icon-192.png (192x192 pixels)
+- **Purpose**: Android home screen, general use
+- **Background**: Blue gradient (#2563eb to #3b82f6)
+- **Content**: Career/graduation cap icon or "SC" initials
+- **Format**: PNG with transparency
+
+### 2. icon-512.png (512x512 pixels)
+- **Purpose**: High-resolution displays, splash screens
+- **Background**: Same blue gradient
+- **Content**: Professional career portal logo
+- **Format**: PNG with transparency
+
+### 3. screenshot-mobile.png (390x844 pixels)
+- **Purpose**: App store preview (Android)
+- **Content**: Screenshot of your login/dashboard page
+- **Format**: PNG
+
+## How to Create Icons:
+
+### Option 1: Use Online Tools
+1. **Canva.com** (Free)
+   - Search for "app icon template"
+   - Upload or create career-themed design
+   - Export as PNG
+
+2. **Figma.com** (Free tier)
+   - Create 192x192 and 512x512 frames
+   - Design with blue gradient background
+   - Add graduation cap or career icons
+
+### Option 2: Use Icon Generators
+1. **PWA Icon Generator**: https://favicon.io/favicon-generator/
+2. **RealFaviconGenerator**: https://realfavicongenerator.net/
+
+### Option 3: Professional Design
+- Hire a designer on Fiverr/Upwork
+- Search for "app icon design"
+- Budget: $10-50 for simple icons
+
+## Icon Design Tips:
+- Use your brand colors (#2563eb blue)
+- Keep it simple and recognizable
+- Avoid text (use initials if needed)
+- Test on different backgrounds
+- Ensure good contrast
+
+## File Locations:
+- `/static/icon-192.png`
+- `/static/icon-512.png`
+- `/static/screenshot-mobile.png`
+
+Once created, your PWA will work perfectly on mobile devices! 📱✨

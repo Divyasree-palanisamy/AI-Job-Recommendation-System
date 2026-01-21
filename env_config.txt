@@ -1,0 +1,20 @@
+# Email Configuration for Password Reset
+# Replace with your actual Gmail credentials
+
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USE_SSL=False
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_gmail_app_password
+MAIL_DEFAULT_SENDER=noreply@careerguidance.com
+
+# OAuth Configuration (optional - leave as-is to disable)
+# Get these from Facebook Developers: https://developers.facebook.com/
+FACEBOOK_APP_ID=your_facebook_app_id
+FACEBOOK_APP_SECRET=your_facebook_app_secret
+
+# Get these from Google Cloud Console: https://console.cloud.google.com/
+# Follow the setup guide in google_oauth_setup.txt
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret

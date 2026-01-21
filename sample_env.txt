@@ -1,0 +1,35 @@
+# Email Configuration for Password Reset
+# Copy this file to .env and fill in your actual credentials
+
+# Gmail Configuration (Recommended)
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USE_SSL=False
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_gmail_app_password
+MAIL_DEFAULT_SENDER=noreply@careerguidance.com
+
+# Alternative: Outlook/Hotmail
+# MAIL_SERVER=smtp-mail.outlook.com
+# MAIL_PORT=587
+# MAIL_USE_TLS=True
+# MAIL_USE_SSL=False
+# MAIL_USERNAME=your_email@outlook.com
+# MAIL_PASSWORD=your_password
+# MAIL_DEFAULT_SENDER=noreply@careerguidance.com
+
+# Alternative: Yahoo
+# MAIL_SERVER=smtp.mail.yahoo.com
+# MAIL_PORT=587
+# MAIL_USE_TLS=True
+# MAIL_USE_SSL=False
+# MAIL_USERNAME=your_email@yahoo.com
+# MAIL_PASSWORD=your_app_password
+# MAIL_DEFAULT_SENDER=noreply@careerguidance.com
+
+# OAuth Configuration (for Facebook/Google login)
+FACEBOOK_APP_ID=your_facebook_app_id
+FACEBOOK_APP_SECRET=your_facebook_app_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
