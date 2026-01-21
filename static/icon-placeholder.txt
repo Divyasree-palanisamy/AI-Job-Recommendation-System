@@ -1,0 +1,21 @@
+# PWA Icon Files Needed
+
+For the PWA to work properly, you need to create these icon files:
+
+1. icon-192.png (192x192 pixels) - For Android and general use
+2. icon-512.png (512x512 pixels) - For high-resolution displays
+3. screenshot-mobile.png (390x844 pixels) - Mobile screenshot for app stores
+
+You can create these using:
+- Canva.com (free)
+- Figma.com (free tier)
+- Photoshop
+- Any image editor
+
+Design suggestions:
+- Use your app's primary color (#2563eb - blue)
+- Include career/job related icons
+- Make it look professional and modern
+- Use PNG format with transparency
+
+Once created, replace the placeholder files with actual PNG images.

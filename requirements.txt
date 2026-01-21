@@ -1,0 +1,7 @@
+# Essential packages for Smart Career Portal
+Flask
+joblib
+scikit-learn
+pandas
+numpy
+reportlab

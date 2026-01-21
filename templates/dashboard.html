@@ -1,0 +1,3893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Career Portal">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="apple-touch-icon" href="/static/icon-192.png">
+  <title>Student Dashboard | Smart Career Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #60a5fa;
+            --danger: #ef4444;
+            --success: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+      font-family: 'Poppins', sans-serif;
+        }
+
+    body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Video Section Styles */
+        .video-main-category {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-category-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .video-grid-horizontal {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* Sticky Video Navigation */
+        .video-sticky-nav {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+
+        .video-sticky-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .video-sticky-nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .video-sticky-nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        .video-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            min-width: 100px;
+            white-space: nowrap;
+        }
+
+        .video-nav-link span {
+            font-size: 0.75rem;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .video-nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .video-nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .video-nav-link i {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+
+        .video-nav-link span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .video-square-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-square-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+
+        .video-square-container {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .video-square-card h5 {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-card);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+      text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+      text-decoration: none;
+            transition: all 0.3s;
+      cursor: pointer;
+        }
+
+        .nav-item i {
+            width: 20px;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-light);
+            background: rgba(37, 99, 235, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+      display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        body.light-mode {
+            background-color: #f8fafc;
+            color: #1f2937;
+        }
+
+        body.light-mode .sidebar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body.light-mode .sidebar-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.light-mode .nav-item {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        body.light-mode .nav-item:hover,
+        body.light-mode .nav-item.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        body.light-mode .main-content {
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        body.light-mode .card {
+            background: white;
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        body.light-mode .job-card {
+            background: white;
+            color: #1f2937;
+        }
+
+        body.light-mode .btn {
+            border: 1px solid #d1d5db;
+        }
+
+        body.light-mode .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-color: #3b82f6;
+        }
+
+        body.light-mode .theme-toggle {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Light mode text visibility fixes */
+        body.light-mode {
+            --text-muted: #6b7280;
+        }
+
+        body.light-mode .sidebar-footer .nav-item {
+            color: #374151;
+        }
+
+        body.light-mode .sidebar-footer .nav-item:hover {
+            color: #1f2937;
+        }
+
+        /* Fix logout button visibility in light mode */
+        body.light-mode .sidebar-footer .nav-item[href="/logout"] {
+            color: #dc2626 !important;
+        }
+
+        body.light-mode .sidebar-footer .nav-item[href="/logout"]:hover {
+            color: #b91c1c !important;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .welcome-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .welcome-text p {
+            color: var(--text-muted);
+        }
+
+        /* Section Styles */
+        .dashboard-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .dashboard-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+      padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+    /* Profile Alert Card */
+    .profile-alert-card {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border: 2px solid #f59e0b;
+        border-radius: 16px;
+        padding: 0;
+        margin-bottom: 25px;
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+        animation: alertSlideIn 0.6s ease-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .profile-alert-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+    }
+
+    @keyframes alertSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .alert-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .alert-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .alert-text {
+        flex: 1;
+    }
+
+    .alert-text h4 {
+        margin: 0 0 8px 0;
+        color: #92400e;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .alert-text p {
+        margin: 0 0 16px 0;
+        color: #a16207;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .alert-progress {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .progress-bar {
+        flex: 1;
+        height: 8px;
+        background: rgba(245, 158, 11, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        border-radius: 4px;
+        transition: width 0.8s ease;
+    }
+
+    .progress-text {
+        font-size: 12px;
+        font-weight: 600;
+        color: #92400e;
+        min-width: 70px;
+    }
+
+    .alert-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .complete-btn {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .complete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .dismiss-btn {
+        background: transparent;
+        border: 2px solid #f59e0b;
+        color: #f59e0b;
+        padding: 8px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dismiss-btn:hover {
+        background: #f59e0b;
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .alert-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .alert-actions {
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .complete-btn {
+            flex: 1;
+        }
+
+        .dismiss-btn {
+            flex-shrink: 0;
+        }
+    }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Varied colors for different sections */
+        #home .section-title {
+            color: #60a5fa; /* Light blue for Home */
+        }
+
+        #recommendations .section-title {
+            color: #34d399; /* Green for Job Recommendations */
+        }
+
+        #courses .section-title {
+            color: #f59e0b; /* Orange for Courses */
+        }
+
+        #videos .section-title {
+            color: #a855f7; /* Purple for Videos */
+        }
+
+        #report .section-title {
+            color: #ef4444; /* Red for Career Report */
+        }
+
+        /* Career Profile keeps default blue */
+        #profile .section-title {
+            color: var(--primary);
+        }
+
+        /* Add color variety to other text elements */
+        /* Home section colors */
+        #home .hero-headline {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #home .hero-subtitle {
+            color: #cbd5e1;
+        }
+
+        /* Job Recommendations section */
+        #recommendations .job-card h4 {
+            color: #34d399;
+        }
+
+        #recommendations .job-card .job-company {
+            color: #10b981;
+        }
+
+        /* Courses section */
+        #courses .course-card h4 {
+            color: #f59e0b;
+        }
+
+        #courses .course-meta {
+            color: #d97706;
+        }
+
+        /* Videos section */
+        #videos .video-category-card h4 {
+            color: #a855f7;
+        }
+
+        /* Career Report section */
+        #report .report-header h3 {
+            color: #ef4444;
+        }
+
+        #report .metric-value {
+            color: #dc2626;
+        }
+
+        /* Action cards variety */
+        .action-card.primary h4 {
+            color: var(--primary);
+        }
+
+        .action-card.secondary h4 {
+            color: #10b981;
+        }
+
+        .action-card.accent h4 {
+            color: #f59e0b;
+        }
+
+        .action-card.info h4 {
+            color: #8b5cf6;
+        }
+
+        /* Additional text color variety */
+        .job-card h4 {
+            color: #34d399 !important;
+        }
+
+        .course-card h4 {
+            color: #f59e0b !important;
+        }
+
+        .video-square-card h5 {
+            color: #a855f7 !important;
+        }
+
+        /* Subtle color variations for descriptions */
+        .job-card p:not(.job-company) {
+            color: #94a3b8;
+        }
+
+        .course-card p {
+            color: #cbd5e1;
+        }
+
+        /* Status and meta information colors */
+        .job-match-score {
+            color: #34d399;
+      font-weight: 600;
+        }
+
+        .course-category {
+            color: #f59e0b;
+            font-weight: 500;
+        }
+
+        /* Success/Warning/Error text colors */
+        .text-success {
+            color: #10b981 !important;
+        }
+
+        .text-warning {
+            color: #f59e0b !important;
+        }
+
+        .text-error {
+            color: #ef4444 !important;
+        }
+
+        /* Profile Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.5);
+            color: white;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+      cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+        .btn-danger { background-color: var(--danger); color: white; }
+        .btn-success { background-color: var(--success); color: white; }
+
+        /* COURSES SECTION */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+        .course-card:hover {
+      transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-image {
+            height: 140px;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .course-image i {
+            position: relative;
+            z-index: 1;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .course-content {
+            padding: 20px;
+            flex: 1;
+      display: flex;
+      flex-direction: column;
+        }
+
+        .course-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .course-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .course-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .course-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .course-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .course-meta i {
+            color: var(--accent);
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .match-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            background: var(--primary);
+        }
+
+        .job-card h4 { color: var(--accent); margin-bottom: 10px; }
+        .job-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
+
+
+        /* AI Career Report Section Full Width Fix */
+        #report {
+            width: 100% !important;
+        }
+
+        #report .card {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+        }
+
+        #report .card > div {
+            width: 100% !important;
+        }
+
+        #report .card > div > div {
+            flex: 1 !important;
+        }
+
+        /* Professional Analytics Dashboard */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .analytics-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+      padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .analytics-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), #ff6b9d);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .analytics-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trend-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Light mode styling for trend title */
+        body.light-mode .trend-title {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Light mode styling for analytics cards */
+        body.light-mode .analytics-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1e293b;
+        }
+
+        body.light-mode .analytics-card::before {
+            background: linear-gradient(90deg, #2563eb, #60a5fa, #ff6b9d);
+        }
+
+        /* Ensure text is visible in light mode */
+        body.light-mode .analytics-card h4,
+        body.light-mode .analytics-card p,
+        body.light-mode .analytics-card span {
+            color: #374151;
+        }
+
+        body.light-mode .analytics-card .skill-name {
+            color: #4b5563;
+        }
+
+        body.light-mode .analytics-card .skill-percentage {
+            color: #2563eb;
+        }
+
+        .trend-year {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            position: relative;
+        }
+
+        .trend-year::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .analytics-visual {
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Circular Progress Charts */
+        .skill-circles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 80px;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+
+        .circle-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                rgba(255, 255, 255, 0.1) 0deg,
+                rgba(255, 255, 255, 0.1) 360deg
+            );
+        }
+
+        .circle-progress {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                var(--primary) 0deg,
+                var(--accent) var(--progress),
+                rgba(255, 255, 255, 0.1) var(--progress),
+                rgba(255, 255, 255, 0.1) 360deg
+            );
+            mask: radial-gradient(circle at center, transparent 45%, black 47%);
+            -webkit-mask: radial-gradient(circle at center, transparent 45%, black 47%);
+            transition: all 1.2s ease;
+        }
+
+        .circle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .skill-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            max-width: 80px;
+            line-height: 1.2;
+        }
+
+        /* Trend Statistics */
+        .trend-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trend-industry {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        .analytics-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-placeholder i {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            opacity: 0.6;
+        }
+
+        /* Enhanced Recommendations */
+        .recommendations-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .recommendation-item {
+      transition: all 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding-left: 8px;
+            margin-left: -8px;
+        }
+
+        .rec-header {
+            margin-bottom: 8px;
+        }
+
+        .match-score {
+            animation: scorePulse 2s infinite;
+        }
+
+        @keyframes scorePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .skill-analysis {
+            font-size: 0.75rem !important;
+            color: var(--accent) !important;
+            line-height: 1.3 !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            padding: 8px !important;
+            border-radius: 6px !important;
+            border-left: 2px solid var(--accent) !important;
+        }
+
+        /* Floating particles effect */
+        .analytics-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-20px, -20px); }
+        }
+
+        /* Enhanced Home Page Styles */
+        .welcome-hero {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1));
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+      gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: heroBackground 30s linear infinite;
+        }
+
+        @keyframes heroBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-30px, -30px); }
+        }
+
+        .hero-content {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+      backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stats .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+
+        .hero-stats .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            flex: 0 0 200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .hero-icon-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent), #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow:
+                0 0 60px rgba(37, 99, 235, 0.5),
+                0 0 120px rgba(37, 99, 235, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: heroIconPulse 3s ease-in-out infinite;
+        }
+
+        .hero-icon-inner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        .hero-icon i {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-icon-glow {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroIconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(0deg) translateX(-100%); }
+            50% { transform: rotate(0deg) translateX(100%); }
+            100% { transform: rotate(0deg) translateX(100%); }
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            100% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        @keyframes iconGlow {
+            0% { opacity: 0.2; transform: scale(0.95); }
+            100% { opacity: 0.4; transform: scale(1.05); }
+        }
+
+        .floating-elements {
+            position: relative;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .floating-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 10px 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            animation: floatingCard 6s ease-in-out infinite;
+            z-index: 100;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+        }
+
+        .floating-card.card-1 {
+            animation-delay: 0s;
+            z-index: 101;
+        }
+
+        .floating-card.card-1 i {
+            color: #60a5fa;
+        }
+
+        .floating-card.card-2 {
+            animation-delay: 2s;
+            z-index: 102;
+        }
+
+        .floating-card.card-2 i {
+            color: #34d399;
+        }
+
+        .floating-card.card-3 {
+            animation-delay: 4s;
+            z-index: 103;
+        }
+
+        .floating-card.card-3 i {
+            color: #f59e0b;
+        }
+
+        @keyframes floatingCard {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(15px); }
+        }
+
+        /* Quick Actions Grid */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 120px;
+        }
+
+        .action-card:hover {
+      transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .action-card.primary {
+            border-left: 4px solid var(--primary);
+        }
+
+        .action-card.secondary {
+            border-left: 4px solid #10b981;
+        }
+
+        .action-card.accent {
+            border-left: 4px solid var(--accent);
+        }
+
+        .action-card.info {
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .action-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .action-icon:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-icon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.3;
+            z-index: -1;
+            animation: iconGlow 2s ease-in-out infinite alternate;
+        }
+
+        .action-card.primary .action-icon {
+            background: linear-gradient(135deg, var(--primary), rgba(59, 130, 246, 0.8));
+            color: white;
+        }
+
+        .action-card.secondary .action-icon {
+            background: linear-gradient(135deg, #10b981, rgba(16, 185, 129, 0.8));
+            color: white;
+        }
+
+        .action-card.accent .action-icon {
+            background: linear-gradient(135deg, var(--accent), rgba(245, 158, 11, 0.8));
+            color: white;
+        }
+
+        .action-card.info .action-icon {
+            background: linear-gradient(135deg, #8b5cf6, rgba(139, 92, 246, 0.8));
+            color: white;
+        }
+
+        .action-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .action-content p {
+            margin: 0 0 15px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+      text-decoration: none;
+            font-size: 0.85rem;
+      font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .action-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* Success Stories */
+        .success-stories {
+            margin-bottom: 40px;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .story-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.1);
+        }
+
+        .story-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), rgba(245, 158, 11, 0.8));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .story-content h5 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .story-content p {
+            margin: 0 0 15px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .story-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .story-meta .role {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .story-meta .company {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        /* Features Overview */
+        .features-overview {
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .feature-item h5 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Getting Started Guide */
+        .getting-started {
+            margin-bottom: 30px;
+        }
+
+        .steps-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .step-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            max-width: 200px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .step-item h5 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .step-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .step-arrow {
+            color: var(--primary);
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        /* Tablet and smaller desktop responsive */
+        @media (max-width: 1200px) {
+            .quick-actions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+            }
+
+            .action-icon {
+                width: 85px;
+                height: 85px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .quick-actions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .action-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .welcome-hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .action-card {
+                padding: 20px;
+                gap: 15px;
+                min-height: 100px;
+            }
+
+            .action-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .step-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Typing Indicator Animation */
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Floating Chatbot Icon */
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chatbot-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .chatbot-icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Enhanced Chatbot Modal */
+        .chatbot-modal {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 380px;
+            height: 550px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+            overflow: hidden;
+            animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 18px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 15px 15px;
+            animation: headerShimmer 8s linear infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-15px, -15px); }
+        }
+
+        .chatbot-header-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chatbot-header i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .chatbot-close {
+            cursor: pointer;
+      font-size: 20px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .chatbot-message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            position: relative;
+            animation: messageSlideIn 0.3s ease;
+        }
+
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-message.bot {
+            align-self: flex-start;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: white;
+        }
+
+        .chatbot-message.bot::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .chatbot-message.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-message.user::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid var(--accent);
+        }
+
+        .chatbot-input-area {
+            padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .chatbot-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .chatbot-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Trends Section */
+        .trend-card {
+            background: rgba(96, 165, 250, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Report Styles */
+        .report-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .skill-gap-list {
+      margin-top: 15px;
+    }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 220px; /* Wider to show labels */
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                position: fixed;
+                height: 100vh;
+                z-index: 1000;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            /* Labels remain visible on mobile */
+            .main-content {
+                margin-left: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            /* Mobile menu toggle */
+            .mobile-menu-toggle {
+                display: block !important;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1001;
+                background: var(--primary);
+                color: white;
+                border: none;
+                width: 45px;
+                height: 45px;
+                border-radius: 8px;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+                font-size: 16px;
+            }
+
+            /* Overlay for mobile menu */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            /* Mobile header layout reorganization */
+            header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .welcome-text {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .welcome-text h1 {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .welcome-text p {
+                margin-bottom: 0;
+                font-size: 0.9rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .profile-summary {
+                margin-bottom: 0;
+            }
+
+            /* Mobile chatbot improvements */
+            .chatbot-modal {
+                width: 95vw;
+                max-width: 380px;
+                height: 80vh;
+                max-height: 550px;
+            }
+
+            .chatbot-input-group {
+                gap: 8px;
+                padding: 15px;
+            }
+
+            .chatbot-input {
+                flex: 1;
+                min-width: 0; /* Allow shrinking */
+                font-size: 0.9rem;
+            }
+
+            .chatbot-input-group .btn {
+                flex-shrink: 0; /* Prevent shrinking */
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                margin-left: 8px;
+            }
+        }
+
+        /* Mobile menu toggle button (hidden on desktop) */
+        .mobile-menu-toggle {
+            display: none;
+        }
+  </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="sidebar-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-graduation-cap"></i> <span>Smart Career</span></h2>
+        </div>
+        <nav class="nav-links">
+            <a onclick="showSection('home')" class="nav-item active" id="nav-home">
+                <i class="fas fa-home"></i> <span>Home</span>
+            </a>
+            <a onclick="showSection('profile')" class="nav-item" id="nav-profile">
+                <i class="fas fa-user-circle"></i> <span>Career Profile</span>
+            </a>
+            <a onclick="showSection('jobs')" class="nav-item" id="nav-jobs">
+                <i class="fas fa-route"></i> <span>Career Path & Jobs</span>
+            </a>
+            <a onclick="showSection('courses')" class="nav-item" id="nav-courses">
+                <i class="fas fa-book-open"></i> <span>Courses</span>
+            </a>
+            <a onclick="showSection('videos')" class="nav-item" id="nav-videos">
+                <i class="fas fa-video"></i> <span>Video Modules</span>
+            </a>
+            <a onclick="showSection('report')" class="nav-item" id="nav-report">
+                <i class="fas fa-file-alt"></i> <span>Career Report</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/logout" class="nav-item" style="color: var(--danger);">
+                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <div class="welcome-text">
+                <h1>👋 Welcome, {{ session['username'] }}</h1>
+                <p>Track your career growth and recommendations</p>
+            </div>
+            <div class="header-actions">
+                {% if student %}
+                <div class="profile-summary">
+                    <span class="btn btn-primary" style="cursor: default;">
+                        <i class="fas fa-star"></i> Profile Active
+                    </span>
+                </div>
+                {% endif %}
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="card" style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid var(--success); padding: 15px; margin-bottom: 20px;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- First Login Profile Completion Alert -->
+        {% if session.get('show_first_login_alert') %}
+        <div class="profile-alert-card" id="profileAlert">
+          <div class="alert-content">
+            <div class="alert-icon">
+              <i class="fas fa-user-edit"></i>
+            </div>
+            <div class="alert-text">
+              <h4>Complete Your Profile</h4>
+              <p>To get personalized job recommendations and career insights, please complete your profile with your skills, experience, and career goals.</p>
+              <div class="alert-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: {{ profile_completeness or 0 }}%"></div>
+                </div>
+                <span class="progress-text">{{ profile_completeness or 0 }}% Complete</span>
+              </div>
+            </div>
+            <div class="alert-actions">
+              <button onclick="scrollToProfile()" class="complete-btn">
+                <i class="fas fa-edit"></i>
+                Update Profile
+              </button>
+              <button onclick="dismissAlert()" class="dismiss-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- HOME SECTION -->
+        <div id="home" class="dashboard-section active">
+            <!-- Welcome Hero Section -->
+            <div class="welcome-hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-graduation-cap" style="color: var(--accent); margin-right: 10px;"></i>
+                        Welcome to Your Career Success Hub
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform your career with AI-powered guidance, personalized job matches, and structured learning pathways designed for your success.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Job Opportunities</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Learning Courses</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">upto 99%</span>
+                            <span class="stat-label">Match Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">AI Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-icon">
+                        <div class="hero-icon-inner">
+                            <i class="fas fa-rocket-launch"></i>
+                            <div class="hero-icon-glow"></div>
+                        </div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-code"></i>
+                            <span>Programming</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data Science</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud Tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Dashboard -->
+            <div class="quick-actions-grid">
+                <div class="action-card primary">
+                    <div class="action-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Complete Your Profile</h4>
+                        <p>Get personalized recommendations by updating your skills and experience</p>
+                        <a href="#profile" onclick="showSection('profile')" class="action-btn">Update Profile</a>
+                    </div>
+                </div>
+
+                <div class="action-card secondary">
+                    <div class="action-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Find Your Dream Job</h4>
+                        <p>Discover AI-matched opportunities tailored to your career goals</p>
+                        <a href="#jobs" onclick="showSection('jobs')" class="action-btn">Explore Jobs</a>
+                    </div>
+                </div>
+
+                <div class="action-card accent">
+                    <div class="action-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Start Learning</h4>
+                        <p>Access structured courses and video content to bridge skill gaps</p>
+                        <a href="#courses" onclick="showSection('courses')" class="action-btn">Browse Courses</a>
+                    </div>
+                </div>
+
+                <div class="action-card info">
+                    <div class="action-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>View Career Report</h4>
+                        <p>Download comprehensive analysis of your career readiness</p>
+                        <a href="#report" onclick="showSection('report')" class="action-btn">Get Report</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories/Testimonials -->
+            <div class="success-stories">
+                <h3 class="section-title" style="text-align: center; margin-bottom: 25px;">
+                    <i class="fas fa-star" style="color: var(--accent);"></i>
+                    Success Stories
+                </h3>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="story-content">
+                            <h5>Sarah's Journey</h5>
+                            <p>"The AI recommendations helped me identify the perfect data science role. Within 2 months of completing the suggested courses, I landed my dream job!"</p>
+                            <div class="story-meta">
+                                <span class="role">Data Scientist</span>
+                                <span class="company">TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="story-content">
+                            <h5>Mike's Transformation</h5>
+                            <p>"From basic programming knowledge to full-stack developer in 6 months. The skill gap analysis and personalized learning path made all the difference."</p>
+                            <div class="story-meta">
+                                <span class="role">Full Stack Developer</span>
+                                <span class="company">StartupXYZ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="story-content">
+                            <h5>Emma's Achievement</h5>
+                            <p>"The platform identified my cloud computing potential. After completing AWS courses, I secured a senior DevOps position with a 40% salary increase."</p>
+                            <div class="story-meta">
+                                <span class="role">DevOps Engineer</span>
+                                <span class="company">CloudTech Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Features Overview -->
+            <div class="features-overview">
+                <h3 class="section-title" style="text-align: center; margin-bottom: 25px;">
+                    <i class="fas fa-tools" style="color: var(--primary);"></i>
+                    Why Choose Our Platform?
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5>AI-Powered Matching</h5>
+                        <p>Advanced algorithms analyze your profile to find the most suitable career opportunities</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>Real-Time Analytics</h5>
+                        <p>Stay updated with live market trends and industry insights</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>Personalized Learning</h5>
+                        <p>Structured courses and videos tailored to your skill development needs</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Career Guidance</h5>
+                        <p>Expert advice and mentorship to navigate your career journey</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5>Mobile Friendly</h5>
+                        <p>Access your career dashboard anytime, anywhere on any device</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h5>Verified Content</h5>
+                        <p>Quality-assured courses and job listings from trusted sources</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Getting Started Guide -->
+            <div class="getting-started">
+                <h3 class="section-title">
+                    <i class="fas fa-play-circle" style="color: var(--primary);"></i>
+                    Getting Started in 3 Simple Steps
+                </h3>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Build Your Profile</h5>
+                            <p>Add your skills, experience, and career goals to create your personalized career profile</p>
+                        </div>
+                    </div>
+
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Get AI Recommendations</h5>
+                            <p>Receive personalized job matches and learning suggestions based on your profile</p>
+                        </div>
+                    </div>
+
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>Start Your Journey</h5>
+                            <p>Apply for jobs, take courses, and track your progress towards career success</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Trends Analytics -->
+    <div class="card">
+                <h3 class="section-title">
+                    <i class="fas fa-chart-pie" style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                    Job Market Intelligence & Trends
+                </h3>
+                <div class="analytics-grid">
+                    {% if trends %}
+                        {% for trend in trends %}
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <div class="trend-title">
+                                    <i class="fas fa-rocket" style="margin-right: 8px; opacity: 0.8;"></i>
+                                    {{ trend[1] }}
+                                </div>
+                                <div class="trend-year">{{ trend[4] }}</div>
+                            </div>
+
+                            <div class="analytics-visual">
+                                <div class="skill-circles">
+                                    {% set skills = trend[3].split(',') %}
+                                    {% for skill in skills[:3] %}
+                                        {% set percentage = range(75, 96)|random %}
+                                        <div class="skill-circle">
+                                            <div class="circle-container">
+                                                <div class="circle-background"></div>
+                                                <div class="circle-progress" style="--progress: {{ percentage }}deg;"></div>
+                                                <div class="circle-center">{{ percentage }}%</div>
+                                            </div>
+                                            <div class="skill-label">{{ skill.strip() }}</div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="trend-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">{{ range(50, 200)|random }}K</span>
+                                    <span class="stat-label">Jobs</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">${{ range(80, 150)|random }}K</span>
+                                    <span class="stat-label">Avg Salary</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">+{{ range(15, 35)|random }}%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+
+                            <div class="trend-industry">
+                                <i class="fas fa-building"></i> {{ trend[2] }}
+                            </div>
+                        </div>
+                        {% endfor %}
+        {% else %}
+                        <div class="analytics-placeholder">
+                            <div style="position: relative;">
+                                <i class="fas fa-chart-line"></i>
+                                <div style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; opacity: 0.6;"></div>
+                                <div style="position: absolute; top: -5px; right: 15px; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; opacity: 0.4;"></div>
+                            </div>
+                            <h4 style="color: var(--text-muted); margin: 15px 0 10px 0;">Analyzing Market Trends</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">No industry trends available at the moment.<br>Check back soon for the latest insights!</p>
+                        </div>
+        {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- PROFILE SECTION -->
+        <div id="profile" class="dashboard-section">
+            <div class="card">
+                <h3 class="section-title"><i class="fas fa-user-edit"></i> {{ 'Update' if student else 'Add' }} Career Profile</h3>
+                <form action="/save_profile" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="full_name" value="{{ student[2] if student else '' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Register Number</label>
+                            <input type="text" name="register_number" value="{{ student[3] if student else '' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>College Name</label>
+                            <input type="text" name="college_name" value="{{ student[4] if student else '' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Batch Year</label>
+                            <input type="text" name="batch_year" value="{{ student[5] if student else '' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Semester</label>
+                            <select name="current_semester">
+                                {% for i in range(1, 9) %}
+                                <option value="{{ i }}" {{ 'selected' if student and student[6] == i|string else '' }}>Semester {{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" name="location" value="{{ student[12] if student else '' }}" placeholder="City, State">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Skills (comma separated)</label>
+                            <textarea name="skills" rows="2" required>{{ student[7] if student else '' }}</textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Skill Ratings (1-5 per skill, e.g., Python: 4, Java: 3)</label>
+                            <input type="text" name="skill_ratings" value="{{ student[8] if student else '' }}" placeholder="Python: 4, SQL: 5" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Interests (Career domains)</label>
+                            <input type="text" name="interests" value="{{ student[10] if student else '' }}" placeholder="Data Science, Web Dev, AI" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Tech Stack</label>
+                            <input type="text" name="tech_stack" value="{{ student[11] if student else '' }}" placeholder="MERN, Django, Flutter">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Experience (Optional)</label>
+                            <textarea name="experience" rows="3">{{ student[9] if student else '' }}</textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 25px;">
+                        <i class="fas fa-magic"></i> View Results & Refresh Recommendations
+                    </button>
+    </form>
+            </div>
+        </div>
+
+        <!-- REPORT SECTION -->
+        <div id="report" class="dashboard-section">
+    <div class="card" style="max-width: none; width: 100%; margin: 0;">
+                <div class="report-header">
+                    <h3 class="section-title" style="justify-content: center;"><i class="fas fa-file-contract"></i> AI Career Report</h3>
+                    <p>Comprehensive analysis of your career potential</p>
+                </div>
+
+                {% if student %}
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; width: 100%;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent);">Profile Summary</h4>
+                        <div class="job-card">
+                            <p><strong>Name:</strong> {{ student[2] }}</p>
+                            <p><strong>Register:</strong> {{ student[3] }}</p>
+                            <p><strong>Batch:</strong> {{ student[5] }}</p>
+                            <p><strong>Sem:</strong> {{ student[6] }}</p>
+                            <p><strong>Skills:</strong> {{ student[7] }}</p>
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent);">ATS Compatibility Insights</h4>
+                        <div class="job-card">
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <span style="color: var(--text-muted);">Profile Completeness</span>
+                                    <span style="color: var(--primary); font-weight: 600;">{{ profile_completeness }}%</span>
+                                </div>
+                                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="width: {{ profile_completeness }}%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--accent); margin-bottom: 10px; font-size: 0.9rem;">Optimization Tips:</h5>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    {% for insight in ats_insights %}
+                                    <li style="color: var(--text); font-size: 0.85rem; margin-bottom: 8px; line-height: 1.4;">{{ insight }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h4 style="margin-bottom: 15px; color: var(--accent);">Matched Job Recommendations</h4>
+                    <div class="job-card">
+                        {% if recommendations %}
+                            <div class="recommendations-list">
+                                {% for job in recommendations %}
+                                    {% if job[7] >= 0.25 %}
+                                    <div class="recommendation-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        <div class="rec-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                            <strong style="color: white;">{{ job[1] }}</strong>
+                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[7]*100)|int }}% Match</span>
+                                        </div>
+                                        <div class="rec-company" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px;">
+                                            🏢 {{ job[4] }}
+                                        </div>
+                                        <div class="skill-analysis" style="font-size: 0.75rem; color: var(--accent); line-height: 1.3; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;">
+                                            <strong>Analysis:</strong> {{ job[8] }}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div style="text-align: center; padding: 30px; color: var(--text-muted);">
+                                <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i>
+                                <p>No suitable job matches found based on your current profile.</p>
+                                <p style="font-size: 0.9rem; margin-top: 5px;">Try updating your skills and experience to get better matches!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                    <button onclick="window.print()" class="btn btn-primary" style="padding: 12px 20px; font-size: 0.9rem;">
+                        <i class="fas fa-eye"></i> Print View
+                    </button>
+                    <a href="/download_report" class="btn btn-success" style="padding: 12px 20px; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-download"></i> Download Career Report (PDF)
+                    </a>
+                </div>
+                {% else %}
+                <div style="text-align: center; padding: 40px;">
+                    <i class="fas fa-user-edit fa-3x" style="color: var(--text-muted); margin-bottom: 15px;"></i>
+                    <p class="text-muted">Please complete your career profile first to see the AI Career Report.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- CAREER PATH & JOBS SECTION -->
+        <div id="jobs" class="dashboard-section">
+    <div class="card">
+                <h3 class="section-title"><i class="fas fa-route"></i> Career Path & Matched Roles</h3>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">Based on your skills ({{ student[7] if student else '' }}), our AI has identified the following career opportunities:</p>
+                
+                {% if not student %}
+                    <div class="text-center" style="padding: 40px;">
+                        <i class="fas fa-user-edit fa-3x" style="color: var(--text-muted); margin-bottom: 15px;"></i>
+                        <p class="text-muted">Please complete your career profile first to see recommendations.</p>
+                    </div>
+                {% elif not recommendations %}
+                    <div class="text-center" style="padding: 40px;">
+                        <i class="fas fa-search fa-3x" style="color: var(--text-muted); margin-bottom: 15px;"></i>
+                        <p class="text-muted">No jobs matching your profile were found. Try updating your skills!</p>
+                    </div>
+                {% else %}
+                    <div class="recommendations-grid">
+                        {% for job in recommendations %}
+                        <div class="job-card">
+                            <div class="match-badge">{{ (job[7] * 100)|int }}% Match</div>
+                            <h4>{{ job[1] }}</h4>
+                            <p style="color: var(--accent); font-weight: 500; font-size: 0.9rem;">🏢 {{ job[4] }}</p>
+                            <p>{{ job[2][:120] }}{{ '...' if job[2]|length > 120 else '' }}</p>
+
+                            <!-- Enhanced Skill Analysis -->
+                            <div class="skill-analysis" style="margin: 15px 0; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px; border-left: 3px solid var(--accent);">
+                                <div style="font-size: 0.75rem; font-weight: 600; color: var(--accent); margin-bottom: 5px;">SKILL ANALYSIS</div>
+                                <div style="font-size: 0.7rem; color: var(--text); line-height: 1.3;">
+                                    {{ job[8] }}
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 15px;">
+                                <small style="color: var(--text-muted);"><strong>Required Skills:</strong> {{ job[3][:80] }}{{ '...' if job[3]|length > 80 else '' }}</small>
+                            </div>
+
+                            <a href="{{ job[5] if job[5] else '#' }}" class="btn btn-primary" style="width: 100%; justify-content: center;" {{ 'target="_blank"' if job[5] else '' }}>
+                                {{ 'Apply Now' if job[5] else 'No Link Available' }}
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+    </div>
+
+
+        <!-- COURSES SECTION -->
+        <div id="courses" class="dashboard-section">
+    <div class="card">
+                <h3 class="section-title"><i class="fas fa-book-open"></i> Professional Learning Paths</h3>
+                <p style="margin-bottom: 25px; font-size: 0.9rem; color: var(--text-muted);">Click on any section below to explore courses in that domain.</p>
+
+                <!-- Check if any categories have content -->
+                {% if course_categories %}
+                <!-- Dynamic Course Category Tabs -->
+                <div class="course-tabs" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+                    {% for category in course_categories %}
+                    {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
+                    {% set is_active = loop.first %}
+                    <button class="course-tab-btn {{ 'active' if is_active else '' }}"
+                            onclick="showCourseCategory('{{ category_id }}')"
+                            style="background: {{ 'var(--primary)' if is_active else 'rgba(255,255,255,0.1)' }};
+                                   color: {{ 'white' if is_active else 'var(--text)' }};
+                                   border: {{ 'none' if is_active else '1px solid rgba(255,255,255,0.2)' }};
+                                   padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                        {% if 'Programming' in category[0] %}
+                        <i class="fas fa-code"></i>
+                        {% elif 'Web' in category[0] %}
+                        <i class="fas fa-globe"></i>
+                        {% elif 'Data' in category[0] %}
+                        <i class="fas fa-chart-bar"></i>
+                        {% elif 'AI' in category[0] or 'Machine' in category[0] %}
+                        <i class="fas fa-brain"></i>
+                        {% elif 'Database' in category[0] %}
+                        <i class="fas fa-database"></i>
+                        {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
+                        <i class="fas fa-server"></i>
+                        {% elif 'Mobile' in category[0] %}
+                        <i class="fas fa-mobile-alt"></i>
+        {% else %}
+                        <i class="fas fa-graduation-cap"></i>
+        {% endif %}
+                        {{ category[0] }}
+                    </button>
+        {% endfor %}
+    </div>
+
+                <!-- Dynamic Course Category Sections -->
+                {% for category in course_categories %}
+                {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
+                {% set display_style = 'block' if loop.first else 'none' %}
+                <div id="{{ category_id }}-category" class="course-category-content" style="display: {{ display_style }};">
+                    <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.1rem;">
+                        {% if 'Programming' in category[0] %}
+                         💻
+                        {% elif 'Web' in category[0] %}
+                        🌐
+                        {% elif 'Data' in category[0] %}
+                         📊
+                        {% elif 'AI' in category[0] or 'Machine' in category[0] %}
+                         🤖
+                        {% elif 'Database' in category[0] %}
+                         🗄️
+                        {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
+                        ☁️
+                        {% elif 'Mobile' in category[0] %}
+                        📱
+      {% else %}
+                        
+      📚
+                        {% endif %}
+                        {{ category[0] }}
+                    </h4>
+                    {% set category_courses = courses | selectattr('3', 'equalto', category[0]) | list %}
+                    {% if category_courses %}
+                    <div class="courses-grid">
+                        {% for course in category_courses %}
+                        <div class="course-card">
+                            <div class="course-image">
+                                {% if 'Programming' in category[0] %}
+                                <i class="fas fa-code"></i>
+                                {% elif 'Web' in category[0] %}
+                                <i class="fas fa-globe"></i>
+                                {% elif 'Data' in category[0] %}
+                                <i class="fas fa-chart-bar"></i>
+                                {% elif 'AI' in category[0] or 'Machine' in category[0] %}
+                                <i class="fas fa-brain"></i>
+                                {% elif 'Database' in category[0] %}
+                                <i class="fas fa-database"></i>
+                                {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
+                                <i class="fas fa-server"></i>
+                                {% elif 'Mobile' in category[0] %}
+                                <i class="fas fa-mobile-alt"></i>
+                                {% else %}
+                                <i class="fas fa-graduation-cap"></i>
+      {% endif %}
+    </div>
+                            <div class="course-content">
+                                <span class="course-category">{{ course[3] }}</span>
+                                <h4>{{ course[1] }}</h4>
+                                <p>{{ course[2][:120] }}{{ '...' if course[2]|length > 120 else '' }}</p>
+
+                                <div class="course-footer">
+                                    <div class="course-meta">
+                                        <span><i class="fas fa-clock"></i> 12+ Hours</span>
+                                        <span><i class="fas fa-signal"></i> All Levels</span>
+                                    </div>
+                                    <a href="{{ course[4] if course[4] else '#' }}" target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                                        Enroll <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No courses available in this category yet.</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                {% if not courses %}
+                    <div style="text-align: center; padding: 40px; background: rgba(255,255,255,0.02); border-radius: 12px;">
+                        <i class="fas fa-book-reader fa-3x" style="color: var(--text-muted); margin-bottom: 15px;"></i>
+                        <p class="text-muted">No course recommendations available yet. Try adding more skills to your profile!</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+                {% else %}
+                    <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+                        <i class="fas fa-book-open" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                        <h4>No Learning Paths Available</h4>
+                        <p>Complete your profile and get job recommendations to see personalized learning paths.</p>
+                    </div>
+                {% endif %}
+
+        <!-- VIDEOS SECTION -->
+        <div id="videos" class="dashboard-section">
+    <div class="card">
+                <h3 class="section-title"><i class="fas fa-video"></i> Video Learning Modules</h3>
+                <p style="margin-bottom: 25px; font-size: 0.9rem; color: var(--text-muted);">Curated educational videos organized by learning categories.</p>
+
+                <!-- Check if any categories have videos -->
+                {% if video_categories %}
+                <!-- Sticky Navigation Header -->
+                <div class="video-sticky-nav">
+                    {% for category in video_categories %}
+                    {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
+                    <a href="#{{ category_id }}-videos" class="video-nav-link {{ 'active' if loop.first else '' }}" data-section="{{ category_id }}">
+                        {% if 'Programming' in category[0] %}
+                        <i class="fas fa-code"></i>
+                        {% elif 'Web' in category[0] %}
+                        <i class="fas fa-globe"></i>
+                        {% elif 'Data' in category[0] %}
+                        <i class="fas fa-chart-bar"></i>
+                        {% elif 'Database' in category[0] %}
+                        <i class="fas fa-database"></i>
+                        {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
+                        <i class="fas fa-server"></i>
+                        {% elif 'Mobile' in category[0] %}
+                        <i class="fas fa-mobile-alt"></i>
+                        {% else %}
+                        <i class="fas fa-graduation-cap"></i>
+                        {% endif %}
+                        <span>{{ category[0] }}</span>
+                    </a>
+                    {% endfor %}
+                    <a href="#career-videos" class="video-nav-link" data-section="career">
+                        <i class="fas fa-compass"></i>
+                        <span>Career Guidance</span>
+                    </a>
+                    <a href="#soft-skills-videos" class="video-nav-link" data-section="soft-skills">
+                        <i class="fas fa-users"></i>
+                        <span>Soft Skills & Placement</span>
+                    </a>
+                </div>
+
+                <!-- Video Content Sections -->
+                <div class="video-content-sections">
+
+                    <!-- Course Category Video Sections -->
+                    {% for category in video_categories %}
+                    {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
+                    {% set category_videos = [] %}
+                    {% for video in videos %}
+                        {% if video[4] == category[0] %}
+                            {% set _ = category_videos.append(video) %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if category_videos %}
+                    <div id="{{ category_id }}-videos" class="video-main-category">
+                        <h3 style="color: var(--primary); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1)); border-radius: 15px; border-left: 4px solid var(--primary);">
+                            {% if 'Programming' in category[0] %}
+                            <i class="fas fa-code"></i> 💻 {{ category[0] }}
+                            {% elif 'Web' in category[0] %}
+                            <i class="fas fa-globe"></i> 🌐 {{ category[0] }}
+                            {% elif 'Data' in category[0] %}
+                            <i class="fas fa-chart-bar"></i> 📊 {{ category[0] }}
+                            {% elif 'Database' in category[0] %}
+                            <i class="fas fa-database"></i> 🗄️ {{ category[0] }}
+                            {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
+                            <i class="fas fa-server"></i> ☁️ {{ category[0] }}
+                            {% elif 'Mobile' in category[0] %}
+                            <i class="fas fa-mobile-alt"></i> 📱 {{ category[0] }}
+                            {% else %}
+                            <i class="fas fa-graduation-cap"></i> 🎓 {{ category[0] }}
+                            {% endif %}
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                            <div class="video-category-card">
+                                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(37, 99, 235, 0.08); border-radius: 10px; border: 1px solid rgba(37, 99, 235, 0.2);">
+                                    <i class="fas fa-play-circle"></i> 📹 Available Tutorials
+                                </h4>
+                                <div class="video-grid-horizontal">
+                                    {% for video in category_videos %}
+                                    <div class="video-square-card">
+                                        <h5 style="font-size: 0.85rem; margin-bottom: 6px; font-weight: 600; text-align: center; line-height: 1.2;">{{ video[2] }}</h5>
+                                        <div class="video-square-container">
+                                            <iframe src="{{ video[3] }}" style="width: 100%; height: 100%; border: none; border-radius: 6px;" allowfullscreen></iframe>
+                                        </div>
+                                        <a href="{{ video[3].replace('embed/', 'watch?v=') }}" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.75rem; margin-top: 6px; padding: 6px;">
+                                            <i class="fas fa-external-link-alt" style="margin-right: 2px;"></i>Watch
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    <!-- 2️⃣ Career Guidance Videos Section -->
+                    <div id="career-videos" class="video-main-category">
+                        <h3 style="color: var(--success); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1)); border-radius: 15px; border-left: 4px solid var(--success);">
+                            <i class="fas fa-compass"></i> 🧭 Career Guidance Videos
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                            {% set career_videos = [] %}
+                            {% for video in videos %}
+                                {% if video[4] == 'Career Guidance' %}
+                                    {% set _ = career_videos.append(video) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <div class="video-category-card">
+                                <h4 style="color: var(--success); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(34, 197, 94, 0.08); border-radius: 10px; border: 1px solid rgba(34, 197, 94, 0.2);">
+                                    <i class="fas fa-compass"></i> 🎯 Career Development
+                                </h4>
+                                <div class="video-grid-horizontal">
+                                    {% for video in career_videos %}
+                                    <div class="video-square-card">
+                                        <h5 style="font-size: 0.85rem; margin-bottom: 6px; font-weight: 600; text-align: center; line-height: 1.2;">{{ video[2] }}</h5>
+                                        <div class="video-square-container">
+                                            <iframe src="{{ video[3] }}" style="width: 100%; height: 100%; border: none; border-radius: 6px;" allowfullscreen></iframe>
+                                        </div>
+                                        <a href="{{ video[3].replace('embed/', 'watch?v=') }}" target="_blank" class="btn btn-success" style="width: 100%; justify-content: center; font-size: 0.75rem; margin-top: 6px; padding: 6px;">
+                                            <i class="fas fa-external-link-alt" style="margin-right: 2px;"></i>Watch
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3️⃣ Soft Skills & Placement Prep Videos Section -->
+                    <div id="soft-skills-videos" class="video-main-category">
+                        <h3 style="color: var(--warning); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1)); border-radius: 15px; border-left: 4px solid var(--warning);">
+                            <i class="fas fa-users"></i> 🤝 Soft Skills & Placement Prep Videos
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                            {% set soft_skills_videos = [] %}
+                            {% for video in videos %}
+                                {% if video[4] == 'Soft Skills & Placement Prep' %}
+                                    {% set _ = soft_skills_videos.append(video) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <div class="video-category-card">
+                                <h4 style="color: var(--warning); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(245, 158, 11, 0.08); border-radius: 10px; border: 1px solid rgba(245, 158, 11, 0.2);">
+                                    <i class="fas fa-handshake"></i> 🎭 Communication & Soft Skills
+                                </h4>
+                                <div class="video-grid-horizontal">
+                                    {% for video in soft_skills_videos %}
+                                    <div class="video-square-card">
+                                        <h5 style="font-size: 0.85rem; margin-bottom: 6px; font-weight: 600; text-align: center; line-height: 1.2;">{{ video[2] }}</h5>
+                                        <div class="video-square-container">
+                                            <iframe src="{{ video[3] }}" style="width: 100%; height: 100%; border: none; border-radius: 6px;" allowfullscreen></iframe>
+                                        </div>
+                                        <a href="{{ video[3].replace('embed/', 'watch?v=') }}" target="_blank" class="btn btn-warning" style="width: 100%; justify-content: center; font-size: 0.75rem; margin-top: 6px; padding: 6px;">
+                                            <i class="fas fa-external-link-alt" style="margin-right: 2px;"></i>Watch
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Video Content Sections -->
+                </div>
+
+                {% else %}
+                    <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+                        <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                        <h4>No Video Learning Modules Available</h4>
+                        <p>Complete your profile and get job recommendations to see personalized video learning modules.</p>
+                    </div>
+                {% endif %}
+
+                {% if not videos %}
+                    <div style="text-align: center; padding: 40px; background: rgba(255,255,255,0.02); border-radius: 12px;">
+                        <i class="fas fa-video fa-3x" style="color: var(--text-muted); margin-bottom: 15px;"></i>
+                        <p class="text-muted">No educational videos available at the moment.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- REPORT SECTION -->
+        <div id="report" class="dashboard-section" style="width: 100%;">
+    <div class="card" style="max-width: none; width: 100%; margin: 0;">
+                <div class="report-header">
+                    <h3 class="section-title" style="justify-content: center;"><i class="fas fa-file-contract"></i> AI Career Report</h3>
+                    <p>Comprehensive analysis of your career potential</p>
+                </div>
+
+                {% if student %}
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; width: 100%;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent);">Profile Summary</h4>
+                        <div class="job-card">
+                            <p><strong>Name:</strong> {{ student[2] }}</p>
+                            <p><strong>Register:</strong> {{ student[3] }}</p>
+                            <p><strong>Batch:</strong> {{ student[5] }}</p>
+                            <p><strong>Sem:</strong> {{ student[6] }}</p>
+                            <p><strong>Skills:</strong> {{ student[7] }}</p>
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent);">ATS Compatibility Insights</h4>
+                        <div class="job-card">
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <span style="color: var(--text-muted);">Profile Completeness</span>
+                                    <span style="color: var(--primary); font-weight: 600;">{{ profile_completeness }}%</span>
+                                </div>
+                                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="width: {{ profile_completeness }}%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--accent); margin-bottom: 10px; font-size: 0.9rem;">Optimization Tips:</h5>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    {% for insight in ats_insights %}
+                                    <li style="color: var(--text); font-size: 0.85rem; margin-bottom: 8px; line-height: 1.4;">{{ insight }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h4 style="margin-bottom: 15px; color: var(--accent);">Matched Job Recommendations</h4>
+                    <div class="job-card">
+                        {% if recommendations %}
+                            <div class="recommendations-list">
+                                {% for job in recommendations %}
+                                    {% if job[7] >= 0.25 %}
+                                    <div class="recommendation-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        <div class="rec-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                            <strong style="color: white;">{{ job[1] }}</strong>
+                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[7]*100)|int }}% Match</span>
+                                        </div>
+                                        <div class="rec-company" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px;">
+                                            🏢 {{ job[4] }}
+                                        </div>
+                                        <div class="skill-analysis" style="font-size: 0.75rem; color: var(--accent); line-height: 1.3; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;">
+                                            <strong>Analysis:</strong> {{ job[8] }}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div style="text-align: center; padding: 30px; color: var(--text-muted);">
+                                <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i>
+                                <p>No suitable job matches found based on your current profile.</p>
+                                <p style="font-size: 0.9rem; margin-top: 5px;">Try updating your skills and experience to get better matches!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h4 style="margin-bottom: 15px; color: var(--accent);">Skill Analysis (Dynamic)</h4>
+                    <div class="job-card">
+                        <div class="skill-gap-list">
+                            <div class="skill-item"><span>Skill Match Confidence</span><span>{{ (recommendations[0][7]*100)|int if recommendations else 0 }}%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: {{ (recommendations[0][7]*100)|int if recommendations else 0 }}%;"></div></div>
+                            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">* Skill analysis is generated by comparing your profile text with the Job Description vector space.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px;">
+                    <button onclick="window.print()" class="btn btn-primary"><i class="fas fa-eye"></i> Print View</button>
+                    <a href="/download_report" class="btn btn-success"><i class="fas fa-download"></i> Download Career Report (PDF)</a>
+                </div>
+      {% else %}
+                    <p class="text-muted">Complete your profile to generate a career report.</p>
+      {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.dashboard-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                const navItem = document.getElementById('nav-' + sectionId);
+                if (navItem) navItem.classList.add('active');
+            }
+        }
+
+        function showCourseCategory(category) {
+            // Hide all course categories
+            const categories = document.querySelectorAll('.course-category-content');
+            categories.forEach(cat => cat.style.display = 'none');
+
+            // Show selected category
+            const targetCategory = document.getElementById(category + '-category');
+            if (targetCategory) {
+                targetCategory.style.display = 'block';
+            }
+
+            // Update tab active state
+            const tabBtns = document.querySelectorAll('.course-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'rgba(255,255,255,0.1)';
+                btn.style.color = 'var(--text)';
+            });
+            const activeTab = document.querySelector(`[onclick="showCourseCategory('${category}')"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.style.background = 'var(--primary)';
+                activeTab.style.color = 'white';
+            }
+        }
+
+        function showCourseCategory(category) {
+            // Hide all course categories
+            const categories = document.querySelectorAll('.course-category-content');
+            categories.forEach(cat => cat.style.display = 'none');
+
+            // Show selected category
+            const targetCategory = document.getElementById(category + '-category');
+            if (targetCategory) {
+                targetCategory.style.display = 'block';
+            }
+
+            // Update tab active state
+            const tabBtns = document.querySelectorAll('.course-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'rgba(255,255,255,0.1)';
+                btn.style.color = 'var(--text)';
+            });
+            const activeTab = document.querySelector(`[onclick="showCourseCategory('${category}')"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.style.background = 'var(--primary)';
+                activeTab.style.color = 'white';
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input-text');
+            const messages = document.getElementById('chat-messages');
+            if (!input.value.trim()) return;
+            const userText = input.value;
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message user-message';
+            userDiv.textContent = userText;
+            messages.appendChild(userDiv);
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'message bot-message';
+                botDiv.textContent = data.response;
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+            });
+        }
+
+        window.onload = function() {
+            // Handle URL fragments for redirection
+            const hash = window.location.hash.substring(1);
+            if (hash === 'jobs') {
+                showSection('jobs');
+            } else if (hash) {
+                showSection(hash);
+            }
+            
+            {% if needs_profile and not session.get('show_first_login_alert') %}
+            showSection('profile');
+            {% endif %}
+        }
+
+        // Profile Alert Functions
+        function scrollToProfile() {
+            showSection('profile');
+            dismissAlert();
+        }
+
+        function dismissAlert() {
+            const alertCard = document.getElementById('profileAlert');
+            if (alertCard) {
+                alertCard.style.transition = 'all 0.3s ease';
+                alertCard.style.opacity = '0';
+                alertCard.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    alertCard.style.display = 'none';
+                }, 300);
+            }
+        }
+    </script>
+
+    <!-- Floating Chatbot Icon -->
+    <div class="chatbot-icon" onclick="toggleChatbot()" title="AI Career Assistant">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- Enhanced Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <div class="chatbot-header-content">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <div style="font-size: 1rem; font-weight: 600;">AI Career Assistant</div>
+                    <div style="font-size: 0.7rem; opacity: 0.8;">Online & Ready to Help</div>
+                </div>
+            </div>
+            <div class="chatbot-close" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chatbot-message bot">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <i class="fas fa-robot" style="color: var(--primary);"></i>
+                    <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
+                </div>
+                <div>Hello! I'm your AI career assistant. How can I help you today? 🚀</div>
+                <div style="margin-top: 8px;">
+                    <strong>Quick options:</strong>
+                </div>
+                <ul style="margin: 8px 0; padding-left: 20px; font-size: 0.85rem;">
+                    <li>💼 "What jobs match my skills?"</li>
+                    <li>📚 "What skills should I learn?"</li>
+                    <li>🎓 "Tell me about courses"</li>
+                    <li>📊 "What's trending in jobs?"</li>
+                    <li>👤 "How to improve my profile?"</li>
+                </ul>
+                <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                    Or just type your question below! 💬
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot-input-area">
+            <div class="chatbot-input-group">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your question here...">
+                <button onclick="sendChatbotMessage()" class="btn btn-primary" style="border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; padding: 0;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatbot() {
+            const modal = document.getElementById('chatbotModal');
+            const icon = document.querySelector('.chatbot-icon');
+
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                icon.style.display = 'flex';
+            } else {
+                modal.style.display = 'flex';
+                icon.style.display = 'none';
+            }
+        }
+
+        function sendChatbotMessage() {
+            const input = document.getElementById('chatbotInput');
+            const messages = document.getElementById('chatbotMessages');
+
+            if (!input.value.trim()) return;
+
+            const userText = input.value.trim();
+
+            // Add user message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'chatbot-message user';
+            userDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i class="fas fa-user" style="color: white; opacity: 0.8;"></i>
+                    <span style="font-weight: 600;">You</span>
+                </div>
+                <div>${userText}</div>
+            `;
+            messages.appendChild(userDiv);
+
+            // Clear input
+            input.value = '';
+
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chatbot-message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i class="fas fa-robot" style="color: var(--primary);"></i>
+                    <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 4px;">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <span style="margin-left: 8px; font-size: 0.8rem; opacity: 0.7;">Typing...</span>
+                </div>
+            `;
+            messages.appendChild(typingDiv);
+            messages.scrollTop = messages.scrollHeight;
+
+            // Simulate bot response with enhanced logic
+            setTimeout(() => {
+                // Remove typing indicator
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) typingIndicator.remove();
+
+                const botDiv = document.createElement('div');
+                botDiv.className = 'chatbot-message bot';
+
+                let response = "";
+                const lowerText = userText.toLowerCase();
+
+                // Enhanced keyword matching with broader detection
+                const jobKeywords = ['job', 'recommend', 'opportunity', 'position', 'career', 'role'];
+                const skillKeywords = ['skill', 'learn', 'improve', 'develop', 'training', 'education'];
+                const courseKeywords = ['course', 'curriculum', 'program', 'class', 'learning', 'study'];
+                const trendKeywords = ['trend', 'market', 'industry', 'growth', 'future', 'analysis'];
+                const profileKeywords = ['profile', 'update', 'resume', 'cv', 'experience', 'background'];
+
+                const hasJobKeywords = jobKeywords.some(keyword => lowerText.includes(keyword));
+                const hasSkillKeywords = skillKeywords.some(keyword => lowerText.includes(keyword));
+                const hasCourseKeywords = courseKeywords.some(keyword => lowerText.includes(keyword));
+                const hasTrendKeywords = trendKeywords.some(keyword => lowerText.includes(keyword));
+                const hasProfileKeywords = profileKeywords.some(keyword => lowerText.includes(keyword));
+
+                if (hasJobKeywords) {
+                    response = `
+                        <div>Great question about job recommendations! 🚀</div>
+                        <div style="margin-top: 8px;">
+                            <strong>Your personalized job matches are ready!</strong><br>
+                            Check the "Career Path & Jobs" section for AI-powered recommendations tailored to your profile.
+                        </div>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            💡 Tip: Complete your profile for more accurate matches
+                        </div>
+                    `;
+                } else if (hasSkillKeywords) {
+                    response = `
+                        <div>Skill development is key to career growth! 📈</div>
+                        <div style="margin-top: 8px;">
+                            Explore our <strong>Video Modules</strong> for targeted learning:
+                        </div>
+                        <ul style="margin: 8px 0; padding-left: 20px;">
+                            <li>🎓 Recommended Videos (skill gaps)</li>
+                            <li>💬 Communication Training</li>
+                            <li>🎯 Placement Preparation</li>
+                        </ul>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            Focus on the Recommended Videos section for skills you need to develop!
+                        </div>
+                    `;
+                } else if (hasCourseKeywords) {
+                    response = `
+                        <div>Excellent choice for structured learning! 🎓</div>
+                        <div style="margin-top: 8px;">
+                            Our <strong>Courses section</strong> offers specialized learning paths:
+                        </div>
+                        <ul style="margin: 8px 0; padding-left: 20px;">
+                            <li>💻 Programming & Technical Skills</li>
+                            <li>🌐 Web Development</li>
+                            <li>📊 Data Science & ML</li>
+                            <li>☁️ DevOps & Cloud Computing</li>
+                            <li>📱 Mobile Development</li>
+                        </ul>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            Click any category tab to explore courses in that domain!
+                        </div>
+                    `;
+                } else if (hasTrendKeywords) {
+                    response = `
+                        <div>Stay ahead with market insights! 📊</div>
+                        <div style="margin-top: 8px;">
+                            Check the <strong>visual analytics</strong> in the home section showing:
+                        </div>
+                        <ul style="margin: 8px 0; padding-left: 20px;">
+                            <li>🔥 Trending job roles with demand percentages</li>
+                            <li>📈 In-demand skills with circular progress charts</li>
+                            <li>💰 Salary insights and growth projections</li>
+                        </ul>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            Scroll up to see the interactive trend cards above!
+                        </div>
+                    `;
+                } else if (hasProfileKeywords) {
+                    response = `
+                        <div>Profile optimization is crucial! ⚙️</div>
+                        <div style="margin-top: 8px;">
+                            <strong>To get better recommendations:</strong>
+                        </div>
+                        <ul style="margin: 8px 0; padding-left: 20px;">
+                            <li>Add your current skills with proficiency ratings (1-5)</li>
+                            <li>Specify your career interests and goals</li>
+                            <li>Update your experience level and background</li>
+                        </ul>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            Go to "Career Profile" section to update your information!
+                        </div>
+                    `;
+                } else {
+                    // More engaging fallback response
+                    response = `
+                        <div>I'm here to help with your career journey! 🌟</div>
+                        <div style="margin-top: 8px;">
+                            <strong>You can ask me about:</strong>
+                        </div>
+                        <ul style="margin: 8px 0; padding-left: 20px;">
+                            <li>💼 <strong>Jobs:</strong> "What jobs match my skills?" or "Show me opportunities"</li>
+                            <li>📚 <strong>Skills:</strong> "What skills should I learn?" or "How to improve?"</li>
+                            <li>🎓 <strong>Courses:</strong> "What courses are available?" or "Tell me about learning"</li>
+                            <li>📊 <strong>Trends:</strong> "What's trending?" or "Market insights"</li>
+                            <li>👤 <strong>Profile:</strong> "How to improve my profile?" or "Update tips"</li>
+                        </ul>
+                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
+                            What would you like to explore today?
+                        </div>
+                    `;
+                }
+
+                botDiv.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                        <i class="fas fa-robot" style="color: var(--primary);"></i>
+                        <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
+                    </div>
+                    <div>${response}</div>
+                `;
+
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1500 + Math.random() * 1000); // Random delay for more natural feel
+        }
+
+        // Close chatbot when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('chatbotModal');
+            const icon = document.querySelector('.chatbot-icon');
+
+            if (!modal.contains(event.target) && !icon.contains(event.target) && modal.style.display === 'flex') {
+                toggleChatbot();
+            }
+        });
+
+        // Send message on Enter key
+        document.getElementById('chatbotInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendChatbotMessage();
+            }
+        });
+
+        // Auto-hide flash messages after 3 seconds
+        setTimeout(function() {
+            const flashMessages = document.querySelectorAll('.card[style*="rgba(34, 197, 94, 0.1)"]');
+            flashMessages.forEach(function(message) {
+                message.style.transition = 'opacity 0.5s ease-out';
+                message.style.opacity = '0';
+                setTimeout(function() {
+                    message.style.display = 'none';
+                }, 500);
+            });
+        }, 3000);
+
+        // Video Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.video-nav-link');
+            const videoSections = document.querySelectorAll('.video-main-category');
+
+            // Function to update active navigation link based on scroll position
+            function updateActiveNavLink() {
+                const scrollPosition = window.scrollY + 100;
+
+                videoSections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        // Remove active class from all links
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        // Add active class to current section link
+                        navLinks[index].classList.add('active');
+                    }
+                });
+            }
+
+            // Smooth scroll to section when clicking nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Update active nav link on scroll
+            window.addEventListener('scroll', updateActiveNavLink);
+
+            // Set initial active link
+            updateActiveNavLink();
+        });
+
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Swipe gesture support for mobile - DISABLED auto-opening
+        // Only allow closing via swipe left
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeLength = touchEndX - touchStartX;
+
+            if (Math.abs(swipeLength) > swipeThreshold) {
+                // Only allow swipe left to close menu - no auto-opening
+                if (swipeLength < 0 && window.innerWidth <= 768) {
+                    // Swipe left - close menu
+                    closeMobileMenu();
+                }
+                // Removed swipe right auto-opening functionality
+            }
+        }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/static/sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.innerHTML = '<i class="fas fa-download"></i> Install App';
+        installButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            display: none;
+            z-index: 1000;
+        `;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+            document.body.appendChild(installButton);
+        });
+
+        installButton.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                    installButton.style.display = 'none';
+                });
+            }
+        });
+
+    </script>
+
+    <style>
+        /* Video Section Responsive */
+        @media (max-width: 768px) {
+            .video-grid-horizontal {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .video-square-card {
+                padding: 10px;
+            }
+
+            .video-square-card h5 {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-grid-horizontal {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .video-category-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</body>
+</html>

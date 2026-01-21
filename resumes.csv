@@ -1,0 +1,1365 @@
+resume_id,student_id,filename,parsed_text,parsed_skills,uploaded_at
+R0001,S0001,asharma1001_resume.pdf,"Name: Arjun Sharma
+Email: asharma1001@example.edu
+College: Vellore Institute of Technology
+CGPA: 5.47
+Skills: TensorFlow, Azure, Java, Python
+Projects:
+- Smart Analyzer: Developed Smart Analyzer using Java, TensorFlow, Python; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using Java, Azure, TensorFlow; focused on performance and reliability.
+",TensorFlow;Azure;Java;Python,2025-07-11
+R0002,S0002,piyer1002_resume.pdf,"Name: Priya Iyer
+Email: piyer1002@example.edu
+College: PSG College of Technology
+CGPA: 6.58
+Skills: TypeScript, Docker, CSS, C
+Projects:
+- Smart Detector: Developed Smart Detector using TypeScript, C, CSS; focused on performance and reliability.
+- Predictive Detector: Developed Predictive Detector using C, CSS, Docker; focused on performance and reliability.
+- Smart Detector: Developed Smart Detector using CSS, TypeScript, Docker; focused on performance and reliability.
+",TypeScript;Docker;CSS;C,2024-11-04
+R0003,S0003,adutta1003_resume.pdf,"Name: Aditya Dutta
+Email: adutta1003@example.edu
+College: MIT
+CGPA: 6.24
+Skills: NumPy, Postgres, Linux, Redux, Java
+Projects:
+- Realtime Detector: Developed Realtime Detector using Postgres, Redux, Java; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using Postgres, Linux, NumPy; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using Java, Linux, Redux; focused on performance and reliability.
+",NumPy;Postgres;Linux;Redux;Java,2025-01-03
+R0004,S0004,averma1004_resume.pdf,"Name: Ananya Verma
+Email: averma1004@example.edu
+College: College of Engineering Guindy
+CGPA: 7.27
+Skills: JavaScript, Pandas, React, Git
+Projects:
+- Autonomous Dashboard: Developed Autonomous Dashboard using JavaScript, React, Pandas; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using JavaScript, Pandas, React; focused on performance and reliability.
+- Smart Analyzer: Developed Smart Analyzer using JavaScript, React, Pandas; focused on performance and reliability.
+",JavaScript;Pandas;React;Git,2025-02-15
+R0005,S0005,krao1005_resume.pdf,"Name: Krishna Rao
+Email: krao1005@example.edu
+College: PSG College of Technology
+CGPA: 8.51
+Skills: PyTorch, Postgres, Kubernetes, Python
+Projects:
+- Autonomous Monitoring: Developed Autonomous Monitoring using Python, PyTorch, Kubernetes; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using Python, Kubernetes, PyTorch; focused on performance and reliability.
+- Automated System: Developed Automated System using Python, PyTorch, Kubernetes; focused on performance and reliability.
+",PyTorch;Postgres;Kubernetes;Python,2024-10-29
+R0006,S0006,rbose1006_resume.pdf,"Name: Rahul Bose
+Email: rbose1006@example.edu
+College: Anna University
+CGPA: 6.03
+Skills: TensorFlow, CSS, Django, Python
+Projects:
+- Optimized Portal: Developed Optimized Portal using Django, Python, CSS; focused on performance and reliability.
+",TensorFlow;CSS;Django;Python,2025-07-12
+R0007,S0007,dkumar1007_resume.pdf,"Name: Divya Kumar
+Email: dkumar1007@example.edu
+College: St. Joseph's College
+CGPA: 6.87
+Skills: NumPy, Azure, MongoDB, Docker
+Projects:
+- Smart System: Developed Smart System using Docker, NumPy, Azure; focused on performance and reliability.
+",NumPy;Azure;MongoDB;Docker,2025-07-28
+R0008,S0008,ribrahim1008_resume.pdf,"Name: Ravi Ibrahim
+Email: ribrahim1008@example.edu
+College: IIT Madras
+CGPA: 8.0
+Skills: C++, Redux, REST, Django
+Projects:
+- Smart Analyzer: Developed Smart Analyzer using C++, Redux, REST; focused on performance and reliability.
+",C++;Redux;REST;Django,2025-03-11
+R0009,S0009,rkhan1009_resume.pdf,"Name: Rahul Khan
+Email: rkhan1009@example.edu
+College: BITS Pilani
+CGPA: 6.0
+Skills: TypeScript, Postgres, Java, TensorFlow
+Projects:
+- Autonomous Dashboard: Developed Autonomous Dashboard using Postgres, TensorFlow, TypeScript; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using TypeScript, Java, TensorFlow; focused on performance and reliability.
+- Predictive Dashboard: Developed Predictive Dashboard using Java, Postgres, TypeScript; focused on performance and reliability.
+",TypeScript;Postgres;Java;TensorFlow,2024-11-21
+R0010,S0010,pnair1010_resume.pdf,"Name: Priya Nair
+Email: pnair1010@example.edu
+College: Vellore Institute of Technology
+CGPA: 6.45
+Skills: Docker, PyTorch, TensorFlow, C
+Projects:
+- Automated Portal: Developed Automated Portal using C, TensorFlow, PyTorch; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using Docker, TensorFlow, PyTorch; focused on performance and reliability.
+",Docker;PyTorch;TensorFlow;C,2024-11-24
+R0011,S0011,akumar1011_resume.pdf,"Name: Arjun Kumar
+Email: akumar1011@example.edu
+College: Vellore Institute of Technology
+CGPA: 6.3
+Skills: Node.js, NumPy, Pandas, Flask, HTML, Kubernetes
+Projects:
+- Realtime Detector: Developed Realtime Detector using NumPy, Flask, HTML; focused on performance and reliability.
+",Node.js;NumPy;Pandas;Flask;HTML;Kubernetes,2025-01-15
+R0012,S0012,aiyer1012_resume.pdf,"Name: Aarav Iyer
+Email: aiyer1012@example.edu
+College: PSG College of Technology
+CGPA: 7.54
+Skills: Java, SQL, MongoDB, GraphQL, Git
+Projects:
+- Realtime Portal: Developed Realtime Portal using SQL, Git, Java; focused on performance and reliability.
+- Predictive Monitoring: Developed Predictive Monitoring using SQL, MongoDB, Git; focused on performance and reliability.
+- Realtime Dashboard: Developed Realtime Dashboard using SQL, MongoDB, Java; focused on performance and reliability.
+",Java;SQL;MongoDB;GraphQL;Git,2024-11-04
+R0013,S0013,abose1013_resume.pdf,"Name: Arjun Bose
+Email: abose1013@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 9.22
+Skills: Linux, Git, Django, GraphQL, Python, NumPy
+Projects:
+- Realtime System: Developed Realtime System using Django, Linux, Python; focused on performance and reliability.
+- Automated Portal: Developed Automated Portal using Python, Django, Linux; focused on performance and reliability.
+",Linux;Git;Django;GraphQL;Python;NumPy,2025-09-04
+R0014,S0014,lkhan1014_resume.pdf,"Name: Lakshmi Khan
+Email: lkhan1014@example.edu
+College: Anna University
+CGPA: 6.77
+Skills: Java, MATLAB, Azure, Python, HTML, CSS
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using Azure, Python, CSS; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using MATLAB, Python, HTML; focused on performance and reliability.
+",Java;MATLAB;Azure;Python;HTML;CSS,2024-11-17
+R0015,S0015,kdutta1015_resume.pdf,"Name: Krishna Dutta
+Email: kdutta1015@example.edu
+College: St. Joseph's College
+CGPA: 5.0
+Skills: Azure, Git, TensorFlow, PyTorch, Pandas
+Projects:
+- Optimized Dashboard: Developed Optimized Dashboard using Pandas, TensorFlow, Azure; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using TensorFlow, Git, Azure; focused on performance and reliability.
+",Azure;Git;TensorFlow;PyTorch;Pandas,2025-08-15
+R0016,S0016,apatel1016_resume.pdf,"Name: Aarav Patel
+Email: apatel1016@example.edu
+College: IIT Madras
+CGPA: 9.08
+Skills: Kubernetes, AWS, Django, JavaScript, Pandas, MATLAB, Python
+Projects:
+- Predictive Dashboard: Developed Predictive Dashboard using Pandas, Python, MATLAB; focused on performance and reliability.
+",Kubernetes;AWS;Django;JavaScript;Pandas;MATLAB;Python,2025-05-20
+R0017,S0017,pdutta1017_resume.pdf,"Name: Pooja Dutta
+Email: pdutta1017@example.edu
+College: BITS Pilani
+CGPA: 8.96
+Skills: Redux, Django, Linux, Pandas, Flask, HTML
+Projects:
+- Automated System: Developed Automated System using Redux, Django, Flask; focused on performance and reliability.
+- Smart Analyzer: Developed Smart Analyzer using HTML, Django, Flask; focused on performance and reliability.
+",Redux;Django;Linux;Pandas;Flask;HTML,2025-09-27
+R0018,S0018,akhan1018_resume.pdf,"Name: Ananya Khan
+Email: akhan1018@example.edu
+College: Anna University
+CGPA: 8.83
+Skills: REST, GraphQL, Redux, TensorFlow
+Projects:
+- Realtime Dashboard: Developed Realtime Dashboard using GraphQL, TensorFlow, REST; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using TensorFlow, REST, GraphQL; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using TensorFlow, Redux, REST; focused on performance and reliability.
+",REST;GraphQL;Redux;TensorFlow,2025-03-04
+R0019,S0019,idutta1019_resume.pdf,"Name: Ishaan Dutta
+Email: idutta1019@example.edu
+College: BITS Pilani
+CGPA: 7.96
+Skills: React, Java, Flask, AWS, Postgres, Node.js, Docker
+Projects:
+- Automated Portal: Developed Automated Portal using Node.js, React, Docker; focused on performance and reliability.
+",React;Java;Flask;AWS;Postgres;Node.js;Docker,2025-10-14
+R0020,S0020,ssingh1020_resume.pdf,"Name: Sanjay Singh
+Email: ssingh1020@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 8.08
+Skills: MATLAB, Flask, Redux, MongoDB, React, PyTorch, TypeScript
+Projects:
+- Optimized Dashboard: Developed Optimized Dashboard using TypeScript, PyTorch, Flask; focused on performance and reliability.
+",MATLAB;Flask;Redux;MongoDB;React;PyTorch;TypeScript,2025-09-07
+R0021,S0021,rdutta1021_resume.pdf,"Name: Rahul Dutta
+Email: rdutta1021@example.edu
+College: PSG College of Technology
+CGPA: 8.04
+Skills: Python, REST, Azure, Kubernetes, C, Linux
+Projects:
+- Realtime System: Developed Realtime System using Azure, Linux, REST; focused on performance and reliability.
+- Autonomous Detector: Developed Autonomous Detector using Kubernetes, REST, Linux; focused on performance and reliability.
+",Python;REST;Azure;Kubernetes;C;Linux,2025-01-11
+R0022,S0022,lbose1022_resume.pdf,"Name: Lakshmi Bose
+Email: lbose1022@example.edu
+College: Anna University
+CGPA: 7.24
+Skills: Postgres, Flask, PyTorch, MATLAB, REST, CSS
+Projects:
+- Autonomous Monitoring: Developed Autonomous Monitoring using PyTorch, Flask, MATLAB; focused on performance and reliability.
+- Realtime Portal: Developed Realtime Portal using PyTorch, REST, CSS; focused on performance and reliability.
+",Postgres;Flask;PyTorch;MATLAB;REST;CSS,2025-03-01
+R0023,S0023,drao1023_resume.pdf,"Name: Divya Rao
+Email: drao1023@example.edu
+College: Anna University
+CGPA: 7.09
+Skills: Django, C, TypeScript, Node.js, Postgres, REST
+Projects:
+- Smart Detector: Developed Smart Detector using C, TypeScript, Django; focused on performance and reliability.
+- Realtime System: Developed Realtime System using C, TypeScript, Django; focused on performance and reliability.
+",Django;C;TypeScript;Node.js;Postgres;REST,2025-10-02
+R0024,S0024,dchowdhury1024_resume.pdf,"Name: Divya Chowdhury
+Email: dchowdhury1024@example.edu
+College: MIT
+CGPA: 6.31
+Skills: Postgres, React, Java, Flask, Kubernetes, C, C++
+Projects:
+- Optimized Analyzer: Developed Optimized Analyzer using Kubernetes, C++, C; focused on performance and reliability.
+",Postgres;React;Java;Flask;Kubernetes;C;C++,2025-07-06
+R0025,S0025,sbose1025_resume.pdf,"Name: Sneha Bose
+Email: sbose1025@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 7.62
+Skills: Redux, Node.js, Pandas, Flask
+Projects:
+- Predictive Dashboard: Developed Predictive Dashboard using Flask, Node.js, Redux; focused on performance and reliability.
+- Smart Detector: Developed Smart Detector using Pandas, Flask, Node.js; focused on performance and reliability.
+",Redux;Node.js;Pandas;Flask,2025-09-23
+R0026,S0026,sdas1026_resume.pdf,"Name: Sanjay Das
+Email: sdas1026@example.edu
+College: St. Joseph's College
+CGPA: 6.03
+Skills: Linux, JavaScript, C++, Java, React, SQL
+Projects:
+- Predictive Monitoring: Developed Predictive Monitoring using React, Linux, Java; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using React, C++, Linux; focused on performance and reliability.
+",Linux;JavaScript;C++;Java;React;SQL,2025-09-13
+R0027,S0027,sverma1027_resume.pdf,"Name: Sanjay Verma
+Email: sverma1027@example.edu
+College: St. Joseph's College
+CGPA: 8.48
+Skills: Flask, React, TensorFlow, Azure, Pandas, Kubernetes, C++
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using C++, Pandas, Flask; focused on performance and reliability.
+- Predictive Monitoring: Developed Predictive Monitoring using TensorFlow, C++, Kubernetes; focused on performance and reliability.
+",Flask;React;TensorFlow;Azure;Pandas;Kubernetes;C++,2025-08-31
+R0028,S0028,nrao1028_resume.pdf,"Name: Neha Rao
+Email: nrao1028@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 7.38
+Skills: Redux, Java, Node.js, Flask, CSS, JavaScript, SQL
+Projects:
+- Smart Monitoring: Developed Smart Monitoring using Flask, Redux, Java; focused on performance and reliability.
+",Redux;Java;Node.js;Flask;CSS;JavaScript;SQL,2025-02-16
+R0029,S0029,rrao1029_resume.pdf,"Name: Rahul Rao
+Email: rrao1029@example.edu
+College: Vellore Institute of Technology
+CGPA: 7.1
+Skills: Node.js, PyTorch, HTML, TypeScript, JavaScript, C++, Flask
+Projects:
+- Predictive Detector: Developed Predictive Detector using HTML, JavaScript, C++; focused on performance and reliability.
+- Predictive Analyzer: Developed Predictive Analyzer using HTML, PyTorch, C++; focused on performance and reliability.
+- Optimized Analyzer: Developed Optimized Analyzer using PyTorch, TypeScript, Node.js; focused on performance and reliability.
+",Node.js;PyTorch;HTML;TypeScript;JavaScript;C++;Flask,2025-05-20
+R0030,S0030,kbose1030_resume.pdf,"Name: Kavya Bose
+Email: kbose1030@example.edu
+College: College of Engineering Guindy
+CGPA: 7.31
+Skills: REST, Docker, C, HTML
+Projects:
+- Automated System: Developed Automated System using HTML, C, REST; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using HTML, Docker, C; focused on performance and reliability.
+",REST;Docker;C;HTML,2025-01-25
+R0031,S0031,vdutta1031_resume.pdf,"Name: Vivaan Dutta
+Email: vdutta1031@example.edu
+College: PSG College of Technology
+CGPA: 5.42
+Skills: Docker, React, MATLAB, SQL
+Projects:
+- Smart Portal: Developed Smart Portal using SQL, MATLAB, Docker; focused on performance and reliability.
+- Smart Portal: Developed Smart Portal using Docker, MATLAB, React; focused on performance and reliability.
+",Docker;React;MATLAB;SQL,2024-12-16
+R0032,S0032,snaidu1032_resume.pdf,"Name: Sanjay Naidu
+Email: snaidu1032@example.edu
+College: St. Joseph's College
+CGPA: 6.17
+Skills: GraphQL, Git, Docker, SQL
+Projects:
+- Automated Analyzer: Developed Automated Analyzer using Docker, GraphQL, Git; focused on performance and reliability.
+- Predictive Monitoring: Developed Predictive Monitoring using Git, SQL, Docker; focused on performance and reliability.
+- Optimized Detector: Developed Optimized Detector using Docker, GraphQL, Git; focused on performance and reliability.
+",GraphQL;Git;Docker;SQL,2025-06-11
+R0033,S0033,averma1033_resume.pdf,"Name: Aarav Verma
+Email: averma1033@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 8.69
+Skills: PyTorch, Flask, NumPy, Redux, TypeScript
+Projects:
+- Realtime Portal: Developed Realtime Portal using PyTorch, NumPy, Flask; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using Flask, TypeScript, PyTorch; focused on performance and reliability.
+",PyTorch;Flask;NumPy;Redux;TypeScript,2025-01-26
+R0034,S0034,srao1034_resume.pdf,"Name: Sakshi Rao
+Email: srao1034@example.edu
+College: BITS Pilani
+CGPA: 9.34
+Skills: Git, C, Docker, C++, JavaScript, Django
+Projects:
+- Realtime Dashboard: Developed Realtime Dashboard using Docker, JavaScript, C++; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using Git, C, C++; focused on performance and reliability.
+- Autonomous System: Developed Autonomous System using JavaScript, Docker, C; focused on performance and reliability.
+",Git;C;Docker;C++;JavaScript;Django,2024-12-02
+R0035,S0035,aibrahim1035_resume.pdf,"Name: Aditya Ibrahim
+Email: aibrahim1035@example.edu
+College: Vellore Institute of Technology
+CGPA: 9.35
+Skills: C, GraphQL, Django, CSS, JavaScript, AWS, Docker
+Projects:
+- Predictive Analyzer: Developed Predictive Analyzer using GraphQL, Django, C; focused on performance and reliability.
+",C;GraphQL;Django;CSS;JavaScript;AWS;Docker,2024-11-12
+R0036,S0036,smurthy1036_resume.pdf,"Name: Sakshi Murthy
+Email: smurthy1036@example.edu
+College: Anna University
+CGPA: 9.45
+Skills: NumPy, Node.js, Pandas, PyTorch
+Projects:
+- Autonomous System: Developed Autonomous System using Node.js, Pandas, NumPy; focused on performance and reliability.
+",NumPy;Node.js;Pandas;PyTorch,2025-07-02
+R0037,S0037,pkumar1037_resume.pdf,"Name: Priya Kumar
+Email: pkumar1037@example.edu
+College: St. Joseph's College
+CGPA: 7.48
+Skills: NumPy, REST, Python, JavaScript
+Projects:
+- Autonomous Portal: Developed Autonomous Portal using JavaScript, Python, NumPy; focused on performance and reliability.
+- Realtime Monitoring: Developed Realtime Monitoring using JavaScript, REST, Python; focused on performance and reliability.
+",NumPy;REST;Python;JavaScript,2025-02-09
+R0038,S0038,miyer1038_resume.pdf,"Name: Meena Iyer
+Email: miyer1038@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 7.11
+Skills: Kubernetes, REST, AWS, Azure
+Projects:
+- Smart Monitoring: Developed Smart Monitoring using REST, Azure, AWS; focused on performance and reliability.
+- Predictive System: Developed Predictive System using AWS, REST, Azure; focused on performance and reliability.
+- Autonomous Dashboard: Developed Autonomous Dashboard using Kubernetes, AWS, Azure; focused on performance and reliability.
+",Kubernetes;REST;AWS;Azure,2025-03-23
+R0039,S0039,pnair1039_resume.pdf,"Name: Pooja Nair
+Email: pnair1039@example.edu
+College: College of Engineering Guindy
+CGPA: 8.36
+Skills: Postgres, NumPy, Flask, MongoDB, JavaScript, REST, Kubernetes
+Projects:
+- Optimized System: Developed Optimized System using JavaScript, Flask, Postgres; focused on performance and reliability.
+",Postgres;NumPy;Flask;MongoDB;JavaScript;REST;Kubernetes,2025-04-02
+R0040,S0040,skhan1040_resume.pdf,"Name: Sakshi Khan
+Email: skhan1040@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 7.66
+Skills: NumPy, Kubernetes, Django, REST, C
+Projects:
+- Realtime Dashboard: Developed Realtime Dashboard using C, NumPy, Django; focused on performance and reliability.
+- Realtime Dashboard: Developed Realtime Dashboard using Django, NumPy, REST; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using Django, C, Kubernetes; focused on performance and reliability.
+",NumPy;Kubernetes;Django;REST;C,2025-10-26
+R0041,S0041,kkumar1041_resume.pdf,"Name: Krishna Kumar
+Email: kkumar1041@example.edu
+College: St. Joseph's College
+CGPA: 7.91
+Skills: TypeScript, HTML, Node.js, AWS
+Projects:
+- Optimized Monitoring: Developed Optimized Monitoring using TypeScript, AWS, Node.js; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using TypeScript, HTML, Node.js; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using AWS, Node.js, HTML; focused on performance and reliability.
+",TypeScript;HTML;Node.js;AWS,2025-03-31
+R0042,S0042,rsingh1042_resume.pdf,"Name: Ravi Singh
+Email: rsingh1042@example.edu
+College: BITS Pilani
+CGPA: 6.3
+Skills: Java, Django, AWS, PyTorch, GraphQL, Python
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using Django, Python, PyTorch; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using Django, GraphQL, AWS; focused on performance and reliability.
+",Java;Django;AWS;PyTorch;GraphQL;Python,2025-09-23
+R0043,S0043,npatel1043_resume.pdf,"Name: Neha Patel
+Email: npatel1043@example.edu
+College: College of Engineering Guindy
+CGPA: 6.44
+Skills: MATLAB, Pandas, Azure, SQL, C, AWS, Python
+Projects:
+- Predictive System: Developed Predictive System using MATLAB, SQL, Azure; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using Pandas, Azure, Python; focused on performance and reliability.
+- Autonomous System: Developed Autonomous System using AWS, MATLAB, C; focused on performance and reliability.
+",MATLAB;Pandas;Azure;SQL;C;AWS;Python,2025-02-10
+R0044,S0044,kmenon1044_resume.pdf,"Name: Karthik Menon
+Email: kmenon1044@example.edu
+College: Anna University
+CGPA: 6.18
+Skills: Redux, Pandas, C++, React, Kubernetes
+Projects:
+- Realtime Detector: Developed Realtime Detector using C++, Redux, Pandas; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using C++, React, Pandas; focused on performance and reliability.
+",Redux;Pandas;C++;React;Kubernetes,2025-10-10
+R0045,S0045,vmenon1045_resume.pdf,"Name: Vivaan Menon
+Email: vmenon1045@example.edu
+College: Vellore Institute of Technology
+CGPA: 7.13
+Skills: Docker, Git, TensorFlow, Pandas
+Projects:
+- Automated Dashboard: Developed Automated Dashboard using Docker, TensorFlow, Pandas; focused on performance and reliability.
+",Docker;Git;TensorFlow;Pandas,2025-10-09
+R0046,S0046,sibrahim1046_resume.pdf,"Name: Sanjay Ibrahim
+Email: sibrahim1046@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.78
+Skills: Git, Pandas, Postgres, C++
+Projects:
+- Smart Detector: Developed Smart Detector using Git, Postgres, C++; focused on performance and reliability.
+- Automated Detector: Developed Automated Detector using C++, Git, Postgres; focused on performance and reliability.
+- Automated System: Developed Automated System using C++, Postgres, Pandas; focused on performance and reliability.
+",Git;Pandas;Postgres;C++,2025-08-25
+R0047,S0047,sreddy1047_resume.pdf,"Name: Sneha Reddy
+Email: sreddy1047@example.edu
+College: College of Engineering Guindy
+CGPA: 5.83
+Skills: Redux, Kubernetes, Node.js, Django, JavaScript, GraphQL
+Projects:
+- Realtime System: Developed Realtime System using Kubernetes, Django, Redux; focused on performance and reliability.
+",Redux;Kubernetes;Node.js;Django;JavaScript;GraphQL,2025-04-02
+R0048,S0048,snair1048_resume.pdf,"Name: Sakshi Nair
+Email: snair1048@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.1
+Skills: MongoDB, NumPy, TensorFlow, Docker, Redux
+Projects:
+- Predictive Detector: Developed Predictive Detector using Redux, MongoDB, TensorFlow; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using TensorFlow, MongoDB, Docker; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using Redux, NumPy, Docker; focused on performance and reliability.
+",MongoDB;NumPy;TensorFlow;Docker;Redux,2025-09-13
+R0049,S0049,sibrahim1049_resume.pdf,"Name: Sanjay Ibrahim
+Email: sibrahim1049@example.edu
+College: Anna University
+CGPA: 7.31
+Skills: C++, MongoDB, Django, Python, Postgres, C, MATLAB
+Projects:
+- Autonomous Monitoring: Developed Autonomous Monitoring using Django, MongoDB, C; focused on performance and reliability.
+",C++;MongoDB;Django;Python;Postgres;C;MATLAB,2025-01-22
+R0050,S0050,lrao1050_resume.pdf,"Name: Lakshmi Rao
+Email: lrao1050@example.edu
+College: College of Engineering Guindy
+CGPA: 5.56
+Skills: Pandas, Git, PyTorch, Docker, C++, C, Kubernetes
+Projects:
+- Smart Dashboard: Developed Smart Dashboard using C, Pandas, C++; focused on performance and reliability.
+- Automated Monitoring: Developed Automated Monitoring using C++, Kubernetes, C; focused on performance and reliability.
+",Pandas;Git;PyTorch;Docker;C++;C;Kubernetes,2025-02-12
+R0051,S0051,dsharma1051_resume.pdf,"Name: Divya Sharma
+Email: dsharma1051@example.edu
+College: College of Engineering Guindy
+CGPA: 6.17
+Skills: Git, C++, MongoDB, Django, TypeScript, NumPy
+Projects:
+- Predictive Dashboard: Developed Predictive Dashboard using C++, NumPy, Git; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using Git, MongoDB, C++; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using Git, MongoDB, TypeScript; focused on performance and reliability.
+",Git;C++;MongoDB;Django;TypeScript;NumPy,2025-02-08
+R0052,S0052,nmurthy1052_resume.pdf,"Name: Neha Murthy
+Email: nmurthy1052@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.64
+Skills: Flask, C, Git, MongoDB, Azure, AWS
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using Flask, MongoDB, C; focused on performance and reliability.
+",Flask;C;Git;MongoDB;Azure;AWS,2025-01-23
+R0053,S0053,rjoshi1053_resume.pdf,"Name: Rahul Joshi
+Email: rjoshi1053@example.edu
+College: PSG College of Technology
+CGPA: 7.05
+Skills: MATLAB, Docker, MongoDB, Java, TypeScript
+Projects:
+- Realtime Dashboard: Developed Realtime Dashboard using Docker, MATLAB, Java; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using Java, MATLAB, TypeScript; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using MongoDB, TypeScript, Docker; focused on performance and reliability.
+",MATLAB;Docker;MongoDB;Java;TypeScript,2025-01-12
+R0054,S0054,vdutta1054_resume.pdf,"Name: Vivaan Dutta
+Email: vdutta1054@example.edu
+College: MIT
+CGPA: 8.51
+Skills: AWS, Postgres, Pandas, Flask, Django, C
+Projects:
+- Optimized Detector: Developed Optimized Detector using C, Flask, Postgres; focused on performance and reliability.
+",AWS;Postgres;Pandas;Flask;Django;C,2025-08-28
+R0055,S0055,ireddy1055_resume.pdf,"Name: Ishaan Reddy
+Email: ireddy1055@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 8.14
+Skills: MATLAB, C++, CSS, Linux, SQL, Redux
+Projects:
+- Autonomous Detector: Developed Autonomous Detector using SQL, Redux, CSS; focused on performance and reliability.
+- Predictive System: Developed Predictive System using C++, SQL, MATLAB; focused on performance and reliability.
+",MATLAB;C++;CSS;Linux;SQL;Redux,2025-09-26
+R0056,S0056,rbose1056_resume.pdf,"Name: Rahul Bose
+Email: rbose1056@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 9.47
+Skills: Docker, NumPy, HTML, MongoDB, JavaScript, CSS, Pandas
+Projects:
+- Realtime Portal: Developed Realtime Portal using HTML, JavaScript, Pandas; focused on performance and reliability.
+- Autonomous Detector: Developed Autonomous Detector using NumPy, CSS, JavaScript; focused on performance and reliability.
+",Docker;NumPy;HTML;MongoDB;JavaScript;CSS;Pandas,2025-06-11
+R0057,S0057,ichowdhury1057_resume.pdf,"Name: Ishaan Chowdhury
+Email: ichowdhury1057@example.edu
+College: St. Joseph's College
+CGPA: 8.03
+Skills: Linux, REST, Python, C++
+Projects:
+- Optimized Detector: Developed Optimized Detector using Python, REST, Linux; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using Python, REST, Linux; focused on performance and reliability.
+- Realtime Monitoring: Developed Realtime Monitoring using REST, C++, Python; focused on performance and reliability.
+",Linux;REST;Python;C++,2025-02-24
+R0058,S0058,psingh1058_resume.pdf,"Name: Pooja Singh
+Email: psingh1058@example.edu
+College: Anna University
+CGPA: 9.54
+Skills: JavaScript, Redux, MongoDB, HTML, CSS, C, Postgres
+Projects:
+- Predictive System: Developed Predictive System using HTML, Redux, C; focused on performance and reliability.
+- Automated System: Developed Automated System using C, MongoDB, Redux; focused on performance and reliability.
+",JavaScript;Redux;MongoDB;HTML;CSS;C;Postgres,2025-08-09
+R0059,S0059,krao1059_resume.pdf,"Name: Kavya Rao
+Email: krao1059@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 5.41
+Skills: Django, Node.js, TensorFlow, MongoDB, Java, Redux, SQL
+Projects:
+- Automated Monitoring: Developed Automated Monitoring using MongoDB, Django, Java; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using TensorFlow, Java, SQL; focused on performance and reliability.
+",Django;Node.js;TensorFlow;MongoDB;Java;Redux;SQL,2025-09-22
+R0060,S0060,nrao1060_resume.pdf,"Name: Neha Rao
+Email: nrao1060@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.81
+Skills: Redux, JavaScript, Node.js, PyTorch, HTML, AWS
+Projects:
+- Smart Detector: Developed Smart Detector using HTML, Node.js, JavaScript; focused on performance and reliability.
+- Predictive System: Developed Predictive System using AWS, Node.js, HTML; focused on performance and reliability.
+- Optimized System: Developed Optimized System using HTML, PyTorch, Node.js; focused on performance and reliability.
+",Redux;JavaScript;Node.js;PyTorch;HTML;AWS,2025-02-28
+R0061,S0061,amenon1061_resume.pdf,"Name: Aarav Menon
+Email: amenon1061@example.edu
+College: Anna University
+CGPA: 9.13
+Skills: Flask, Pandas, Git, Redux, TensorFlow, Linux, Django
+Projects:
+- Predictive Detector: Developed Predictive Detector using Redux, Pandas, Django; focused on performance and reliability.
+",Flask;Pandas;Git;Redux;TensorFlow;Linux;Django,2024-11-10
+R0062,S0062,kkhan1062_resume.pdf,"Name: Karthik Khan
+Email: kkhan1062@example.edu
+College: BITS Pilani
+CGPA: 5.95
+Skills: HTML, AWS, Postgres, React, Docker, CSS, Linux
+Projects:
+- Realtime Portal: Developed Realtime Portal using CSS, Linux, React; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using Postgres, Docker, Linux; focused on performance and reliability.
+",HTML;AWS;Postgres;React;Docker;CSS;Linux,2025-06-04
+R0063,S0063,averma1063_resume.pdf,"Name: Arjun Verma
+Email: averma1063@example.edu
+College: BITS Pilani
+CGPA: 8.7
+Skills: SQL, MATLAB, C++, MongoDB
+Projects:
+- Optimized Dashboard: Developed Optimized Dashboard using C++, SQL, MongoDB; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using MATLAB, SQL, C++; focused on performance and reliability.
+",SQL;MATLAB;C++;MongoDB,2024-11-21
+R0064,S0064,snair1064_resume.pdf,"Name: Sneha Nair
+Email: snair1064@example.edu
+College: IIT Madras
+CGPA: 8.3
+Skills: Python, CSS, React, Azure, Pandas
+Projects:
+- Realtime System: Developed Realtime System using CSS, Python, Azure; focused on performance and reliability.
+",Python;CSS;React;Azure;Pandas,2025-03-30
+R0065,S0065,kpatel1065_resume.pdf,"Name: Krishna Patel
+Email: kpatel1065@example.edu
+College: College of Engineering Guindy
+CGPA: 5.04
+Skills: SQL, Docker, Pandas, CSS, HTML, Kubernetes
+Projects:
+- Realtime Detector: Developed Realtime Detector using Kubernetes, Docker, SQL; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using Pandas, HTML, Docker; focused on performance and reliability.
+",SQL;Docker;Pandas;CSS;HTML;Kubernetes,2025-08-01
+R0066,S0066,lbose1066_resume.pdf,"Name: Lakshmi Bose
+Email: lbose1066@example.edu
+College: College of Engineering Guindy
+CGPA: 5.44
+Skills: Postgres, Django, Python, Flask, AWS, REST, Docker
+Projects:
+- Predictive Detector: Developed Predictive Detector using Django, Flask, AWS; focused on performance and reliability.
+",Postgres;Django;Python;Flask;AWS;REST;Docker,2024-11-03
+R0067,S0067,riyer1067_resume.pdf,"Name: Rahul Iyer
+Email: riyer1067@example.edu
+College: Vellore Institute of Technology
+CGPA: 7.2
+Skills: Azure, MATLAB, CSS, Kubernetes, Redux, Linux
+Projects:
+- Smart System: Developed Smart System using Redux, MATLAB, Linux; focused on performance and reliability.
+- Automated System: Developed Automated System using Kubernetes, Azure, MATLAB; focused on performance and reliability.
+- Realtime System: Developed Realtime System using Kubernetes, Azure, Linux; focused on performance and reliability.
+",Azure;MATLAB;CSS;Kubernetes;Redux;Linux,2025-10-01
+R0068,S0068,pkumar1068_resume.pdf,"Name: Pooja Kumar
+Email: pkumar1068@example.edu
+College: BITS Pilani
+CGPA: 7.13
+Skills: AWS, Flask, Linux, Python
+Projects:
+- Autonomous Monitoring: Developed Autonomous Monitoring using Python, AWS, Flask; focused on performance and reliability.
+- Predictive Portal: Developed Predictive Portal using Flask, Linux, Python; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using Python, Flask, Linux; focused on performance and reliability.
+",AWS;Flask;Linux;Python,2025-09-18
+R0069,S0069,dkumar1069_resume.pdf,"Name: Divya Kumar
+Email: dkumar1069@example.edu
+College: Anna University
+CGPA: 7.43
+Skills: Redux, Python, SQL, Docker
+Projects:
+- Smart Dashboard: Developed Smart Dashboard using Redux, Docker, Python; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using Python, Redux, SQL; focused on performance and reliability.
+",Redux;Python;SQL;Docker,2025-09-08
+R0070,S0070,lpatel1070_resume.pdf,"Name: Lakshmi Patel
+Email: lpatel1070@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 7.02
+Skills: Redux, REST, Java, JavaScript, HTML
+Projects:
+- Smart Analyzer: Developed Smart Analyzer using Java, HTML, Redux; focused on performance and reliability.
+- Optimized System: Developed Optimized System using REST, JavaScript, Java; focused on performance and reliability.
+- Predictive Monitoring: Developed Predictive Monitoring using Java, JavaScript, HTML; focused on performance and reliability.
+",Redux;REST;Java;JavaScript;HTML,2025-05-19
+R0071,S0071,akhan1071_resume.pdf,"Name: Ananya Khan
+Email: akhan1071@example.edu
+College: MIT
+CGPA: 7.47
+Skills: SQL, REST, MATLAB, JavaScript, Git
+Projects:
+- Automated Dashboard: Developed Automated Dashboard using SQL, JavaScript, REST; focused on performance and reliability.
+",SQL;REST;MATLAB;JavaScript;Git,2025-09-12
+R0072,S0072,dsingh1072_resume.pdf,"Name: Divya Singh
+Email: dsingh1072@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 5.33
+Skills: Kubernetes, Node.js, REST, Postgres, SQL
+Projects:
+- Realtime Portal: Developed Realtime Portal using Postgres, Node.js, REST; focused on performance and reliability.
+- Automated Detector: Developed Automated Detector using Postgres, SQL, REST; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using REST, SQL, Node.js; focused on performance and reliability.
+",Kubernetes;Node.js;REST;Postgres;SQL,2025-02-09
+R0073,S0073,kibrahim1073_resume.pdf,"Name: Kavya Ibrahim
+Email: kibrahim1073@example.edu
+College: PSG College of Technology
+CGPA: 6.44
+Skills: TypeScript, JavaScript, Python, Flask, CSS
+Projects:
+- Smart Analyzer: Developed Smart Analyzer using CSS, Python, JavaScript; focused on performance and reliability.
+- Predictive Dashboard: Developed Predictive Dashboard using Flask, CSS, TypeScript; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using JavaScript, CSS, Python; focused on performance and reliability.
+",TypeScript;JavaScript;Python;Flask;CSS,2025-01-23
+R0074,S0074,kgupta1074_resume.pdf,"Name: Kavya Gupta
+Email: kgupta1074@example.edu
+College: BITS Pilani
+CGPA: 8.07
+Skills: JavaScript, Linux, Pandas, Django, C++, MATLAB, GraphQL
+Projects:
+- Optimized Analyzer: Developed Optimized Analyzer using JavaScript, GraphQL, C++; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using C++, Pandas, JavaScript; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using MATLAB, Django, Linux; focused on performance and reliability.
+",JavaScript;Linux;Pandas;Django;C++;MATLAB;GraphQL,2025-09-05
+R0075,S0075,arao1075_resume.pdf,"Name: Arjun Rao
+Email: arao1075@example.edu
+College: MIT
+CGPA: 8.75
+Skills: C++, MongoDB, AWS, Docker, TensorFlow, Django, MATLAB
+Projects:
+- Realtime Monitoring: Developed Realtime Monitoring using Django, MongoDB, C++; focused on performance and reliability.
+",C++;MongoDB;AWS;Docker;TensorFlow;Django;MATLAB,2025-02-16
+R0076,S0076,ajoshi1076_resume.pdf,"Name: Ananya Joshi
+Email: ajoshi1076@example.edu
+College: St. Joseph's College
+CGPA: 9.15
+Skills: Java, C++, NumPy, Flask, CSS, TensorFlow
+Projects:
+- Optimized Portal: Developed Optimized Portal using CSS, Flask, NumPy; focused on performance and reliability.
+",Java;C++;NumPy;Flask;CSS;TensorFlow,2025-04-16
+R0077,S0077,ireddy1077_resume.pdf,"Name: Ishaan Reddy
+Email: ireddy1077@example.edu
+College: BITS Pilani
+CGPA: 6.07
+Skills: PyTorch, Redux, GraphQL, Linux, AWS, Postgres
+Projects:
+- Optimized Dashboard: Developed Optimized Dashboard using Linux, PyTorch, GraphQL; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using PyTorch, Postgres, GraphQL; focused on performance and reliability.
+- Smart Analyzer: Developed Smart Analyzer using Postgres, Redux, Linux; focused on performance and reliability.
+",PyTorch;Redux;GraphQL;Linux;AWS;Postgres,2025-05-20
+R0078,S0078,siyer1078_resume.pdf,"Name: Sakshi Iyer
+Email: siyer1078@example.edu
+College: PSG College of Technology
+CGPA: 8.5
+Skills: C++, React, Azure, Docker, CSS
+Projects:
+- Predictive Monitoring: Developed Predictive Monitoring using Azure, Docker, React; focused on performance and reliability.
+- Autonomous Dashboard: Developed Autonomous Dashboard using CSS, React, Azure; focused on performance and reliability.
+",C++;React;Azure;Docker;CSS,2025-02-05
+R0079,S0079,kbose1079_resume.pdf,"Name: Krishna Bose
+Email: kbose1079@example.edu
+College: MIT
+CGPA: 7.27
+Skills: Azure, Flask, SQL, Kubernetes, Git
+Projects:
+- Smart Detector: Developed Smart Detector using Azure, Kubernetes, Flask; focused on performance and reliability.
+",Azure;Flask;SQL;Kubernetes;Git,2024-12-16
+R0080,S0080,njoshi1080_resume.pdf,"Name: Neha Joshi
+Email: njoshi1080@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.48
+Skills: Postgres, React, AWS, GraphQL, SQL, TypeScript, MATLAB
+Projects:
+- Optimized System: Developed Optimized System using React, TypeScript, SQL; focused on performance and reliability.
+",Postgres;React;AWS;GraphQL;SQL;TypeScript;MATLAB,2025-10-16
+R0081,S0081,psingh1081_resume.pdf,"Name: Pooja Singh
+Email: psingh1081@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 7.3
+Skills: Flask, NumPy, JavaScript, MATLAB, Azure
+Projects:
+- Automated Dashboard: Developed Automated Dashboard using Azure, Flask, MATLAB; focused on performance and reliability.
+",Flask;NumPy;JavaScript;MATLAB;Azure,2025-06-24
+R0082,S0082,sgupta1082_resume.pdf,"Name: Sakshi Gupta
+Email: sgupta1082@example.edu
+College: St. Joseph's College
+CGPA: 6.98
+Skills: Flask, Django, HTML, TypeScript
+Projects:
+- Optimized Portal: Developed Optimized Portal using HTML, Flask, Django; focused on performance and reliability.
+- Autonomous Detector: Developed Autonomous Detector using TypeScript, Flask, HTML; focused on performance and reliability.
+- Realtime Portal: Developed Realtime Portal using HTML, Django, TypeScript; focused on performance and reliability.
+",Flask;Django;HTML;TypeScript,2025-03-10
+R0083,S0083,krao1083_resume.pdf,"Name: Karthik Rao
+Email: krao1083@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 8.32
+Skills: C++, SQL, Java, Git, MATLAB, C
+Projects:
+- Predictive Portal: Developed Predictive Portal using Git, SQL, MATLAB; focused on performance and reliability.
+- Realtime Dashboard: Developed Realtime Dashboard using Git, C, C++; focused on performance and reliability.
+",C++;SQL;Java;Git;MATLAB;C,2024-12-19
+R0084,S0084,kibrahim1084_resume.pdf,"Name: Karthik Ibrahim
+Email: kibrahim1084@example.edu
+College: St. Joseph's College
+CGPA: 5.99
+Skills: TensorFlow, C, Git, REST
+Projects:
+- Predictive System: Developed Predictive System using Git, REST, C; focused on performance and reliability.
+- Optimized Analyzer: Developed Optimized Analyzer using TensorFlow, C, Git; focused on performance and reliability.
+- Predictive System: Developed Predictive System using C, Git, REST; focused on performance and reliability.
+",TensorFlow;C;Git;REST,2024-12-19
+R0085,S0085,mreddy1085_resume.pdf,"Name: Meena Reddy
+Email: mreddy1085@example.edu
+College: MIT
+CGPA: 5.54
+Skills: HTML, AWS, Azure, PyTorch, JavaScript
+Projects:
+- Smart Detector: Developed Smart Detector using PyTorch, HTML, AWS; focused on performance and reliability.
+",HTML;AWS;Azure;PyTorch;JavaScript,2025-10-25
+R0086,S0086,kkumar1086_resume.pdf,"Name: Kavya Kumar
+Email: kkumar1086@example.edu
+College: IIT Madras
+CGPA: 7.26
+Skills: React, C++, TensorFlow, Python, Redux, Django, SQL
+Projects:
+- Automated System: Developed Automated System using SQL, TensorFlow, Redux; focused on performance and reliability.
+",React;C++;TensorFlow;Python;Redux;Django;SQL,2025-10-08
+R0087,S0087,pmurthy1087_resume.pdf,"Name: Pooja Murthy
+Email: pmurthy1087@example.edu
+College: IIT Madras
+CGPA: 9.02
+Skills: Flask, MongoDB, Linux, C++, Docker, C, Django
+Projects:
+- Optimized Detector: Developed Optimized Detector using Docker, Django, MongoDB; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using Linux, Django, Docker; focused on performance and reliability.
+",Flask;MongoDB;Linux;C++;Docker;C;Django,2025-06-15
+R0088,S0088,siyer1088_resume.pdf,"Name: Sneha Iyer
+Email: siyer1088@example.edu
+College: MIT
+CGPA: 8.02
+Skills: JavaScript, MATLAB, Postgres, Linux, Django
+Projects:
+- Autonomous Analyzer: Developed Autonomous Analyzer using Django, Postgres, Linux; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using Linux, Postgres, Django; focused on performance and reliability.
+- Autonomous Dashboard: Developed Autonomous Dashboard using JavaScript, Linux, Postgres; focused on performance and reliability.
+",JavaScript;MATLAB;Postgres;Linux;Django,2024-11-23
+R0089,S0089,sreddy1089_resume.pdf,"Name: Sakshi Reddy
+Email: sreddy1089@example.edu
+College: BITS Pilani
+CGPA: 5.97
+Skills: Linux, SQL, Postgres, CSS, TensorFlow, JavaScript
+Projects:
+- Predictive Analyzer: Developed Predictive Analyzer using Linux, CSS, SQL; focused on performance and reliability.
+",Linux;SQL;Postgres;CSS;TensorFlow;JavaScript,2024-11-11
+R0090,S0090,ichowdhury1090_resume.pdf,"Name: Ishaan Chowdhury
+Email: ichowdhury1090@example.edu
+College: MIT
+CGPA: 5.38
+Skills: AWS, Pandas, SQL, TypeScript
+Projects:
+- Autonomous Portal: Developed Autonomous Portal using Pandas, SQL, TypeScript; focused on performance and reliability.
+- Autonomous Monitoring: Developed Autonomous Monitoring using SQL, AWS, Pandas; focused on performance and reliability.
+",AWS;Pandas;SQL;TypeScript,2024-11-08
+R0091,S0091,inaidu1091_resume.pdf,"Name: Ishaan Naidu
+Email: inaidu1091@example.edu
+College: PSG College of Technology
+CGPA: 8.71
+Skills: MongoDB, SQL, JavaScript, AWS, Redux, Linux
+Projects:
+- Optimized Dashboard: Developed Optimized Dashboard using AWS, SQL, MongoDB; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using MongoDB, Redux, AWS; focused on performance and reliability.
+",MongoDB;SQL;JavaScript;AWS;Redux;Linux,2025-05-03
+R0092,S0092,ajoshi1092_resume.pdf,"Name: Ananya Joshi
+Email: ajoshi1092@example.edu
+College: MIT
+CGPA: 7.55
+Skills: REST, NumPy, GraphQL, SQL
+Projects:
+- Autonomous Portal: Developed Autonomous Portal using SQL, GraphQL, REST; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using GraphQL, NumPy, REST; focused on performance and reliability.
+",REST;NumPy;GraphQL;SQL,2025-04-14
+R0093,S0093,mkhan1093_resume.pdf,"Name: Meena Khan
+Email: mkhan1093@example.edu
+College: Anna University
+CGPA: 7.7
+Skills: Node.js, Java, REST, Git, AWS, HTML
+Projects:
+- Optimized Portal: Developed Optimized Portal using Java, AWS, REST; focused on performance and reliability.
+",Node.js;Java;REST;Git;AWS;HTML,2025-04-12
+R0094,S0094,mreddy1094_resume.pdf,"Name: Meena Reddy
+Email: mreddy1094@example.edu
+College: Vellore Institute of Technology
+CGPA: 5.4
+Skills: Docker, PyTorch, Java, SQL
+Projects:
+- Optimized System: Developed Optimized System using Java, Docker, PyTorch; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using Java, SQL, Docker; focused on performance and reliability.
+",Docker;PyTorch;Java;SQL,2025-10-14
+R0095,S0095,pkhan1095_resume.pdf,"Name: Priya Khan
+Email: pkhan1095@example.edu
+College: Vellore Institute of Technology
+CGPA: 7.09
+Skills: Kubernetes, REST, TensorFlow, React
+Projects:
+- Optimized Monitoring: Developed Optimized Monitoring using Kubernetes, React, TensorFlow; focused on performance and reliability.
+- Autonomous Analyzer: Developed Autonomous Analyzer using TensorFlow, REST, Kubernetes; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using React, Kubernetes, REST; focused on performance and reliability.
+",Kubernetes;REST;TensorFlow;React,2025-06-24
+R0096,S0096,ajoshi1096_resume.pdf,"Name: Ananya Joshi
+Email: ajoshi1096@example.edu
+College: Vellore Institute of Technology
+CGPA: 8.1
+Skills: Django, Git, HTML, Java, AWS
+Projects:
+- Autonomous Detector: Developed Autonomous Detector using Git, HTML, Java; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using AWS, Git, Java; focused on performance and reliability.
+",Django;Git;HTML;Java;AWS,2025-04-24
+R0097,S0097,mnaidu1097_resume.pdf,"Name: Meena Naidu
+Email: mnaidu1097@example.edu
+College: IIT Madras
+CGPA: 5.11
+Skills: Pandas, Linux, MATLAB, Python, Postgres, Git
+Projects:
+- Automated Monitoring: Developed Automated Monitoring using Pandas, Linux, Python; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using Python, Pandas, Postgres; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using Git, Python, Pandas; focused on performance and reliability.
+",Pandas;Linux;MATLAB;Python;Postgres;Git,2024-12-30
+R0098,S0098,mpatel1098_resume.pdf,"Name: Meena Patel
+Email: mpatel1098@example.edu
+College: College of Engineering Guindy
+CGPA: 8.91
+Skills: Postgres, Docker, Flask, Django, C++, Node.js
+Projects:
+- Optimized Detector: Developed Optimized Detector using Docker, Django, Flask; focused on performance and reliability.
+",Postgres;Docker;Flask;Django;C++;Node.js,2025-03-06
+R0099,S0099,riyer1099_resume.pdf,"Name: Ravi Iyer
+Email: riyer1099@example.edu
+College: PSG College of Technology
+CGPA: 8.85
+Skills: C++, MATLAB, Django, MongoDB, AWS
+Projects:
+- Optimized Portal: Developed Optimized Portal using C++, MongoDB, AWS; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using C++, AWS, MongoDB; focused on performance and reliability.
+- Smart Portal: Developed Smart Portal using MongoDB, Django, AWS; focused on performance and reliability.
+",C++;MATLAB;Django;MongoDB;AWS,2024-12-11
+R0100,S0100,averma1100_resume.pdf,"Name: Aditya Verma
+Email: averma1100@example.edu
+College: St. Joseph's College
+CGPA: 5.91
+Skills: C++, GraphQL, REST, Linux, Git
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using Linux, C++, GraphQL; focused on performance and reliability.
+- Realtime Analyzer: Developed Realtime Analyzer using GraphQL, REST, C++; focused on performance and reliability.
+",C++;GraphQL;REST;Linux;Git,2025-07-26
+R0101,S0101,rdas1101_resume.pdf,"Name: Ravi Das
+Email: rdas1101@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.36
+Skills: Java, C++, Flask, AWS, JavaScript, Azure, Node.js
+Projects:
+- Smart Monitoring: Developed Smart Monitoring using Flask, JavaScript, C++; focused on performance and reliability.
+- Autonomous Detector: Developed Autonomous Detector using Java, AWS, JavaScript; focused on performance and reliability.
+",Java;C++;Flask;AWS;JavaScript;Azure;Node.js,2025-04-29
+R0102,S0102,mnair1102_resume.pdf,"Name: Meena Nair
+Email: mnair1102@example.edu
+College: MIT
+CGPA: 7.45
+Skills: TensorFlow, REST, Git, AWS, MongoDB
+Projects:
+- Smart System: Developed Smart System using REST, AWS, Git; focused on performance and reliability.
+- Automated Portal: Developed Automated Portal using AWS, TensorFlow, MongoDB; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using MongoDB, REST, TensorFlow; focused on performance and reliability.
+",TensorFlow;REST;Git;AWS;MongoDB,2025-02-02
+R0103,S0103,ksharma1103_resume.pdf,"Name: Kavya Sharma
+Email: ksharma1103@example.edu
+College: Anna University
+CGPA: 5.82
+Skills: Python, JavaScript, TensorFlow, MATLAB
+Projects:
+- Optimized Monitoring: Developed Optimized Monitoring using TensorFlow, JavaScript, MATLAB; focused on performance and reliability.
+- Smart Portal: Developed Smart Portal using MATLAB, TensorFlow, JavaScript; focused on performance and reliability.
+",Python;JavaScript;TensorFlow;MATLAB,2024-12-01
+R0104,S0104,pgupta1104_resume.pdf,"Name: Priya Gupta
+Email: pgupta1104@example.edu
+College: BITS Pilani
+CGPA: 6.41
+Skills: React, TypeScript, Python, MATLAB, TensorFlow
+Projects:
+- Automated Dashboard: Developed Automated Dashboard using React, TypeScript, MATLAB; focused on performance and reliability.
+",React;TypeScript;Python;MATLAB;TensorFlow,2025-05-19
+R0105,S0105,kreddy1105_resume.pdf,"Name: Krishna Reddy
+Email: kreddy1105@example.edu
+College: Anna University
+CGPA: 6.15
+Skills: Flask, Git, C, TypeScript, Python, Java
+Projects:
+- Autonomous Analyzer: Developed Autonomous Analyzer using Python, Git, Java; focused on performance and reliability.
+- Predictive Monitoring: Developed Predictive Monitoring using Flask, C, Java; focused on performance and reliability.
+",Flask;Git;C;TypeScript;Python;Java,2025-05-19
+R0106,S0106,riyer1106_resume.pdf,"Name: Ravi Iyer
+Email: riyer1106@example.edu
+College: PSG College of Technology
+CGPA: 8.37
+Skills: Postgres, PyTorch, GraphQL, Kubernetes
+Projects:
+- Automated Portal: Developed Automated Portal using PyTorch, Kubernetes, GraphQL; focused on performance and reliability.
+",Postgres;PyTorch;GraphQL;Kubernetes,2024-11-25
+R0107,S0107,rchowdhury1107_resume.pdf,"Name: Rahul Chowdhury
+Email: rchowdhury1107@example.edu
+College: IIT Madras
+CGPA: 7.53
+Skills: Java, MongoDB, Python, Azure, C++
+Projects:
+- Automated Monitoring: Developed Automated Monitoring using Azure, Java, MongoDB; focused on performance and reliability.
+- Predictive Analyzer: Developed Predictive Analyzer using Azure, Python, Java; focused on performance and reliability.
+- Realtime System: Developed Realtime System using Azure, MongoDB, C++; focused on performance and reliability.
+",Java;MongoDB;Python;Azure;C++,2025-04-17
+R0108,S0108,sgupta1108_resume.pdf,"Name: Sakshi Gupta
+Email: sgupta1108@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.21
+Skills: JavaScript, Redux, MATLAB, NumPy
+Projects:
+- Optimized Analyzer: Developed Optimized Analyzer using NumPy, MATLAB, JavaScript; focused on performance and reliability.
+- Predictive Detector: Developed Predictive Detector using JavaScript, Redux, NumPy; focused on performance and reliability.
+",JavaScript;Redux;MATLAB;NumPy,2025-02-14
+R0109,S0109,mrao1109_resume.pdf,"Name: Meena Rao
+Email: mrao1109@example.edu
+College: St. Joseph's College
+CGPA: 9.37
+Skills: Git, Node.js, JavaScript, Java, Azure
+Projects:
+- Predictive System: Developed Predictive System using Java, JavaScript, Node.js; focused on performance and reliability.
+",Git;Node.js;JavaScript;Java;Azure,2025-02-05
+R0110,S0110,psharma1110_resume.pdf,"Name: Pooja Sharma
+Email: psharma1110@example.edu
+College: St. Joseph's College
+CGPA: 5.68
+Skills: TensorFlow, Redux, C, Git
+Projects:
+- Optimized Analyzer: Developed Optimized Analyzer using TensorFlow, Git, Redux; focused on performance and reliability.
+- Predictive Portal: Developed Predictive Portal using Git, TensorFlow, Redux; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using Redux, TensorFlow, Git; focused on performance and reliability.
+",TensorFlow;Redux;C;Git,2025-06-14
+R0111,S0111,ssharma1111_resume.pdf,"Name: Sakshi Sharma
+Email: ssharma1111@example.edu
+College: Anna University
+CGPA: 7.26
+Skills: JavaScript, SQL, TypeScript, Docker, Redux
+Projects:
+- Predictive System: Developed Predictive System using TypeScript, JavaScript, Redux; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using TypeScript, Docker, JavaScript; focused on performance and reliability.
+- Optimized System: Developed Optimized System using JavaScript, SQL, Redux; focused on performance and reliability.
+",JavaScript;SQL;TypeScript;Docker;Redux,2025-07-19
+R0112,S0112,vnair1112_resume.pdf,"Name: Vivaan Nair
+Email: vnair1112@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 5.92
+Skills: HTML, AWS, Pandas, C, NumPy, Python, Django
+Projects:
+- Realtime Monitoring: Developed Realtime Monitoring using Pandas, HTML, C; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using Django, NumPy, AWS; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using AWS, Python, Django; focused on performance and reliability.
+",HTML;AWS;Pandas;C;NumPy;Python;Django,2025-06-14
+R0113,S0113,arao1113_resume.pdf,"Name: Ananya Rao
+Email: arao1113@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 5.8
+Skills: Flask, PyTorch, Git, SQL, MATLAB
+Projects:
+- Realtime System: Developed Realtime System using MATLAB, SQL, Git; focused on performance and reliability.
+- Autonomous Monitoring: Developed Autonomous Monitoring using MATLAB, Git, SQL; focused on performance and reliability.
+",Flask;PyTorch;Git;SQL;MATLAB,2024-12-02
+R0114,S0114,ldutta1114_resume.pdf,"Name: Lakshmi Dutta
+Email: ldutta1114@example.edu
+College: Vellore Institute of Technology
+CGPA: 6.55
+Skills: REST, Flask, GraphQL, Pandas, MATLAB, Git
+Projects:
+- Autonomous Dashboard: Developed Autonomous Dashboard using Pandas, GraphQL, MATLAB; focused on performance and reliability.
+- Predictive Analyzer: Developed Predictive Analyzer using Pandas, REST, Flask; focused on performance and reliability.
+- Automated Dashboard: Developed Automated Dashboard using Git, Flask, Pandas; focused on performance and reliability.
+",REST;Flask;GraphQL;Pandas;MATLAB;Git,2024-11-20
+R0115,S0115,srao1115_resume.pdf,"Name: Sakshi Rao
+Email: srao1115@example.edu
+College: Vellore Institute of Technology
+CGPA: 7.17
+Skills: NumPy, GraphQL, Postgres, Pandas, C++
+Projects:
+- Automated Analyzer: Developed Automated Analyzer using NumPy, Pandas, C++; focused on performance and reliability.
+- Realtime System: Developed Realtime System using C++, NumPy, GraphQL; focused on performance and reliability.
+- Smart System: Developed Smart System using NumPy, Pandas, Postgres; focused on performance and reliability.
+",NumPy;GraphQL;Postgres;Pandas;C++,2025-05-30
+R0116,S0116,apatel1116_resume.pdf,"Name: Ananya Patel
+Email: apatel1116@example.edu
+College: MIT
+CGPA: 9.54
+Skills: Postgres, REST, MATLAB, React, Redux
+Projects:
+- Smart Portal: Developed Smart Portal using Redux, REST, React; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using Redux, React, MATLAB; focused on performance and reliability.
+",Postgres;REST;MATLAB;React;Redux,2025-03-24
+R0117,S0117,nkhan1117_resume.pdf,"Name: Neha Khan
+Email: nkhan1117@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 5.92
+Skills: GraphQL, Postgres, Redux, Linux
+Projects:
+- Automated Portal: Developed Automated Portal using GraphQL, Postgres, Redux; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using GraphQL, Postgres, Redux; focused on performance and reliability.
+",GraphQL;Postgres;Redux;Linux,2025-03-10
+R0118,S0118,sdutta1118_resume.pdf,"Name: Sneha Dutta
+Email: sdutta1118@example.edu
+College: BITS Pilani
+CGPA: 9.58
+Skills: Redux, Node.js, React, Git, AWS, Python
+Projects:
+- Realtime Monitoring: Developed Realtime Monitoring using Git, React, Redux; focused on performance and reliability.
+- Optimized Monitoring: Developed Optimized Monitoring using Python, Redux, AWS; focused on performance and reliability.
+- Autonomous Dashboard: Developed Autonomous Dashboard using Redux, Git, AWS; focused on performance and reliability.
+",Redux;Node.js;React;Git;AWS;Python,2025-04-18
+R0119,S0119,amurthy1119_resume.pdf,"Name: Arjun Murthy
+Email: amurthy1119@example.edu
+College: Vellore Institute of Technology
+CGPA: 8.15
+Skills: Azure, NumPy, C, REST, HTML, Flask
+Projects:
+- Optimized Portal: Developed Optimized Portal using C, HTML, NumPy; focused on performance and reliability.
+",Azure;NumPy;C;REST;HTML;Flask,2025-04-29
+R0120,S0120,achowdhury1120_resume.pdf,"Name: Ananya Chowdhury
+Email: achowdhury1120@example.edu
+College: MIT
+CGPA: 9.29
+Skills: Python, NumPy, C++, C, Linux
+Projects:
+- Automated Detector: Developed Automated Detector using C, Python, Linux; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using C++, Linux, C; focused on performance and reliability.
+",Python;NumPy;C++;C;Linux,2025-05-22
+R0121,S0121,aiyer1121_resume.pdf,"Name: Ananya Iyer
+Email: aiyer1121@example.edu
+College: PSG College of Technology
+CGPA: 7.98
+Skills: GraphQL, Docker, PyTorch, Flask, TypeScript, C++
+Projects:
+- Predictive Analyzer: Developed Predictive Analyzer using C++, Docker, GraphQL; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using C++, GraphQL, Docker; focused on performance and reliability.
+- Autonomous Analyzer: Developed Autonomous Analyzer using TypeScript, Flask, C++; focused on performance and reliability.
+",GraphQL;Docker;PyTorch;Flask;TypeScript;C++,2025-07-29
+R0122,S0122,lbose1122_resume.pdf,"Name: Lakshmi Bose
+Email: lbose1122@example.edu
+College: Anna University
+CGPA: 5.52
+Skills: Java, C++, Flask, Pandas, Postgres, Python, MATLAB
+Projects:
+- Optimized System: Developed Optimized System using Java, MATLAB, C++; focused on performance and reliability.
+",Java;C++;Flask;Pandas;Postgres;Python;MATLAB,2025-02-13
+R0123,S0123,knaidu1123_resume.pdf,"Name: Kavya Naidu
+Email: knaidu1123@example.edu
+College: MIT
+CGPA: 6.52
+Skills: HTML, Django, CSS, Pandas
+Projects:
+- Autonomous Analyzer: Developed Autonomous Analyzer using Pandas, Django, HTML; focused on performance and reliability.
+- Predictive Dashboard: Developed Predictive Dashboard using HTML, Pandas, Django; focused on performance and reliability.
+",HTML;Django;CSS;Pandas,2025-04-01
+R0124,S0124,vmurthy1124_resume.pdf,"Name: Vivaan Murthy
+Email: vmurthy1124@example.edu
+College: BITS Pilani
+CGPA: 7.59
+Skills: MongoDB, Linux, Java, Django, Docker, Postgres
+Projects:
+- Realtime Detector: Developed Realtime Detector using Docker, Postgres, Java; focused on performance and reliability.
+- Realtime Monitoring: Developed Realtime Monitoring using MongoDB, Linux, Django; focused on performance and reliability.
+",MongoDB;Linux;Java;Django;Docker;Postgres,2025-08-19
+R0125,S0125,aiyer1125_resume.pdf,"Name: Ananya Iyer
+Email: aiyer1125@example.edu
+College: Vellore Institute of Technology
+CGPA: 6.81
+Skills: MATLAB, Postgres, C, Redux, Azure
+Projects:
+- Autonomous System: Developed Autonomous System using Redux, Azure, C; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using Azure, Postgres, C; focused on performance and reliability.
+- Smart Monitoring: Developed Smart Monitoring using Redux, C, Azure; focused on performance and reliability.
+",MATLAB;Postgres;C;Redux;Azure,2025-04-16
+R0126,S0126,adutta1126_resume.pdf,"Name: Ananya Dutta
+Email: adutta1126@example.edu
+College: IIT Madras
+CGPA: 7.08
+Skills: Azure, PyTorch, MATLAB, GraphQL, TypeScript
+Projects:
+- Smart Dashboard: Developed Smart Dashboard using PyTorch, MATLAB, GraphQL; focused on performance and reliability.
+- Autonomous Detector: Developed Autonomous Detector using TypeScript, GraphQL, MATLAB; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using GraphQL, MATLAB, PyTorch; focused on performance and reliability.
+",Azure;PyTorch;MATLAB;GraphQL;TypeScript,2025-10-23
+R0127,S0127,siyer1127_resume.pdf,"Name: Sneha Iyer
+Email: siyer1127@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 5.26
+Skills: SQL, NumPy, Flask, JavaScript, Linux
+Projects:
+- Realtime System: Developed Realtime System using NumPy, JavaScript, SQL; focused on performance and reliability.
+- Optimized Dashboard: Developed Optimized Dashboard using Flask, SQL, NumPy; focused on performance and reliability.
+- Predictive Analyzer: Developed Predictive Analyzer using Flask, SQL, JavaScript; focused on performance and reliability.
+",SQL;NumPy;Flask;JavaScript;Linux,2025-06-23
+R0128,S0128,kdutta1128_resume.pdf,"Name: Karthik Dutta
+Email: kdutta1128@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 7.78
+Skills: Docker, React, NumPy, C++, REST, Redux
+Projects:
+- Automated Monitoring: Developed Automated Monitoring using NumPy, C++, React; focused on performance and reliability.
+- Autonomous Portal: Developed Autonomous Portal using NumPy, REST, Docker; focused on performance and reliability.
+- Realtime System: Developed Realtime System using Redux, NumPy, C++; focused on performance and reliability.
+",Docker;React;NumPy;C++;REST;Redux,2025-01-09
+R0129,S0129,dmenon1129_resume.pdf,"Name: Divya Menon
+Email: dmenon1129@example.edu
+College: PSG College of Technology
+CGPA: 5.31
+Skills: Azure, CSS, AWS, C++, MongoDB
+Projects:
+- Predictive System: Developed Predictive System using Azure, MongoDB, AWS; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using CSS, MongoDB, Azure; focused on performance and reliability.
+- Realtime Detector: Developed Realtime Detector using C++, Azure, CSS; focused on performance and reliability.
+",Azure;CSS;AWS;C++;MongoDB,2025-06-20
+R0130,S0130,dchowdhury1130_resume.pdf,"Name: Divya Chowdhury
+Email: dchowdhury1130@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 6.36
+Skills: HTML, C++, C, React, Redux, CSS
+Projects:
+- Realtime Analyzer: Developed Realtime Analyzer using CSS, HTML, C++; focused on performance and reliability.
+- Autonomous Analyzer: Developed Autonomous Analyzer using CSS, C, HTML; focused on performance and reliability.
+- Autonomous Monitoring: Developed Autonomous Monitoring using HTML, C++, C; focused on performance and reliability.
+",HTML;C++;C;React;Redux;CSS,2025-01-17
+R0131,S0131,averma1131_resume.pdf,"Name: Aditya Verma
+Email: averma1131@example.edu
+College: IIT Madras
+CGPA: 7.9
+Skills: Python, AWS, NumPy, C, CSS, GraphQL
+Projects:
+- Predictive Analyzer: Developed Predictive Analyzer using C, Python, GraphQL; focused on performance and reliability.
+- Smart System: Developed Smart System using AWS, GraphQL, C; focused on performance and reliability.
+",Python;AWS;NumPy;C;CSS;GraphQL,2025-01-23
+R0132,S0132,rkumar1132_resume.pdf,"Name: Rahul Kumar
+Email: rkumar1132@example.edu
+College: Vellore Institute of Technology
+CGPA: 5.19
+Skills: SQL, Node.js, TypeScript, GraphQL
+Projects:
+- Optimized Detector: Developed Optimized Detector using Node.js, SQL, TypeScript; focused on performance and reliability.
+",SQL;Node.js;TypeScript;GraphQL,2024-11-20
+R0133,S0133,mpatel1133_resume.pdf,"Name: Meena Patel
+Email: mpatel1133@example.edu
+College: BITS Pilani
+CGPA: 5.31
+Skills: TypeScript, TensorFlow, Kubernetes, Postgres, MongoDB
+Projects:
+- Predictive Detector: Developed Predictive Detector using MongoDB, Kubernetes, Postgres; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using MongoDB, Kubernetes, TensorFlow; focused on performance and reliability.
+",TypeScript;TensorFlow;Kubernetes;Postgres;MongoDB,2025-03-24
+R0134,S0134,ksharma1134_resume.pdf,"Name: Krishna Sharma
+Email: ksharma1134@example.edu
+College: Anna University
+CGPA: 8.86
+Skills: GraphQL, Kubernetes, Docker, Linux, MongoDB, SQL
+Projects:
+- Autonomous Monitoring: Developed Autonomous Monitoring using MongoDB, GraphQL, Linux; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using GraphQL, MongoDB, Docker; focused on performance and reliability.
+- Optimized System: Developed Optimized System using Linux, Kubernetes, Docker; focused on performance and reliability.
+",GraphQL;Kubernetes;Docker;Linux;MongoDB;SQL,2025-04-12
+R0135,S0135,sverma1135_resume.pdf,"Name: Sanjay Verma
+Email: sverma1135@example.edu
+College: Vellore Institute of Technology
+CGPA: 5.42
+Skills: NumPy, Django, REST, Git
+Projects:
+- Realtime Portal: Developed Realtime Portal using Git, Django, NumPy; focused on performance and reliability.
+- Smart Analyzer: Developed Smart Analyzer using Django, NumPy, Git; focused on performance and reliability.
+- Automated Portal: Developed Automated Portal using NumPy, REST, Git; focused on performance and reliability.
+",NumPy;Django;REST;Git,2025-02-06
+R0136,S0136,sbose1136_resume.pdf,"Name: Sakshi Bose
+Email: sbose1136@example.edu
+College: Amrita Vishwa Vidyapeetham
+CGPA: 6.49
+Skills: Linux, TypeScript, Flask, TensorFlow, CSS, Git
+Projects:
+- Automated Detector: Developed Automated Detector using TensorFlow, Git, Linux; focused on performance and reliability.
+- Optimized Portal: Developed Optimized Portal using TensorFlow, TypeScript, CSS; focused on performance and reliability.
+",Linux;TypeScript;Flask;TensorFlow;CSS;Git,2025-09-20
+R0137,S0137,sdas1137_resume.pdf,"Name: Sneha Das
+Email: sdas1137@example.edu
+College: IIT Madras
+CGPA: 7.77
+Skills: Azure, Git, Postgres, TypeScript, C
+Projects:
+- Smart System: Developed Smart System using C, Git, Azure; focused on performance and reliability.
+",Azure;Git;Postgres;TypeScript;C,2024-12-11
+R0138,S0138,spatel1138_resume.pdf,"Name: Sneha Patel
+Email: spatel1138@example.edu
+College: St. Joseph's College
+CGPA: 9.24
+Skills: PyTorch, TensorFlow, Pandas, Python, TypeScript, Redux, NumPy
+Projects:
+- Smart System: Developed Smart System using NumPy, TensorFlow, TypeScript; focused on performance and reliability.
+- Realtime System: Developed Realtime System using Pandas, TensorFlow, NumPy; focused on performance and reliability.
+- Predictive System: Developed Predictive System using TypeScript, PyTorch, TensorFlow; focused on performance and reliability.
+",PyTorch;TensorFlow;Pandas;Python;TypeScript;Redux;NumPy,2025-04-19
+R0139,S0139,nkumar1139_resume.pdf,"Name: Neha Kumar
+Email: nkumar1139@example.edu
+College: PSG College of Technology
+CGPA: 9.18
+Skills: PyTorch, C, React, Kubernetes, GraphQL
+Projects:
+- Predictive Detector: Developed Predictive Detector using PyTorch, Kubernetes, GraphQL; focused on performance and reliability.
+- Predictive Analyzer: Developed Predictive Analyzer using React, PyTorch, C; focused on performance and reliability.
+- Smart Detector: Developed Smart Detector using Kubernetes, C, PyTorch; focused on performance and reliability.
+",PyTorch;C;React;Kubernetes;GraphQL,2025-06-06
+R0140,S0140,lmurthy1140_resume.pdf,"Name: Lakshmi Murthy
+Email: lmurthy1140@example.edu
+College: College of Engineering Guindy
+CGPA: 8.42
+Skills: HTML, Python, AWS, Pandas
+Projects:
+- Realtime System: Developed Realtime System using AWS, Python, Pandas; focused on performance and reliability.
+- Optimized Detector: Developed Optimized Detector using AWS, Pandas, Python; focused on performance and reliability.
+",HTML;Python;AWS;Pandas,2025-07-17
+R0141,S0141,amurthy1141_resume.pdf,"Name: Ananya Murthy
+Email: amurthy1141@example.edu
+College: BITS Pilani
+CGPA: 7.55
+Skills: TensorFlow, MongoDB, Redux, MATLAB, AWS, TypeScript
+Projects:
+- Automated System: Developed Automated System using AWS, TensorFlow, MongoDB; focused on performance and reliability.
+- Predictive Dashboard: Developed Predictive Dashboard using TensorFlow, TypeScript, MongoDB; focused on performance and reliability.
+",TensorFlow;MongoDB;Redux;MATLAB;AWS;TypeScript,2025-03-02
+R0142,S0142,lkhan1142_resume.pdf,"Name: Lakshmi Khan
+Email: lkhan1142@example.edu
+College: PSG College of Technology
+CGPA: 5.37
+Skills: AWS, PyTorch, Pandas, HTML, SQL, MATLAB, REST
+Projects:
+- Optimized System: Developed Optimized System using MATLAB, PyTorch, SQL; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using AWS, Pandas, PyTorch; focused on performance and reliability.
+- Realtime Monitoring: Developed Realtime Monitoring using PyTorch, AWS, Pandas; focused on performance and reliability.
+",AWS;PyTorch;Pandas;HTML;SQL;MATLAB;REST,2025-04-08
+R0143,S0143,sbose1143_resume.pdf,"Name: Sakshi Bose
+Email: sbose1143@example.edu
+College: College of Engineering Guindy
+CGPA: 7.53
+Skills: MongoDB, Linux, Flask, Django, PyTorch, Node.js
+Projects:
+- Automated Detector: Developed Automated Detector using MongoDB, PyTorch, Flask; focused on performance and reliability.
+- Optimized System: Developed Optimized System using Flask, Django, PyTorch; focused on performance and reliability.
+- Optimized Analyzer: Developed Optimized Analyzer using Linux, Flask, Django; focused on performance and reliability.
+",MongoDB;Linux;Flask;Django;PyTorch;Node.js,2024-11-15
+R0144,S0144,pverma1144_resume.pdf,"Name: Pooja Verma
+Email: pverma1144@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 6.76
+Skills: Git, Postgres, Azure, MongoDB, HTML
+Projects:
+- Optimized Portal: Developed Optimized Portal using MongoDB, Azure, Postgres; focused on performance and reliability.
+",Git;Postgres;Azure;MongoDB;HTML,2025-07-10
+R0145,S0145,mdas1145_resume.pdf,"Name: Meena Das
+Email: mdas1145@example.edu
+College: MIT
+CGPA: 8.38
+Skills: Django, Node.js, Linux, PyTorch, MongoDB
+Projects:
+- Automated System: Developed Automated System using Linux, PyTorch, MongoDB; focused on performance and reliability.
+- Automated Analyzer: Developed Automated Analyzer using Node.js, Linux, MongoDB; focused on performance and reliability.
+",Django;Node.js;Linux;PyTorch;MongoDB,2025-07-08
+R0146,S0146,mkumar1146_resume.pdf,"Name: Meena Kumar
+Email: mkumar1146@example.edu
+College: SRM Institute of Science and Technology
+CGPA: 7.31
+Skills: Docker, C, MATLAB, HTML, Postgres
+Projects:
+- Smart System: Developed Smart System using MATLAB, C, HTML; focused on performance and reliability.
+- Predictive System: Developed Predictive System using MATLAB, Postgres, Docker; focused on performance and reliability.
+",Docker;C;MATLAB;HTML;Postgres,2025-02-16
+R0147,S0147,asingh1147_resume.pdf,"Name: Ananya Singh
+Email: asingh1147@example.edu
+College: College of Engineering Guindy
+CGPA: 7.07
+Skills: Linux, C, TypeScript, Flask, Git
+Projects:
+- Predictive Analyzer: Developed Predictive Analyzer using C, TypeScript, Git; focused on performance and reliability.
+",Linux;C;TypeScript;Flask;Git,2025-05-29
+R0148,S0148,rmurthy1148_resume.pdf,"Name: Ravi Murthy
+Email: rmurthy1148@example.edu
+College: St. Joseph's College
+CGPA: 5.75
+Skills: Kubernetes, Linux, Pandas, C, Docker, TypeScript
+Projects:
+- Automated Dashboard: Developed Automated Dashboard using Docker, Linux, TypeScript; focused on performance and reliability.
+",Kubernetes;Linux;Pandas;C;Docker;TypeScript,2025-06-06
+R0149,S0149,sjoshi1149_resume.pdf,"Name: Sakshi Joshi
+Email: sjoshi1149@example.edu
+College: BITS Pilani
+CGPA: 7.82
+Skills: REST, React, Pandas, Git, Postgres
+Projects:
+- Realtime Detector: Developed Realtime Detector using Pandas, Git, React; focused on performance and reliability.
+- Predictive Detector: Developed Predictive Detector using Postgres, Git, React; focused on performance and reliability.
+",REST;React;Pandas;Git;Postgres,2025-08-05
+R0150,S0150,ksharma1150_resume.pdf,"Name: Krishna Sharma
+Email: ksharma1150@example.edu
+College: MIT
+CGPA: 5.77
+Skills: C++, GraphQL, Kubernetes, CSS
+Projects:
+- Smart Monitoring: Developed Smart Monitoring using CSS, GraphQL, C++; focused on performance and reliability.
+- Smart Dashboard: Developed Smart Dashboard using Kubernetes, GraphQL, C++; focused on performance and reliability.
+- Smart System: Developed Smart System using GraphQL, C++, Kubernetes; focused on performance and reliability.
+",C++;GraphQL;Kubernetes;CSS,2024-11-24

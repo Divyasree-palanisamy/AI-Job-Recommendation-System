@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Smart Career Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #60a5fa;
+            --danger: #ef4444;
+            --success: #22c55e;
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-mode {
+            --bg-dark: #f8fafc;
+            --bg-card: #ffffff;
+            --text-light: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body.light-mode .sidebar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body.light-mode .sidebar-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.light-mode .nav-item {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        body.light-mode .nav-item:hover,
+        body.light-mode .nav-item.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        body.light-mode .main-content {
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        body.light-mode .card {
+            background: white;
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        body.light-mode .btn {
+            border: 1px solid #d1d5db;
+        }
+
+        body.light-mode .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-color: #3b82f6;
+        }
+
+        body.light-mode .theme-toggle {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fix logout button visibility in light mode */
+        body.light-mode a[href="/logout"] {
+            color: #dc2626 !important;
+        }
+
+        body.light-mode a[href="/logout"]:hover {
+            color: #b91c1c !important;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+            font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-card);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+      text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+      text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-light);
+            background: rgba(37, 99, 235, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label { font-size: 0.8rem; color: var(--text-muted); }
+
+        input, textarea, select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(15, 23, 42, 0.5);
+            color: white;
+      outline: none;
+    }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-danger { background: var(--danger); color: white; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        th { color: var(--text-muted); font-weight: 500; }
+
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+        /* Admin Specific Improvements */
+        .sidebar-header h3 { color: var(--accent); font-size: 1.3rem; }
+        
+        .admin-table {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .admin-table th {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .admin-table td {
+            color: var(--text-light);
+            vertical-align: middle;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .btn-edit { background: #f59e0b; color: white; }
+        .btn-edit:hover { background: #d97706; }
+
+        /* Modal / Edit Form Styling */
+        #editModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            width: 500px;
+            max-width: 90%;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Professional Analytics Dashboard */
+        .analytics-grid {
+      display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+        .analytics-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .analytics-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #f59e0b, #ff6b9d);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .analytics-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trend-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .trend-year {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            position: relative;
+        }
+
+        .analytics-visual {
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-circles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 80px;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+
+        .circle-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                rgba(255, 255, 255, 0.1) 0deg,
+                rgba(255, 255, 255, 0.1) 360deg
+            );
+        }
+
+        .circle-progress {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #2563eb 0deg,
+                #f59e0b var(--progress),
+                rgba(255, 255, 255, 0.1) var(--progress),
+                rgba(255, 255, 255, 0.1) 360deg
+            );
+            mask: radial-gradient(circle at center, transparent 45%, black 47%);
+            -webkit-mask: radial-gradient(circle at center, transparent 45%, black 47%);
+            transition: all 1.2s ease;
+        }
+
+        .circle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f59e0b;
+        }
+
+        .skill-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            max-width: 80px;
+            line-height: 1.2;
+        }
+
+        .trend-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trend-industry {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        .analytics-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-placeholder i {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            opacity: 0.6;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .sidebar {
+                width: 220px; /* Wider to show labels */
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                position: fixed;
+                height: 100vh;
+                z-index: 1000;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+  </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle Button -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="sidebar-overlay" onclick="closeMobileMenu()"></div>
+
+    <div id="editModal">
+        <div class="modal-content">
+            <h3 class="section-title" id="modalTitle">Edit Course</h3>
+            <form action="/admin" method="POST">
+                <input type="hidden" name="action" id="modalAction" value="edit_course">
+                <input type="hidden" name="id_field" id="modalId">
+                <div id="modalFields">
+                    <!-- Dynamic fields -->
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Admin Panel</h3>
+        </div>
+        <nav class="nav-links">
+            <a onclick="showTab('jobs')" class="nav-item active" id="nav-jobs">
+                <i class="fas fa-briefcase"></i> <span>Manage Jobs</span>
+            </a>
+            <a onclick="showTab('courses')" class="nav-item" id="nav-courses">
+                <i class="fas fa-book"></i> <span>Manage Courses</span>
+            </a>
+            <a onclick="showTab('videos')" class="nav-item" id="nav-videos">
+                <i class="fas fa-video"></i> <span>Manage Videos</span>
+            </a>
+            <a onclick="showTab('trends')" class="nav-item" id="nav-trends">
+                <i class="fas fa-chart-line"></i> <span>Job Trends</span>
+            </a>
+            <a onclick="showTab('students')" class="nav-item" id="nav-students">
+                <i class="fas fa-users"></i> <span>Students</span>
+            </a>
+        </nav>
+        <div style="padding: 20px;">
+            <a href="/logout" style="color: var(--danger); text-decoration: none;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="card" style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid var(--success); padding: 10px; margin-bottom: 15px;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Theme Toggle -->
+        <div style="position: fixed; top: 20px; right: 20px; z-index: 1001;">
+            <button class="theme-toggle" onclick="toggleTheme()" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--text-light); transition: all 0.3s ease;">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- JOBS TAB -->
+        <div id="jobs" class="tab-content active">
+            <div class="card">
+                <h3 class="section-title">💼 Add New Job</h3>
+                <form action="/admin" method="POST">
+                    <input type="hidden" name="action" value="add_job">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group"><input type="text" name="title" placeholder="Job Title" required></div>
+                        <div class="form-group"><input type="text" name="application_link" placeholder="Apply URL"></div>
+                    </div>
+                    <div class="form-group"><input type="text" name="required_skills" placeholder="Skills (comma-separated)" required></div>
+                    <div class="form-group"><textarea name="description" placeholder="Job Description" rows="3" required></textarea></div>
+                    <button type="submit" class="btn btn-primary">Post Job</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3 class="section-title">📋 Existing Jobs</h3>
+                <table class="admin-table">
+                    <thead><tr><th>Title</th><th>Company</th><th>Skills</th><th>Link</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        {% for j in jobs %}
+                        <tr>
+                            <td>{{ j[1] }}</td>
+                            <td>{{ j[4] }}</td>
+                            <td>{{ j[3] }}</td>
+                            <td>{% if j[5] %}<a href="{{ j[5] }}" target="_blank" style="color: var(--accent);">View Link</a>{% else %}None{% endif %}</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button data-job-id="{{ j[0] }}" data-job-title="{{ j[1] }}" data-job-link="{{ j[5] or '' }}" data-job-skills="{{ j[3] }}" data-job-desc="{{ j[2] }}" onclick="openEditJobModal(this.dataset.jobId, this.dataset.jobTitle, this.dataset.jobLink, this.dataset.jobSkills, this.dataset.jobDesc)" class="btn btn-edit btn-sm">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <a href="/delete/job/{{ j[0] }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this job?')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="courses" class="tab-content">
+            <div class="card">
+                <h3 class="section-title">🎓 Add New Course</h3>
+  <form action="/admin" method="POST">
+                    <input type="hidden" name="action" value="add_course">
+                    <div class="form-group"><input type="text" name="title" placeholder="Course Title" required></div>
+                    <div class="form-group"><input type="text" name="category" placeholder="Category (e.g. Programming, Soft Skills)" required></div>
+                    <div class="form-group"><input type="text" name="course_link" placeholder="Course Enrollment Link (URL)" required></div>
+                    <div class="form-group"><textarea name="description" placeholder="Short Description" required></textarea></div>
+                    <button type="submit" class="btn btn-primary">Add Course</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3 class="section-title">📖 Existing Courses</h3>
+                <table class="admin-table">
+                    <thead><tr><th>Title</th><th>Category</th><th>Link</th><th>Action</th></tr></thead>
+                    <tbody>
+                        {% for c in courses %}
+                        <tr>
+                            <td>{{ c[1] }}</td>
+                            <td>{{ c[3] }}</td>
+                            <td><a href="{{ c[4] }}" target="_blank" style="color: var(--accent);">Visit Link</a></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button data-course-id="{{ c[0] }}" data-course-title="{{ c[1] }}" data-course-category="{{ c[3] }}" data-course-desc="{{ c[2] }}" data-course-link="{{ c[4] or '' }}" onclick="openEditModal(this.dataset.courseId, this.dataset.courseTitle, this.dataset.courseCategory, this.dataset.courseDesc, this.dataset.courseLink)" class="btn btn-edit btn-sm">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <a href="/delete/course/{{ c[0] }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this course?')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="videos" class="tab-content">
+            <div class="card">
+                <h3 class="section-title">🎬 Add Video Module</h3>
+                <form action="/admin" method="POST">
+                    <input type="hidden" name="action" value="add_video">
+                    <div class="form-group">
+                        <label>Link to Course (Optional)</label>
+                        <select name="course_id">
+                            <option value="">General / No Course</option>
+                            {% for c in courses %}<option value="{{ c[0] }}">{{ c[1] }}</option>{% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Video Title</label>
+                        <input type="text" name="video_title" placeholder="e.g. Intro to Python" required>
+                    </div>
+                    <div class="form-group">
+                        <label>YouTube Embed URL</label>
+                        <input type="text" name="video_url" placeholder="https://www.youtube.com/embed/..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Video Category</label>
+                        <select name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Communication Training">Communication Training</option>
+                            <option value="Placement Preparation">Placement Preparation</option>
+                            <option value="Recommended Videos">Recommended Videos</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Video</button>
+  </form>
+            </div>
+            <div class="card">
+                <h3 class="section-title">🎞️ Existing Videos</h3>
+                <table class="admin-table">
+                    <thead><tr><th>Title</th><th>Course</th><th>Link</th><th>Action</th></tr></thead>
+                    <tbody>
+                        {% for v in videos %}
+                        <tr>
+                            <td>{{ v[2] }}</td>
+                            <td>{{ v[5] if v[5] else 'General' }}</td>
+                            <td><a href="{{ v[3] }}" target="_blank" style="color: var(--accent);">Watch</a></td>
+                            <td><a href="/delete/video/{{ v[0] }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this video?')"><i class="fas fa-trash"></i> Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TRENDS TAB -->
+        <div id="trends" class="tab-content">
+            <div class="card">
+                <h3 class="section-title">📊 Add Job Trend</h3>
+  <form action="/admin" method="POST">
+                    <input type="hidden" name="action" value="add_trend">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <input type="text" name="job_role" placeholder="Trending Role" required>
+                        <input type="text" name="industry" placeholder="Industry" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                        <input type="text" name="trending_skills" placeholder="Key Skills" required>
+                        <input type="text" name="year" placeholder="Year" value="2025" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Add Trend</button>
+  </form>
+            </div>
+            <!-- Existing Trends Analytics Display -->
+            <div class="card">
+                <h3 class="section-title">📊 Trends Analytics & Management</h3>
+
+                {% if trends %}
+                <div class="analytics-grid" style="margin-top: 20px;">
+                    {% for trend in trends %}
+                    <div class="analytics-card">
+                        <div class="analytics-header">
+                            <div class="trend-title">
+                                <i class="fas fa-rocket" style="margin-right: 8px; opacity: 0.8;"></i>
+                                {{ trend[1] }}
+                            </div>
+  </div>
+
+                        <div class="analytics-visual">
+                            <div class="skill-circles">
+                                {% set skills = trend[3].split(',') %}
+                                {% for skill in skills[:3] %}
+                                    {% set percentage = range(75, 96)|random %}
+                                    <div class="skill-circle">
+                                        <div class="circle-container">
+                                            <div class="circle-background"></div>
+                                            <div class="circle-progress" style="--progress: {{ percentage }}deg;"></div>
+                                            <div class="circle-center">{{ percentage }}%</div>
+                                        </div>
+                                        <div class="skill-label">{{ skill.strip() }}</div>
+                                    </div>
+    {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="trend-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">{{ range(50, 200)|random }}K</span>
+                                <span class="stat-label">Jobs</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${{ range(80, 150)|random }}K</span>
+                                <span class="stat-label">Avg Salary</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">+{{ range(15, 35)|random }}%</span>
+                                <span class="stat-label">Growth</span>
+                            </div>
+                        </div>
+
+                        <div class="trend-industry">
+                            <i class="fas fa-building"></i> {{ trend[2] }}
+  </div>
+
+                        <!-- Admin Action Button & Year -->
+                        <div style="position: absolute; top: 15px; right: 15px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+                            <a href="/delete/trend/{{ trend[0] }}"
+                               class="btn btn-danger btn-sm"
+                               style="padding: 4px 8px; font-size: 0.75rem;"
+                               onclick="return confirm('Delete this trend?')">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                            <div style="background: linear-gradient(135deg, #ff6b9d, #c44569); color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.65rem; font-weight: 600; box-shadow: 0 2px 8px rgba(255, 107, 157, 0.3);">
+                                {{ trend[4] }}
+                            </div>
+                        </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+                <div class="analytics-placeholder">
+                    <div style="position: relative;">
+                        <i class="fas fa-chart-line"></i>
+                        <div style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; opacity: 0.6;"></div>
+                        <div style="position: absolute; top: -5px; right: 15px; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; opacity: 0.4;"></div>
+                    </div>
+                    <h4 style="color: var(--text-muted); margin: 15px 0 10px 0;">No Trends Added Yet</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Add your first job trend using the form above to see analytics!</p>
+                </div>
+    {% endif %}
+  </div>
+        </div>
+
+        <!-- STUDENTS TAB -->
+        <div id="students" class="tab-content">
+            <div class="card">
+                <h3 class="section-title">🎓 Registered Student Profiles</h3>
+                <table>
+                    <thead><tr><th>Name</th><th>College</th><th>Skills</th><th>Action</th></tr></thead>
+                    <tbody>
+                        {% for s in students %}
+                        <tr><td>{{ s[2] }}</td><td>{{ s[4] }}</td><td>{{ s[7] }}</td>
+                        <td><a href="/delete/student/{{ s[0] }}" class="btn btn-danger">Delete Profile</a></td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3 class="section-title">🔐 All Student Users (Auth Accounts)</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Action</th></tr></thead>
+                    <tbody>
+                        {% for u in users %}
+                        <tr><td>{{ u[0] }}</td><td>{{ u[1] }}</td><td>{{ u[2] }}</td>
+                        <td><a href="/delete/user/{{ u[0] }}" class="btn btn-danger">Delete Account</a></td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('nav-' + tabId).classList.add('active');
+        }
+
+        function openEditModal(id, title, category, desc, link) {
+            const modal = document.getElementById('editModal');
+            document.getElementById('modalTitle').innerText = "Edit Course";
+            document.getElementById('modalAction').value = "edit_course";
+            document.getElementById('modalId').name = "course_id";
+            document.getElementById('modalId').value = id;
+            
+            document.getElementById('modalFields').innerHTML = `
+                <div class="form-group">
+                    <label>Course Title</label>
+                    <input type="text" name="title" value="${title}" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" name="category" value="${category}" required>
+                </div>
+                <div class="form-group">
+                    <label>Course Link</label>
+                    <input type="text" name="course_link" value="${link}" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="4" required>${desc}</textarea>
+                </div>
+            `;
+            modal.style.display = 'flex';
+        }
+
+        function openEditJobModal(id, title, link, skills, desc) {
+            const modal = document.getElementById('editModal');
+            document.getElementById('modalTitle').innerText = "Edit Job";
+            document.getElementById('modalAction').value = "edit_job";
+            document.getElementById('modalId').name = "job_id";
+            document.getElementById('modalId').value = id;
+            
+            document.getElementById('modalFields').innerHTML = `
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" name="title" value="${title}" required>
+                </div>
+                <div class="form-group">
+                    <label>Apply URL</label>
+                    <input type="text" name="application_link" value="${link}">
+                </div>
+                <div class="form-group">
+                    <label>Skills (comma separated)</label>
+                    <input type="text" name="required_skills" value="${skills}" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="4" required>${desc}</textarea>
+                </div>
+            `;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editModal')) {
+                closeModal();
+            }
+        }
+
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
