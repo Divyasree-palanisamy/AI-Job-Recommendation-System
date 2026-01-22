@@ -3440,11 +3440,14 @@
             } else if (hash) {
                 showSection(hash);
             }
-            
-            {% if needs_profile and not session.get('show_first_login_alert') %}
-            showSection('profile');
-            {% endif %}
         }
+
+        // Initialize profile section if needed
+        {% if needs_profile and not session.get('show_first_login_alert') %}
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('profile');
+        });
+        {% endif %}
 
         // Profile Alert Functions
         function scrollToProfile() {
