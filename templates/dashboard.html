@@ -3443,13 +3443,25 @@
         }
 
         // Initialize profile section if needed
-        {% if needs_profile and not session.get('show_first_login_alert') %}
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('profile');
-        });
-        {% endif %}
+        initializeProfileSection();
 
         // Profile Alert Functions
+        {% if needs_profile and not session.get('show_first_login_alert') %}
+        function initializeProfileSection() {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    showSection('profile');
+                });
+            } else {
+                showSection('profile');
+            }
+        }
+        {% else %}
+        function initializeProfileSection() {
+            // No profile initialization needed
+        }
+        {% endif %}
+
         function scrollToProfile() {
             showSection('profile');
             dismissAlert();
