@@ -701,6 +701,36 @@
             color: #ef4444 !important;
         }
 
+        /* Hide browser validation messages */
+        input:invalid,
+        textarea:invalid,
+        select:invalid {
+            box-shadow: none !important;
+        }
+
+        input:invalid:not(:focus),
+        textarea:invalid:not(:focus),
+        select:invalid:not(:focus) {
+            border-color: var(--border) !important;
+        }
+
+        /* Hide validation tooltips */
+        input::-webkit-validation-bubble,
+        textarea::-webkit-validation-bubble,
+        select::-webkit-validation-bubble {
+            display: none !important;
+        }
+
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+            color: var(--text-muted) !important;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: var(--text-muted) !important;
+        }
+
         /* Profile Form Styles */
         .form-grid {
             display: grid;
@@ -754,6 +784,38 @@
         .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
         .btn-danger { background-color: var(--danger); color: white; }
         .btn-success { background-color: var(--success); color: white; }
+
+        /* Dynamic styles for progress bars */
+        .progress-fill-dynamic {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Dynamic styles for course tabs */
+        .course-tab-active {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .course-tab-inactive {
+            background: rgba(255,255,255,0.1) !important;
+            color: var(--text) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+        }
+
+        /* Dynamic styles for category display */
+        .category-visible {
+            display: block !important;
+            transition: all 0.3s ease;
+        }
+
+        .category-hidden {
+            display: none !important;
+            transition: all 0.3s ease;
+        }
 
         /* COURSES SECTION */
         .courses-grid {
@@ -2077,8 +2139,6 @@
         .chatbot-input::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
         /* Trends Section */
         .trend-card {
@@ -2325,7 +2385,7 @@
               <p>To get personalized job recommendations and career insights, please complete your profile with your skills, experience, and career goals.</p>
               <div class="alert-progress">
                 <div class="progress-bar">
-                  <div class="progress-fill" style="width: {{ profile_completeness or 0 }}%"></div>
+                  <div class="progress-fill progress-fill-dynamic" data-width="{{ profile_completeness or 0 }}"></div>
                 </div>
                 <span class="progress-text">{{ profile_completeness or 0 }}% Complete</span>
               </div>
@@ -2668,7 +2728,7 @@
         <div id="profile" class="dashboard-section">
             <div class="card">
                 <h3 class="section-title"><i class="fas fa-user-edit"></i> {{ 'Update' if student else 'Add' }} Career Profile</h3>
-                <form action="/save_profile" method="POST">
+                <form action="/save_profile" method="POST" novalidate>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Full Name</label>
@@ -2755,7 +2815,7 @@
                                     <span style="color: var(--primary); font-weight: 600;">{{ profile_completeness }}%</span>
                                 </div>
                                 <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
-                                    <div style="width: {{ profile_completeness }}%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px;"></div>
+                                    <div class="progress-fill-dynamic" data-width="{{ profile_completeness }}"></div>
                                 </div>
                             </div>
                             <div>
@@ -2880,12 +2940,9 @@
                     {% for category in course_categories %}
                     {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
                     {% set is_active = loop.first %}
-                    <button class="course-tab-btn {{ 'active' if is_active else '' }}"
+                    <button class="course-tab-btn {{ 'course-tab-active' if is_active else 'course-tab-inactive' }}"
                             onclick="showCourseCategory('{{ category_id }}')"
-                            style="background: {{ 'var(--primary)' if is_active else 'rgba(255,255,255,0.1)' }};
-                                   color: {{ 'white' if is_active else 'var(--text)' }};
-                                   border: {{ 'none' if is_active else '1px solid rgba(255,255,255,0.2)' }};
-                                   padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+                            style="padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s ease;">
                         {% if 'Programming' in category[0] %}
                         <i class="fas fa-code"></i>
                         {% elif 'Web' in category[0] %}
@@ -2912,7 +2969,7 @@
                 {% for category in course_categories %}
                 {% set category_id = category[0].lower().replace(' ', '').replace('&', '') %}
                 {% set display_style = 'block' if loop.first else 'none' %}
-                <div id="{{ category_id }}-category" class="course-category-content" style="display: {{ display_style }};">
+                <div id="{{ category_id }}-category" class="course-category-content {{ 'category-visible' if loop.first else 'category-hidden' }}">
                     <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.1rem;">
                         {% if 'Programming' in category[0] %}
                          💻
@@ -3213,7 +3270,7 @@
                                     <span style="color: var(--primary); font-weight: 600;">{{ profile_completeness }}%</span>
                                 </div>
                                 <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
-                                    <div style="width: {{ profile_completeness }}%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px;"></div>
+                                    <div class="progress-fill-dynamic" data-width="{{ profile_completeness }}"></div>
                                 </div>
                             </div>
                             <div>
@@ -3265,7 +3322,7 @@
                     <div class="job-card">
                         <div class="skill-gap-list">
                             <div class="skill-item"><span>Skill Match Confidence</span><span>{{ (recommendations[0][7]*100)|int if recommendations else 0 }}%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width: {{ (recommendations[0][7]*100)|int if recommendations else 0 }}%;"></div></div>
+                            <div class="progress-bar"><div class="progress-fill-dynamic" data-width="{{ (recommendations[0][7]*100)|int if recommendations else 0 }}"></div></div>
                             <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">* Skill analysis is generated by comparing your profile text with the Job Description vector space.</p>
                         </div>
                     </div>
@@ -3665,6 +3722,43 @@
             }
         });
 
+        // Form validation - prevent browser validation messages
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[action="/save_profile"]');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const requiredFields = form.querySelectorAll('[required]');
+                    let isValid = true;
+
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            field.style.borderColor = 'var(--accent)';
+                            isValid = false;
+                        } else {
+                            field.style.borderColor = 'var(--border)';
+                        }
+                    });
+
+                    if (!isValid) {
+                        e.preventDefault();
+                        alert('Please fill in all required fields before saving your profile.');
+                        return false;
+                    }
+                });
+
+                // Remove red border on focus
+                const inputs = form.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        this.style.borderColor = 'var(--primary)';
+                    });
+                    input.addEventListener('blur', function() {
+                        this.style.borderColor = 'var(--border)';
+                    });
+                });
+            }
+        });
+
         // Auto-hide flash messages after 3 seconds
         setTimeout(function() {
             const flashMessages = document.querySelectorAll('.card[style*="rgba(34, 197, 94, 0.1)"]');
@@ -3676,6 +3770,18 @@
                 }, 500);
             });
         }, 3000);
+
+        // Dynamic Progress Bar Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set dynamic widths for progress bars
+            const progressBars = document.querySelectorAll('.progress-fill-dynamic');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                if (width) {
+                    bar.style.width = width + '%';
+                }
+            });
+        });
 
         // Video Navigation Functionality
         document.addEventListener('DOMContentLoaded', function() {
