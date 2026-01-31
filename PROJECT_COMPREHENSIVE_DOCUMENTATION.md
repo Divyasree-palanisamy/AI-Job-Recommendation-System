@@ -85,17 +85,17 @@ The application follows the Model-View-Controller (MVC) architectural pattern:
 - Match score calculation and ranking
 
 ### 4. Resume Analysis Module
-**Purpose**: ATS-compatible resume upload and analysis
+**Purpose**: Generate ATS-optimized resume content from student profile data
 **Key Features**:
-- PDF and document upload functionality
-- Text extraction from various file formats
-- Basic ATS compatibility scoring
-- Keyword analysis and suggestions
+- Dynamic resume generation using student profile information
+- ATS-friendly keyword integration based on job requirements
+- Resume scoring and optimization suggestions
+- Real-time resume preview and customization
 **Technical Implementation**:
-- PyPDF2 for PDF processing
-- File storage in uploads directory
-- Text analysis algorithms
-- ATS scoring based on keyword matching
+- Template-based resume generation from database profile data
+- Keyword matching against job requirements using NLP
+- Dynamic content formatting for ATS compatibility
+- Resume quality assessment algorithms
 
 ### 5. Learning Resources Module
 **Purpose**: Educational content delivery for skill development

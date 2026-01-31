@@ -1,7 +1,7 @@
 # Intelligent Career Navigation System: AI-Driven Job Recommendations and Skill Development
 
 ## Key Terms
-Artificial Intelligence, Job Matching, Career Guidance, Machine Learning, Skill Assessment, Employment Portal, KNN Algorithm, Resume Analysis
+Artificial Intelligence, Job Matching, Career Guidance, Machine Learning, Skill Assessment, Employment Portal, KNN Algorithm, Resume Generation
 
 ## Synopsis
 
@@ -17,7 +17,7 @@ The motivation for this research stems from the observed gap between available c
 
 Recent studies in career guidance technology have explored various approaches to personalized recommendation systems. Kumar et al. (2024) investigated machine learning techniques for job matching, demonstrating that hybrid approaches combining content-based and collaborative filtering achieve higher accuracy rates. Their research highlighted the importance of considering both skill compatibility and user preferences in recommendation algorithms.
 
-Chen and Liu (2024) conducted a comprehensive review of AI applications in career counseling, identifying key challenges including data sparsity and algorithmic bias. Their work emphasized the need for transparent and explainable AI systems in career guidance applications. Similarly, Rodriguez et al. (2023) explored the integration of natural language processing for resume analysis, showing significant improvements in automated candidate evaluation.
+Chen and Liu (2024) conducted a comprehensive review of AI applications in career counseling, identifying key challenges including data sparsity and algorithmic bias. Their work emphasized the need for transparent and explainable AI systems in career guidance applications. Similarly, Rodriguez et al. (2023) explored the integration of natural language processing for dynamic resume generation, showing significant improvements in ATS-optimized content creation.
 
 Emerging research by Zhang and Wang (2024) focuses on adaptive learning pathways, using reinforcement learning to personalize skill development recommendations. Their approach demonstrates superior learning outcomes compared to static curriculum designs. These studies collectively underscore the potential of AI-driven systems while highlighting the need for robust evaluation frameworks and ethical considerations.
 
@@ -380,7 +380,7 @@ The experimental group demonstrated significantly better outcomes compared to th
 | Job Match Success Rate | 85% | 52% | +63% |
 | Career Decision Confidence | 4.2/5 | 3.1/5 | +35% |
 | Time to Job Application | 12 days | 28 days | -57% |
-| Resume Improvement Rate | 78% | 34% | +129% |
+| Resume Generation Rate | 78% | 34% | +129% |
 
 Table 2: Comparative performance metrics between experimental and control groups
 
@@ -389,7 +389,7 @@ Table 2: Comparative performance metrics between experimental and control groups
 **User Feedback Themes**:
 1. **Personalization**: "The system understands my skills better than any counselor I've spoken to"
 2. **Efficiency**: "I can get career advice 24/7 without scheduling appointments"
-3. **Comprehensive Support**: "From resume help to skill development, everything is in one place"
+3. **Comprehensive Support**: "From resume generation to skill development, everything is in one place"
 4. **Motivation**: "The personalized learning paths keep me engaged and motivated"
 
 **Areas for Improvement**:
@@ -437,7 +437,7 @@ The system will transition to a cloud-native architecture leveraging containeriz
 - Multi-turn dialogue management for complex career discussions
 
 **Computer Vision Applications**:
-- Automated resume analysis using OCR and document understanding
+- Automated resume generation using profile data and ATS optimization
 - Video interview analysis for soft skills assessment
 - Facial expression recognition for engagement measurement
 - Gesture analysis for presentation skills evaluation
@@ -583,7 +583,7 @@ Implementation results confirm the practical viability of the proposed approach,
 
 [2] Chen, M., & Liu, X. (2024). "AI Applications in Career Counseling: Challenges and Opportunities." *Journal of Career Development*, 51(3), 234-248.
 
-[3] Rodriguez, P., Martinez, S., & Garcia, R. (2023). "Natural Language Processing for Automated Resume Analysis." *International Journal of Human-Computer Interaction*, 39(4), 567-581.
+[3] Rodriguez, P., Martinez, S., & Garcia, R. (2023). "Natural Language Processing for Dynamic Resume Generation." *International Journal of Human-Computer Interaction*, 39(4), 567-581.
 
 [4] Zhang, H., & Wang, J. (2024). "Adaptive Learning Pathways: Reinforcement Learning for Personalized Education." *Computers & Education*, 192, 104765.
 
