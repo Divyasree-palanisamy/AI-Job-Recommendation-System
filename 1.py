@@ -417,11 +417,16 @@ def dashboard():
         if has_videos:
             filtered_video_categories.append(category_row)
 
+    # Determine if profile initialization is needed
+    show_first_login_alert = session.get('show_first_login_alert', False)
+    needs_profile_init = "true" if (needs_profile and not show_first_login_alert) else "false"
+
     return render_template("dashboard.html", student=profile[0], recommendations=recs,
                            trends=db_fetchall("SELECT * FROM job_trends ORDER BY id DESC"),
                            courses=filtered_courses[:6], videos=all_videos,
                            course_categories=filtered_course_categories,
-                           video_categories=filtered_video_categories, needs_profile=False)
+                           video_categories=filtered_video_categories, needs_profile=False,
+                           needs_profile_init=needs_profile_init)
 
 @app.route("/save_profile", methods=["POST"])
 def save_profile():
