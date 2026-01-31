@@ -147,6 +147,129 @@ def update_video_categories():
 
 update_video_categories()
 
+# Replace unavailable video URLs with working YouTube videos
+def update_video_urls():
+    """Replace unavailable video URLs with working YouTube videos"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+
+        # Video URL replacements - working YouTube videos
+        video_url_updates = {
+            # AI & Machine Learning
+            "Neural Networks Explained": "https://www.youtube.com/embed/aircAruvnKk",
+            "TensorFlow Tutorial": "https://www.youtube.com/embed/tPYj3fFJGjk",
+
+            # Career Guidance
+            "Building a Successful Tech Career": "https://www.youtube.com/embed/h2H9EhGJ5uI",
+            "Career Planning & Goal Setting": "https://www.youtube.com/embed/LW3vT4K2EI",
+            "Freelancing vs Full-time Jobs": "https://www.youtube.com/embed/8VpFxStAMnE",
+            "How to Choose the Right Career Path": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+            "Industry Trends & Future Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+            "Networking & Professional Development": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+            "Salary Negotiation for Tech Professionals": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+            "Work-Life Balance in Tech Careers": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+
+            # Data Science & ML
+            "Deep Learning Crash Course": "https://www.youtube.com/embed/0VH1lim8gL8",
+            "MATLAB Tutorial": "https://www.youtube.com/embed/oxp5Q1o8i2A",
+            "Machine Learning Tutorial": "https://www.youtube.com/embed/7eh4d6sabA0",
+            "PyTorch Tutorial": "https://www.youtube.com/embed/GIsg-ZUy0MY",
+            "Python for Data Science": "https://www.youtube.com/embed/rfscVS0vtbw",
+
+            # Databases
+            "Advanced SQL Queries": "https://www.youtube.com/embed/HXV3zeQKqGY",  # SQL Tutorial
+            "Database Design Principles": "https://www.youtube.com/embed/qw--VYLpxG4",  # PostgreSQL
+            "Firebase Database Guide": "https://www.youtube.com/embed/V2aer4xDq1g",
+            "MongoDB Crash Course": "https://www.youtube.com/embed/ofme2o29ngU",
+            "MySQL Database Tutorial": "https://www.youtube.com/embed/9ylj9NR0Lcg",
+            "PostgreSQL Tutorial": "https://www.youtube.com/embed/qw--VYLpxG4",
+            "Redis In-Memory Database": "https://www.youtube.com/embed/GHc-Qj4X1PA",
+            "SQL Tutorial for Beginners": "https://www.youtube.com/embed/HXV3zeQKqGY",
+
+            # DevOps & Cloud
+            "AWS Tutorial for Beginners": "https://www.youtube.com/embed/k1RI5locZE4",
+            "Azure Tutorial": "https://www.youtube.com/embed/5ABEkZqwXrE",
+            "Cloud Architecture Patterns": "https://www.youtube.com/embed/m6FhKQpRXqg",  # Cloud Architecture
+            "Docker & Kubernetes": "https://www.youtube.com/embed/fqMOX6JJhGo",  # Docker Tutorial
+            "Docker Tutorial for Beginners": "https://www.youtube.com/embed/fqMOX6JJhGo",
+            "Git Tutorial for Beginners": "https://www.youtube.com/embed/8JJ101D3knE",
+            "Kubernetes Tutorial": "https://www.youtube.com/embed/X48VuDVv0do",
+            "Linux Tutorial for Beginners": "https://www.youtube.com/embed/v_1zB2WNN14",
+
+            # Mobile Development
+            "Android Development Tutorial": "https://www.youtube.com/embed/fis26HvvDII",
+            "Flutter Tutorial for Beginners": "https://www.youtube.com/embed/VPvVD8t02U8",
+            "Ionic Framework Tutorial": "https://www.youtube.com/embed/YrDQ2Cz7Ff0",
+            "React Native Tutorial": "https://www.youtube.com/embed/0-S5a0eXPoc",
+            "Xamarin Development Guide": "https://www.youtube.com/embed/8JJ101D3knE",  # Git Tutorial as placeholder
+            "iOS Development Tutorial": "https://www.youtube.com/embed/8hP9D6kZseM",
+
+            # Programming Languages
+            "Advanced Python Concepts": "https://www.youtube.com/embed/rfscVS0vtbw",  # Python Tutorial
+            "C# Programming Fundamentals": "https://www.youtube.com/embed/0QUgvfuKvWU",
+            "C++ Programming Tutorial": "https://www.youtube.com/embed/vLnPwxZdW4Y",
+            "Data Structures & Algorithms": "https://www.youtube.com/embed/5_5oE5lgrhw",  # DSA Tutorial
+            "Go Programming Language": "https://www.youtube.com/embed/YS4e4q9oBaU",
+            "Java Programming Tutorial": "https://www.youtube.com/embed/eIrMbAQSU34",
+            "JavaScript Crash Course": "https://www.youtube.com/embed/hdI2bqOjy3c",
+            "Python Tutorial for Beginners": "https://www.youtube.com/embed/rfscVS0vtbw",
+            "Rust Programming Tutorial": "https://www.youtube.com/embed/zF34dRivLOw",
+            "TypeScript Crash Course": "https://www.youtube.com/embed/BwuLxPH8IDs",
+
+            # Soft Skills & Placement Prep
+            "Acing Your Next Interview": "https://www.youtube.com/embed/wvj39P2MIqg",  # Interview Tips
+            "Active Listening Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Behavioral Interview Preparation": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Business Communication Etiquette": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Career Planning & Goal Setting": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Effective Communication Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Email Writing & Professional Communication": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Group Discussion Techniques": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "HR Interview Questions & Answers": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Presentation Skills Masterclass": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Public Speaking & Confidence Building": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Resume Writing Masterclass": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Salary Negotiation Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Technical Interview Preparation": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+
+            # Web Development
+            "Angular Framework Guide": "https://www.youtube.com/embed/0LhBvqxbG2Y",
+            "Django Tutorial for Beginners": "https://www.youtube.com/embed/rHux0gMZ3Eg",
+            "Flask Tutorial for Beginners": "https://www.youtube.com/embed/Z1RJmh_OqeA",
+            "GraphQL API Development": "https://www.youtube.com/embed/ed8SzALpx1M",
+            "HTML & CSS Crash Course": "https://www.youtube.com/embed/G3e-cpL7ofc",
+            "Modern JavaScript ES6+": "https://www.youtube.com/embed/hdI2bqOjy3c",  # JavaScript Crash Course
+            "Node.js Crash Course": "https://www.youtube.com/embed/fBNz5xF-Kx4",
+            "REST API Development": "https://www.youtube.com/embed/pKd0Rpw7O48",  # REST API Tutorial
+            "React Hooks Deep Dive": "https://www.youtube.com/embed/dpw9EHDh2bM",  # React Tutorial
+            "React Tutorial for Beginners": "https://www.youtube.com/embed/dpw9EHDh2bM",
+            "Vue.js Framework Tutorial": "https://www.youtube.com/embed/qZXt1Aom3Cs"
+        }
+
+        # Update video URLs
+        for video_title, new_url in video_url_updates.items():
+            cur.execute("UPDATE course_videos SET video_url = ? WHERE video_title = ?",
+                       (new_url, video_title))
+
+        # Replace remaining placeholder URLs with working videos
+        placeholder_urls = [
+            ("https://www.youtube.com/embed/9R4Z1wBhH3A", "https://www.youtube.com/embed/wvj39P2MIqg"),  # Interview tips
+        ]
+
+        for old_url, new_url in placeholder_urls:
+            cur.execute("UPDATE course_videos SET video_url = ? WHERE video_url = ?",
+                       (new_url, old_url))
+
+        conn.commit()
+        conn.close()
+        logger.info("Video URLs updated successfully")
+
+    except Exception as e:
+        logger.error(f"Video URL update error: {e}")
+
+update_video_urls()
+
 # --- DB Helpers ---
 def db_fetchall(query, params=()):
     try:
