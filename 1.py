@@ -66,6 +66,87 @@ def init_db():
 
 init_db()
 
+# Update video categories to match course categories
+def update_video_categories():
+    """Update video categories to match course categories for proper display"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+
+        # Map specific video titles to appropriate categories
+        video_category_map = {
+            # Programming Languages
+            "Python Programming": "Programming Languages",
+            "Java Programming": "Programming Languages",
+            "JavaScript Fundamentals": "Programming Languages",
+            "C++ Programming": "Programming Languages",
+
+            # Web Development
+            "HTML & CSS Tutorial": "Web Development",
+            "JavaScript Tutorial": "Web Development",
+            "React.js Tutorial": "Web Development",
+            "Node.js Tutorial": "Web Development",
+            "Full Stack Development": "Web Development",
+
+            # Mobile Development
+            "Flutter Tutorial for Beginners": "Mobile Development",
+            "React Native Tutorial": "Mobile Development",
+            "Android Development Tutorial": "Mobile Development",
+            "iOS Development Tutorial": "Mobile Development",
+
+            # Databases
+            "SQL Fundamentals": "Databases",
+            "MongoDB Tutorial": "Databases",
+            "PostgreSQL Tutorial": "Databases",
+
+            # DevOps & Cloud
+            "Docker Tutorial": "DevOps & Cloud",
+            "AWS Tutorial": "DevOps & Cloud",
+            "Kubernetes Tutorial": "DevOps & Cloud",
+            "Jenkins Tutorial": "DevOps & Cloud",
+
+            # AI & Machine Learning
+            "Machine Learning Basics": "AI & Machine Learning",
+            "Deep Learning Tutorial": "AI & Machine Learning",
+            "TensorFlow Tutorial": "AI & Machine Learning",
+        }
+
+        # Update videos based on title mapping
+        for video_title, new_category in video_category_map.items():
+            cur.execute("UPDATE course_videos SET category = ? WHERE video_title LIKE ?",
+                       (new_category, f"%{video_title}%"))
+
+        # Add some videos to categories that might be missing
+        additional_videos = [
+            ("Advanced Python Concepts", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Programming Languages"),
+            ("Modern JavaScript ES6+", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Web Development"),
+            ("React Hooks Deep Dive", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Web Development"),
+            ("Advanced SQL Queries", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Databases"),
+            ("Docker & Kubernetes", "https://www.youtube.com/embed/9R4Z1wBhH3A", "DevOps & Cloud"),
+            ("Neural Networks Explained", "https://www.youtube.com/embed/9R4Z1wBhH3A", "AI & Machine Learning"),
+            ("Data Structures & Algorithms", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Programming Languages"),
+            ("REST API Development", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Web Development"),
+            ("Database Design Principles", "https://www.youtube.com/embed/9R4Z1wBhH3A", "Databases"),
+            ("Cloud Architecture Patterns", "https://www.youtube.com/embed/9R4Z1wBhH3A", "DevOps & Cloud"),
+        ]
+
+        for title, url, category in additional_videos:
+            # Check if video already exists
+            cur.execute("SELECT COUNT(*) FROM course_videos WHERE video_title = ? AND category = ?",
+                       (title, category))
+            if cur.fetchone()[0] == 0:
+                cur.execute("INSERT INTO course_videos (course_id, video_title, video_url, category) VALUES (?, ?, ?, ?)",
+                           (None, title, url, category))
+
+        conn.commit()
+        conn.close()
+        logger.info("Video categories updated successfully")
+
+    except Exception as e:
+        logger.error(f"Video category update error: {e}")
+
+update_video_categories()
+
 # --- DB Helpers ---
 def db_fetchall(query, params=()):
     try:
@@ -317,6 +398,9 @@ def dashboard():
     profile = db_fetchall("SELECT * FROM student_profile WHERE user_id=?", (uid,))
     if not profile: return render_template("dashboard.html", student=None, needs_profile=True)
 
+    # User has a profile, so needs_profile is False
+    needs_profile = False
+
     recs = db_fetchall("SELECT j.*, r.match_score, r.match_reason FROM job_recommendations r JOIN jobs j ON r.job_id = j.id WHERE r.user_id = ? ORDER BY r.match_score DESC", (uid,))
     
     # Dynamic Filtering for Courses and Videos based on matched job skills
@@ -423,7 +507,7 @@ def dashboard():
 
     return render_template("dashboard.html", student=profile[0], recommendations=recs,
                            trends=db_fetchall("SELECT * FROM job_trends ORDER BY id DESC"),
-                           courses=filtered_courses[:6], videos=all_videos,
+                           courses=all_courses, videos=all_videos,
                            course_categories=filtered_course_categories,
                            video_categories=filtered_video_categories, needs_profile=False,
                            needs_profile_init=needs_profile_init)
