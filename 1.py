@@ -460,33 +460,16 @@ def dashboard():
         job_skills = (r[3] or "").lower().split(";")  # Assuming skills are semicolon-separated in jobs
         recommended_job_skills.update(skill.strip() for skill in job_skills if skill.strip())
 
-    # Filter categories to show those with courses OR videos that can help improve skills
+    # Show all categories that have courses available (let students explore all options)
     filtered_course_categories = []
     for category_row in all_course_categories:
         category_name = category_row[0]
 
-        # Check if this category has courses that match student's profile/skills
-        has_matching_courses = any(
-            skill.strip().lower() in (c[1] + " " + c[3]).lower()
-            for c in all_courses
-            for skill in (profile[0][7] or "").split(",")
-            if c[3] == category_name  # c[3] is category
-        )
+        # Check if this category has any courses at all
+        has_courses = any(c[3] == category_name for c in all_courses)
 
-        # Check if this category has videos that could help fill skill gaps
-        has_helpful_videos = any(
-            video[4] == category_name for video in all_videos
-        ) and (
-            # Show if student has job recommendations (videos can help improve skills)
-            bool(recs) or
-            # Show if student has some skills but might need to learn more in this category
-            bool(student_skills) or
-            # Show if this is a fundamental category like Programming Languages
-            category_name in ["Programming Languages", "Web Development"]
-        )
-
-        # Include category if it has matching courses OR helpful videos for skill improvement
-        if has_matching_courses or has_helpful_videos:
+        # Include category if it has courses
+        if has_courses:
             filtered_course_categories.append(category_row)
 
     # Get filtered video categories that have matching content (for video tabs)
