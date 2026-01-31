@@ -806,14 +806,22 @@
             border: 1px solid rgba(255,255,255,0.2) !important;
         }
 
+        .course-tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+
         /* Dynamic styles for category display */
         .category-visible {
-            display: block !important;
+            display: block;
+            opacity: 1;
             transition: all 0.3s ease;
         }
 
         .category-hidden {
-            display: none !important;
+            display: none;
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
@@ -3354,54 +3362,30 @@
         }
 
         function showCourseCategory(category) {
-            // Hide all course categories
+            // Hide all course categories by adding hidden class
             const categories = document.querySelectorAll('.course-category-content');
-            categories.forEach(cat => cat.style.display = 'none');
+            categories.forEach(cat => {
+                cat.classList.remove('category-visible');
+                cat.classList.add('category-hidden');
+            });
 
-            // Show selected category
+            // Show selected category by adding visible class
             const targetCategory = document.getElementById(category + '-category');
             if (targetCategory) {
-                targetCategory.style.display = 'block';
+                targetCategory.classList.remove('category-hidden');
+                targetCategory.classList.add('category-visible');
             }
 
             // Update tab active state
             const tabBtns = document.querySelectorAll('.course-tab-btn');
             tabBtns.forEach(btn => {
-                btn.classList.remove('active');
-                btn.style.background = 'rgba(255,255,255,0.1)';
-                btn.style.color = 'var(--text)';
+                btn.classList.remove('course-tab-active');
+                btn.classList.add('course-tab-inactive');
             });
             const activeTab = document.querySelector(`[onclick="showCourseCategory('${category}')"]`);
             if (activeTab) {
-                activeTab.classList.add('active');
-                activeTab.style.background = 'var(--primary)';
-                activeTab.style.color = 'white';
-            }
-        }
-
-        function showCourseCategory(category) {
-            // Hide all course categories
-            const categories = document.querySelectorAll('.course-category-content');
-            categories.forEach(cat => cat.style.display = 'none');
-
-            // Show selected category
-            const targetCategory = document.getElementById(category + '-category');
-            if (targetCategory) {
-                targetCategory.style.display = 'block';
-            }
-
-            // Update tab active state
-            const tabBtns = document.querySelectorAll('.course-tab-btn');
-            tabBtns.forEach(btn => {
-                btn.classList.remove('active');
-                btn.style.background = 'rgba(255,255,255,0.1)';
-                btn.style.color = 'var(--text)';
-            });
-            const activeTab = document.querySelector(`[onclick="showCourseCategory('${category}')"]`);
-            if (activeTab) {
-                activeTab.classList.add('active');
-                activeTab.style.background = 'var(--primary)';
-                activeTab.style.color = 'white';
+                activeTab.classList.remove('course-tab-inactive');
+                activeTab.classList.add('course-tab-active');
             }
         }
 
