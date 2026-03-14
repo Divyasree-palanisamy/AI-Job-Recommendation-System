@@ -623,7 +623,10 @@
                         <div class="form-group"><input type="text" name="title" placeholder="Job Title" required></div>
                         <div class="form-group"><input type="text" name="application_link" placeholder="Apply URL"></div>
                     </div>
-                    <div class="form-group"><input type="text" name="required_skills" placeholder="Skills (comma-separated)" required></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group"><input type="text" name="required_skills" placeholder="Skills (comma-separated)" required></div>
+                        <div class="form-group"><input type="url" name="linkedin_url" placeholder="Company LinkedIn URL"></div>
+                    </div>
                     <div class="form-group"><textarea name="description" placeholder="Job Description" rows="3" required></textarea></div>
                     <button type="submit" class="btn btn-primary">Post Job</button>
                 </form>
@@ -631,7 +634,7 @@
             <div class="card">
                 <h3 class="section-title">📋 Existing Jobs</h3>
                 <table class="admin-table">
-                    <thead><tr><th>Title</th><th>Company</th><th>Skills</th><th>Link</th><th>Actions</th></tr></thead>
+                    <thead><tr><th>Title</th><th>Company</th><th>Skills</th><th>Link</th><th>LinkedIn</th><th>Actions</th></tr></thead>
                     <tbody>
                         {% for j in jobs %}
                         <tr>
@@ -639,9 +642,10 @@
                             <td>{{ j[4] }}</td>
                             <td>{{ j[3] }}</td>
                             <td>{% if j[5] %}<a href="{{ j[5] }}" target="_blank" style="color: var(--accent);">View Link</a>{% else %}None{% endif %}</td>
+                            <td>{% if j[7] %}<a href="{{ j[7] }}" target="_blank" style="color: #0077b5;"><i class="fab fa-linkedin"></i> LinkedIn</a>{% else %}None{% endif %}</td>
                             <td>
                                 <div class="action-btns">
-                                    <button data-job-id="{{ j[0] }}" data-job-title="{{ j[1] }}" data-job-link="{{ j[5] or '' }}" data-job-skills="{{ j[3] }}" data-job-desc="{{ j[2] }}" onclick="openEditJobModal(this.dataset.jobId, this.dataset.jobTitle, this.dataset.jobLink, this.dataset.jobSkills, this.dataset.jobDesc)" class="btn btn-edit btn-sm">
+                                    <button data-job-id="{{ j[0] }}" data-job-title="{{ j[1] }}" data-job-link="{{ j[5] or '' }}" data-job-skills="{{ j[3] }}" data-job-desc="{{ j[2] }}" data-job-linkedin="{{ j[7] or '' }}" onclick="openEditJobModal(this.dataset.jobId, this.dataset.jobTitle, this.dataset.jobLink, this.dataset.jobSkills, this.dataset.jobDesc, this.dataset.jobLinkedin)" class="btn btn-edit btn-sm">
                                         <i class="fas fa-edit"></i> Edit
                                     </button>
                                     <a href="/delete/job/{{ j[0] }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this job?')">
@@ -907,7 +911,7 @@
             modal.style.display = 'flex';
         }
 
-        function openEditJobModal(id, title, link, skills, desc) {
+        function openEditJobModal(id, title, link, skills, desc, linkedin) {
             const modal = document.getElementById('editModal');
             document.getElementById('modalTitle').innerText = "Edit Job";
             document.getElementById('modalAction').value = "edit_job";
@@ -926,6 +930,10 @@
                 <div class="form-group">
                     <label>Skills (comma separated)</label>
                     <input type="text" name="required_skills" value="${skills}" required>
+                </div>
+                <div class="form-group">
+                    <label>Company LinkedIn URL</label>
+                    <input type="url" name="linkedin_url" value="${linkedin || ''}">
                 </div>
                 <div class="form-group">
                     <label>Description</label>

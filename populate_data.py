@@ -14,11 +14,35 @@ def populate_jobs():
 
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    
+
+    # Check if linkedin_url column exists, if not add it
+    try:
+        cur.execute("SELECT linkedin_url FROM jobs LIMIT 1")
+    except sqlite3.OperationalError:
+        print("Adding linkedin_url column to jobs table...")
+        cur.execute("ALTER TABLE jobs ADD COLUMN linkedin_url TEXT")
+
     # Clear existing jobs to avoid duplicates for this task
     cur.execute("DELETE FROM jobs")
     cur.execute("DELETE FROM sqlite_sequence WHERE name='jobs'")
     
+    # LinkedIn URLs for companies (exact names from CSV)
+    linkedin_urls = {
+        "CloudCore": "https://www.linkedin.com/company/cloudcoresa",
+        "GreenGrid": "https://www.linkedin.com/company/greengridpower",
+        "SoftWave Solutions": "https://in.linkedin.com/company/blinklinksolutions",
+        "CoreLogic": "https://www.linkedin.com/company/corelogic",
+        "TechVista": "https://www.linkedin.com/company/techvistajob",
+        "OrbitSoft": "https://www.linkedin.com/company/orbitsoft",
+        "DataPulse": "https://uk.linkedin.com/company/datapulse",
+        "NexGen Systems": "https://in.linkedin.com/company/nexgensm",
+        "ApexAI": "https://www.linkedin.com/company/apex-ai",
+        "BlueWave": "https://www.linkedin.com/company/bluewavetg",
+        "Innotech Labs": "https://www.linkedin.com/company/dta-innotechlab",
+        "QuantumLeap": "https://www.linkedin.com/company/quleap/",
+        "ByteForge": "https://www.linkedin.com/company/byteforgeglobal"
+    }
+
     with open(JOBS_CSV, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -27,11 +51,14 @@ def populate_jobs():
             description = row.get('description')
             requirements = row.get('requirements', '').replace(';', ', ')
             posted_at = row.get('posted_at', datetime.now().strftime("%Y-%m-%d"))
-            
+
+            # Get LinkedIn URL for the company
+            linkedin_url = linkedin_urls.get(company, "")
+
             cur.execute("""
-                INSERT INTO jobs (title, description, required_skills, posted_by, created_at) 
-                VALUES (?, ?, ?, ?, ?)
-            """, (title, description, requirements, company, posted_at))
+                INSERT INTO jobs (title, description, required_skills, posted_by, application_link, linkedin_url, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (title, description, requirements, company, "", linkedin_url, posted_at))
     
     conn.commit()
     conn.close()

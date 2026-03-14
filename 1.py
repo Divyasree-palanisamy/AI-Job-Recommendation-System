@@ -54,7 +54,7 @@ def init_db():
         cur = conn.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password TEXT NOT NULL, role TEXT DEFAULT 'student', created_at TEXT)")
         cur.execute("CREATE TABLE IF NOT EXISTS student_profile (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER UNIQUE NOT NULL, full_name TEXT, register_number TEXT, college_name TEXT, batch_year TEXT, current_semester TEXT, skills TEXT, skill_ratings TEXT, experience TEXT, interests TEXT, tech_stack TEXT, location TEXT, created_at TEXT, FOREIGN KEY (user_id) REFERENCES users(id))")
-        cur.execute("CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, required_skills TEXT, posted_by TEXT, application_link TEXT, created_at TEXT)")
+        cur.execute("CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, required_skills TEXT, posted_by TEXT, application_link TEXT, linkedin_url TEXT, created_at TEXT)")
         cur.execute("CREATE TABLE IF NOT EXISTS job_recommendations (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, job_id INTEGER NOT NULL, match_score REAL, match_reason TEXT, created_at TEXT, FOREIGN KEY (user_id) REFERENCES users(id), FOREIGN KEY (job_id) REFERENCES jobs(id))")
         cur.execute("CREATE TABLE IF NOT EXISTS courses (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, category TEXT, course_link TEXT, added_by TEXT, created_at TEXT)")
         cur.execute("CREATE TABLE IF NOT EXISTS course_videos (id INTEGER PRIMARY KEY AUTOINCREMENT, course_id INTEGER, video_title TEXT, video_url TEXT, category TEXT, FOREIGN KEY (course_id) REFERENCES courses(id))")
@@ -161,18 +161,18 @@ def update_video_urls():
             "TensorFlow Tutorial": "https://www.youtube.com/embed/tPYj3fFJGjk",
 
             # Career Guidance
-            "Building a Successful Tech Career": "https://www.youtube.com/embed/h2H9EhGJ5uI",
-            "Career Planning & Goal Setting": "https://www.youtube.com/embed/LW3vT4K2EI",
-            "Freelancing vs Full-time Jobs": "https://www.youtube.com/embed/8VpFxStAMnE",
-            "How to Choose the Right Career Path": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
-            "Industry Trends & Future Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
-            "Networking & Professional Development": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
-            "Salary Negotiation for Tech Professionals": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
-            "Work-Life Balance in Tech Careers": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder for now
+            "Building a Successful Tech Career": "https://www.youtube.com/embed/ofVbuh-sgaw",
+            "Career Planning & Goal Setting": "https://www.youtube.com/embed/MWw_eFSusAU",
+            "Freelancing vs Full-time Jobs": "https://www.youtube.com/embed/9FITS4stuMg",
+            "How to Choose the Right Career Path": "https://www.youtube.com/embed/zhpcgpqWc1Q",  # Keep placeholder for now
+            "Industry Trends & Future Skills": "https://www.youtube.com/embed/Otim2mDjsYM",  # Keep placeholder for now
+            "Networking & Professional Development": "https://www.youtube.com/embed/5BesUAyNvFY",  # Keep placeholder for now
+            "Salary Negotiation for Tech Professionals": "https://www.youtube.com/embed/J30wmYgzVXM",  # Keep placeholder for now
+            "Work-Life Balance in Tech Careers": "https://www.youtube.com/embed/0YwKJ0bSfJo",  # Keep placeholder for now
 
             # Data Science & ML
-            "Deep Learning Crash Course": "https://www.youtube.com/embed/0VH1lim8gL8",
-            "MATLAB Tutorial": "https://www.youtube.com/embed/oxp5Q1o8i2A",
+            "Deep Learning Crash Course": "https://www.youtube.com/embed/VyWAvY2CF9c",
+            "MATLAB Tutorial": "https://www.youtube.com/embed/OHxR8iMHDWw",
             "Machine Learning Tutorial": "https://www.youtube.com/embed/7eh4d6sabA0",
             "PyTorch Tutorial": "https://www.youtube.com/embed/GIsg-ZUy0MY",
             "Python for Data Science": "https://www.youtube.com/embed/rfscVS0vtbw",
@@ -180,17 +180,17 @@ def update_video_urls():
             # Databases
             "Advanced SQL Queries": "https://www.youtube.com/embed/HXV3zeQKqGY",  # SQL Tutorial
             "Database Design Principles": "https://www.youtube.com/embed/qw--VYLpxG4",  # PostgreSQL
-            "Firebase Database Guide": "https://www.youtube.com/embed/V2aer4xDq1g",
+            "Firebase Database Guide": "https://www.youtube.com/embed/9kRgVxULbag",
             "MongoDB Crash Course": "https://www.youtube.com/embed/ofme2o29ngU",
             "MySQL Database Tutorial": "https://www.youtube.com/embed/9ylj9NR0Lcg",
             "PostgreSQL Tutorial": "https://www.youtube.com/embed/qw--VYLpxG4",
-            "Redis In-Memory Database": "https://www.youtube.com/embed/GHc-Qj4X1PA",
+            "Redis In-Memory Database": "https://www.youtube.com/embed/pupb_Sy241k",
             "SQL Tutorial for Beginners": "https://www.youtube.com/embed/HXV3zeQKqGY",
 
             # DevOps & Cloud
             "AWS Tutorial for Beginners": "https://www.youtube.com/embed/k1RI5locZE4",
-            "Azure Tutorial": "https://www.youtube.com/embed/5ABEkZqwXrE",
-            "Cloud Architecture Patterns": "https://www.youtube.com/embed/m6FhKQpRXqg",  # Cloud Architecture
+            "Azure Tutorial": "https://www.youtube.com/embed/3Arj5zlUPG4",
+            "Cloud Architecture Patterns": "https://www.youtube.com/embed/Vh0inlNALto",  # Cloud Architecture
             "Docker & Kubernetes": "https://www.youtube.com/embed/fqMOX6JJhGo",  # Docker Tutorial
             "Docker Tutorial for Beginners": "https://www.youtube.com/embed/fqMOX6JJhGo",
             "Git Tutorial for Beginners": "https://www.youtube.com/embed/8JJ101D3knE",
@@ -200,7 +200,7 @@ def update_video_urls():
             # Mobile Development
             "Android Development Tutorial": "https://www.youtube.com/embed/fis26HvvDII",
             "Flutter Tutorial for Beginners": "https://www.youtube.com/embed/VPvVD8t02U8",
-            "Ionic Framework Tutorial": "https://www.youtube.com/embed/YrDQ2Cz7Ff0",
+            "Ionic Framework Tutorial": "https://www.youtube.com/embed/KkZFAQG--sA",
             "React Native Tutorial": "https://www.youtube.com/embed/0-S5a0eXPoc",
             "Xamarin Development Guide": "https://www.youtube.com/embed/8JJ101D3knE",  # Git Tutorial as placeholder
             "iOS Development Tutorial": "https://www.youtube.com/embed/8hP9D6kZseM",
@@ -218,27 +218,27 @@ def update_video_urls():
             "TypeScript Crash Course": "https://www.youtube.com/embed/BwuLxPH8IDs",
 
             # Soft Skills & Placement Prep
-            "Acing Your Next Interview": "https://www.youtube.com/embed/wvj39P2MIqg",  # Interview Tips
-            "Active Listening Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Behavioral Interview Preparation": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Business Communication Etiquette": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Career Planning & Goal Setting": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Effective Communication Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Email Writing & Professional Communication": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Group Discussion Techniques": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "HR Interview Questions & Answers": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Presentation Skills Masterclass": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Public Speaking & Confidence Building": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Resume Writing Masterclass": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Salary Negotiation Skills": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
-            "Technical Interview Preparation": "https://www.youtube.com/embed/9R4Z1wBhH3A",  # Keep placeholder
+            "Acing Your Next Interview": "https://www.youtube.com/embed/mmQcX6HpCGs",  # Interview Tips
+            "Active Listening Skills": "https://www.youtube.com/embed/7UlslIXHNsw",  # Keep placeholder
+            "Behavioral Interview Preparation": "https://www.youtube.com/embed/IV30jAw7dxA",  # Keep placeholder
+            "Business Communication Etiquette": "https://www.youtube.com/embed/I4uL5mkcAJc",  # Keep placeholder
+            "Career Planning & Goal Setting": "https://www.youtube.com/embed/L4N1q4RNi9I",  # Keep placeholder
+            "Effective Communication Skills": "https://www.youtube.com/embed/7JZ1v-VwTXg",  # Keep placeholder
+            "Email Writing & Professional Communication": "https://www.youtube.com/embed/rfZ6aTp5XuA",  # Keep placeholder
+            "Group Discussion Techniques": "https://www.youtube.com/embed/_f9_6ZM-Qug",  # Keep placeholder
+            "HR Interview Questions & Answers": "https://www.youtube.com/embed/zIm_k9j0C50",  # Keep placeholder
+            "Presentation Skills Masterclass": "https://www.youtube.com/embed/U40qvUiefQo",  # Keep placeholder
+            "Public Speaking & Confidence Building": "https://www.youtube.com/embed/IitIl2C3Iy8",  # Keep placeholder
+            "Resume Writing Masterclass": "https://www.youtube.com/embed/M5sNp-7bvx4",  # Keep placeholder
+            "Salary Negotiation Skills": "https://www.youtube.com/embed/BmunilI6FXA",  # Keep placeholder
+            "Technical Interview Preparation": "https://www.youtube.com/embed/e0E6-dRPcJA",  # Keep placeholder
 
             # Web Development
-            "Angular Framework Guide": "https://www.youtube.com/embed/0LhBvqxbG2Y",
+            "Angular Framework Guide": "https://www.youtube.com/embed/oUmVFHlwZsI",
             "Django Tutorial for Beginners": "https://www.youtube.com/embed/rHux0gMZ3Eg",
             "Flask Tutorial for Beginners": "https://www.youtube.com/embed/Z1RJmh_OqeA",
-            "GraphQL API Development": "https://www.youtube.com/embed/ed8SzALpx1M",
-            "HTML & CSS Crash Course": "https://www.youtube.com/embed/G3e-cpL7ofc",
+            "GraphQL API Development": "https://www.youtube.com/embed/Zg4XIpnLWQg&t",
+            "HTML & CSS Crash Course": "https://www.youtube.com/embed/FYErehuSuuw&t=4882s",
             "Modern JavaScript ES6+": "https://www.youtube.com/embed/hdI2bqOjy3c",  # JavaScript Crash Course
             "Node.js Crash Course": "https://www.youtube.com/embed/fBNz5xF-Kx4",
             "REST API Development": "https://www.youtube.com/embed/pKd0Rpw7O48",  # REST API Tutorial
@@ -646,7 +646,7 @@ def admin():
     if session.get("role") != "admin": return redirect(url_for("login"))
     if request.method == "POST":
         act, f, now = request.form.get("action"), request.form, datetime.now().strftime("%Y-%m-%d")
-        if act == "add_job": db_execute("INSERT INTO jobs (title, application_link, required_skills, description, posted_by, created_at) VALUES (?,?,?,?,'admin',?)", (f.get("title"), f.get("application_link"), f.get("required_skills"), f.get("description"), now))
+        if act == "add_job": db_execute("INSERT INTO jobs (title, application_link, required_skills, description, posted_by, linkedin_url, created_at) VALUES (?,?,?,?,?,'admin',?)", (f.get("title"), f.get("application_link"), f.get("required_skills"), f.get("description"), f.get("linkedin_url"), now))
         elif act == "add_course": db_execute("INSERT INTO courses (title, category, description, course_link, added_by, created_at) VALUES (?,?,?,?,'admin',?)", (f.get("title"), f.get("category"), f.get("description"), f.get("course_link"), now))
         elif act == "add_video": 
             course_id = f.get("course_id")
@@ -659,7 +659,7 @@ def admin():
             db_execute("UPDATE courses SET title=?, category=?, description=?, course_link=? WHERE id=?", (f.get("title"), f.get("category"), f.get("description"), f.get("course_link"), f.get("course_id")))
             flash("Course updated successfully!", "success")
         elif act == "edit_job":
-            db_execute("UPDATE jobs SET title=?, application_link=?, required_skills=?, description=? WHERE id=?", (f.get("title"), f.get("application_link"), f.get("required_skills"), f.get("description"), f.get("job_id")))
+            db_execute("UPDATE jobs SET title=?, application_link=?, required_skills=?, description=?, linkedin_url=? WHERE id=?", (f.get("title"), f.get("application_link"), f.get("required_skills"), f.get("description"), f.get("linkedin_url"), f.get("job_id")))
             flash("Job updated successfully!", "success")
             
         flash("Action completed successfully!", "success")
@@ -697,10 +697,56 @@ def download_report():
 @app.route("/chat", methods=["POST"])
 def chat():
     m = request.json.get("message", "").lower()
-    r = "Try asking about 'jobs', 'skills', or 'courses'."
-    if "job" in m: r = "Check 'Career Path' for your AI matches!"
-    elif "skill" in m: r = "Updating skills in your profile will refresh your matches!"
-    return {"response": r}
+
+    # Website Overview Responses
+    if "what is this website" in m or "tell me about this platform" in m or "what is this" in m:
+        return {"response": "Welcome to the Smart Career Guidance & Employment Portal! We're an AI-powered platform that helps students discover their ideal careers through personalized job recommendations, skill development courses, and resume optimization."}
+
+    # Feature-Specific Questions
+    elif "job matching" in m or "how does job matching work" in m:
+        return {"response": "Our AI analyzes your skills, experience, and interests to match you with relevant job opportunities using machine learning algorithms."}
+
+    elif "courses" in m or "what courses do you offer" in m:
+        return {"response": "We provide 50+ courses across 8 categories including Programming, Web Development, Data Science, and more, all tailored to your career goals."}
+
+    elif "resume" in m or "optimize my resume" in m or "ats" in m:
+        return {"response": "Upload your resume and our ATS scoring system will analyze it against job requirements, providing suggestions to improve your employability."}
+
+    # Platform Navigation Help
+    elif "profile" in m or "create a profile" in m or "how do i create profile" in m:
+        return {"response": "Click on the profile section, fill in your skills, experience, and career interests. Our AI will then generate personalized recommendations."}
+
+    elif "videos" in m or "where can i find videos" in m or "video" in m:
+        return {"response": "Navigate to the 'Videos' section where you'll find categorized learning content for communication skills, placement preparation, and technical training."}
+
+    # Technical Support Questions
+    elif "password" in m or "reset password" in m or "forgot password" in m:
+        return {"response": "Use the 'Forgot Password' link on the login page. We'll send a reset link to your registered email."}
+
+    elif "mobile" in m or "phone" in m or "app" in m:
+        return {"response": "Yes! Click 'Install App' to add our PWA to your home screen for a native app experience."}
+
+    # Career Guidance Queries
+    elif "study" in m or "what should i study" in m or "tech jobs" in m:
+        return {"response": "Based on current trends, focus on Python, JavaScript, cloud technologies (AWS/Azure), and data science skills."}
+
+    elif "interview" in m or "prepare for interviews" in m:
+        return {"response": "Check our placement preparation videos and practice with our resume optimization tools."}
+
+    # Admin/Recruiter Information
+    elif "recruiter" in m or "post jobs" in m or "admin" in m or "company" in m:
+        return {"response": "Contact the admin team at admin@careerguidance.com or call +91-9876543210. We offer enterprise solutions for bulk job posting and campus recruitment management."}
+
+    # Default responses for job, skill, course related queries
+    elif "job" in m:
+        return {"response": "Check 'Career Path' for your AI matches!"}
+
+    elif "skill" in m:
+        return {"response": "Updating skills in your profile will refresh your matches!"}
+
+    # General fallback
+    else:
+        return {"response": "I can help with jobs, skills, courses, or platform features! Try asking about job matching, courses, or resume optimization."}
 
 @app.route("/delete/<kind>/<int:oid>")
 def delete(kind, oid):

@@ -13,6 +13,9 @@
   <title>Student Dashboard | Smart Career Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Shepherd.js for Interactive Tours -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@11.2.0/dist/css/shepherd.css">
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@11.2.0/dist/js/shepherd.min.js"></script>
   <style>
         :root {
             --primary: #2563eb;
@@ -2119,6 +2122,238 @@
             position: relative;
         }
 
+        .speak-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+        .speak-btn:hover {
+            opacity: 1 !important;
+            transform: scale(1.1);
+            background: rgba(37, 99, 235, 0.2) !important;
+            border-color: rgba(37, 99, 235, 0.5) !important;
+            transition: all 0.2s ease;
+        }
+
+        .speak-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Tour Button Styles */
+        .tour-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .tour-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .tour-btn:active {
+            transform: translateY(0);
+        }
+
+        .tour-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* Tour Highlight Styles - Light theme for visibility */
+        .shepherd-element {
+            box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.3), 0 0 0 16px rgba(37, 99, 235, 0.1) !important;
+            border-radius: 8px !important;
+        }
+
+        .shepherd-content {
+            background: rgba(255, 255, 255, 0.98) !important;
+            color: #1f2937 !important; /* Dark text for light background */
+            border-radius: 12px !important;
+            border: 2px solid var(--primary) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+            backdrop-filter: blur(10px) !important;
+            max-width: 400px !important; /* Limit width to prevent overflow */
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+
+        .shepherd-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+            color: white !important;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 16px 20px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .shepherd-title {
+            font-size: 1.2rem !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            max-width: 100% !important;
+            line-height: 1.3 !important;
+        }
+
+        .shepherd-text {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            color: #374151 !important; /* Dark gray for readability */
+            padding: 16px 20px !important;
+            margin: 0 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+            max-width: 100% !important;
+        }
+
+        .shepherd-button {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 10px 18px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2) !important;
+        }
+
+        .shepherd-button:hover {
+            background: var(--primary-hover) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3) !important;
+        }
+
+        .shepherd-button.shepherd-button-secondary {
+            background: #f3f4f6 !important;
+            color: #374151 !important;
+            border: 1px solid #d1d5db !important;
+        }
+
+        .shepherd-button.shepherd-button-secondary:hover {
+            background: #e5e7eb !important;
+            border-color: #9ca3af !important;
+        }
+
+        /* Enhanced tour arrow styling */
+        .shepherd-arrow::before {
+            border-color: var(--primary) !important;
+            border-width: 8px !important;
+        }
+
+        /* Tour progress indicator */
+        .shepherd-progress {
+            background: #e5e7eb !important;
+            border-radius: 4px !important;
+            height: 4px !important;
+            margin: 16px 20px !important;
+        }
+
+        .shepherd-progress-bar {
+            background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+            border-radius: 4px !important;
+            height: 100% !important;
+        }
+
+        /* Footer styling */
+        .shepherd-footer {
+            padding: 16px 20px !important;
+            border-top: 1px solid #e5e7eb !important;
+            background: #f9fafb !important;
+            border-radius: 0 0 10px 10px !important;
+        }
+
+        /* Cancel button styling */
+        .shepherd-cancel-icon {
+            color: #6b7280 !important;
+            font-size: 1.2rem !important;
+        }
+
+        .shepherd-cancel-icon:hover {
+            color: #374151 !important;
+        }
+
+        /* Video Demo Section */
+        .video-demo-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .demo-video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .demo-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .demo-play-btn {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+        }
+
+        .demo-progress {
+            flex: 1;
+            margin: 0 10px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .demo-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
         .chatbot-input-group {
             display: flex;
             gap: 12px;
@@ -2364,6 +2599,10 @@
                     </span>
                 </div>
                 {% endif %}
+                <!-- Take Tour Button -->
+                <button class="tour-btn" onclick="startTour()" title="Take a guided tour of the platform">
+                    <i class="fas fa-route"></i> Take Tour
+                </button>
                 <!-- Theme Toggle -->
                 <button class="theme-toggle" onclick="toggleTheme()">
                     <i class="fas fa-moon"></i>
@@ -2561,6 +2800,53 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Video Demo Section -->
+            <div class="video-demo-section">
+                <h3 style="margin-bottom: 16px; color: var(--accent);">
+                    <i class="fas fa-play-circle" style="margin-right: 8px;"></i>
+                    Platform Demo Video
+                </h3>
+                <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8;">
+                    Watch this 2-minute demo to see how students use our platform for career guidance and skill development.
+                </p>
+                <div class="demo-video-container">
+                    <video id="demoVideo" poster="/static/demo-poster.jpg" preload="metadata" style="display: none;">
+                        <source src="/static/platform-demo.mp4" type="video/mp4">
+                        <source src="/static/platform-demo.webm" type="video/webm">
+                    </video>
+                    <!-- Fallback when video is not available -->
+                    <div id="demoFallback" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(139, 92, 246, 0.2)); border: 2px dashed rgba(37, 99, 235, 0.3); border-radius: 12px; padding: 40px; text-align: center; color: var(--text-light);">
+                        <i class="fas fa-video" style="font-size: 3rem; color: var(--accent); margin-bottom: 16px;"></i>
+                        <h4 style="margin-bottom: 12px;">Platform Demo Video</h4>
+                        <p style="margin-bottom: 20px; opacity: 0.8;">Watch how students navigate and use our AI-powered career guidance platform</p>
+                        <div style="background: rgba(0,0,0,0.3); padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+                            <p style="margin: 0; font-size: 0.9rem;">
+                                <strong>Demo Content:</strong> Student login → Profile setup → Job matching → Course recommendations → Career reports
+                            </p>
+                        </div>
+                        <button class="demo-play-btn" onclick="showDemoSteps()" style="margin: 0 auto;">
+                            <i class="fas fa-list"></i>
+                            <span>View Demo Steps</span>
+                        </button>
+                    </div>
+                    <div class="demo-controls">
+                        <button class="demo-play-btn" onclick="toggleDemoVideo()">
+                            <i class="fas fa-play"></i>
+                            <span>Watch Demo</span>
+                        </button>
+                        <div class="demo-progress">
+                            <div class="demo-progress-bar" id="demoProgressBar"></div>
+                        </div>
+                        <div style="color: white; font-size: 0.8rem; background: rgba(0,0,0,0.8); padding: 4px 8px; border-radius: 10px;">
+                            <span id="demoTime">0:00 / 2:15</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; font-size: 0.8rem; opacity: 0.7;">
+                    💡 <strong>Pro Tip:</strong> Complete your profile first, then explore job matches and courses for the best experience!
                 </div>
             </div>
 
@@ -2844,17 +3130,17 @@
                         {% if recommendations %}
                             <div class="recommendations-list">
                                 {% for job in recommendations %}
-                                    {% if job[7] >= 0.25 %}
+                                    {% if job[8] >= 0.25 %}
                                     <div class="recommendation-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">
                                         <div class="rec-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                                             <strong style="color: white;">{{ job[1] }}</strong>
-                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[7]*100)|int }}% Match</span>
+                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[8]*100)|int }}% Match</span>
                                         </div>
                                         <div class="rec-company" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px;">
                                             🏢 {{ job[4] }}
                                         </div>
                                         <div class="skill-analysis" style="font-size: 0.75rem; color: var(--accent); line-height: 1.3; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;">
-                                            <strong>Analysis:</strong> {{ job[8] }}
+                                            <strong>Analysis:</strong> {{ job[9] }}
                                         </div>
                                     </div>
                                     {% endif %}
@@ -2907,10 +3193,17 @@
                     <div class="recommendations-grid">
                         {% for job in recommendations %}
                         <div class="job-card">
-                            <div class="match-badge">{{ (job[7] * 100)|int }}% Match</div>
+                            <div class="match-badge">{{ (job[8] * 100)|int }}% Match</div>
                             <h4>{{ job[1] }}</h4>
                             <p style="color: var(--accent); font-weight: 500; font-size: 0.9rem;">🏢 {{ job[4] }}</p>
-                            <p>{{ job[2][:120] }}{{ '...' if job[2]|length > 120 else '' }}</p>
+                            <p>{{ job[2] }}</p>
+                            {% if job[7] %}
+                            <div style="margin-top: 10px;">
+                                <a href="{{ job[7] }}" target="_blank" style="color: #0077b5; font-size: 0.8rem; text-decoration: none;">
+                                    <i class="fab fa-linkedin"></i> View Company Profile
+                                </a>
+                            </div>
+                            {% endif %}
 
                             <!-- Enhanced Skill Analysis -->
                             <div class="skill-analysis" style="margin: 15px 0; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px; border-left: 3px solid var(--accent);">
@@ -3121,25 +3414,25 @@
                     <div id="{{ category_id }}-videos" class="video-main-category">
                         <h3 style="color: var(--primary); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1)); border-radius: 15px; border-left: 4px solid var(--primary);">
                             {% if 'Programming' in category[0] %}
-                            <i class="fas fa-code"></i> 💻 {{ category[0] }}
+                            <i class="fas fa-code"></i>  {{ category[0] }}
                             {% elif 'Web' in category[0] %}
-                            <i class="fas fa-globe"></i> 🌐 {{ category[0] }}
+                            <i class="fas fa-globe"></i>  {{ category[0] }}
                             {% elif 'Data' in category[0] %}
-                            <i class="fas fa-chart-bar"></i> 📊 {{ category[0] }}
+                            <i class="fas fa-chart-bar"></i>  {{ category[0] }}
                             {% elif 'Database' in category[0] %}
-                            <i class="fas fa-database"></i> 🗄️ {{ category[0] }}
+                            <i class="fas fa-database"></i>  {{ category[0] }}
                             {% elif 'DevOps' in category[0] or 'Cloud' in category[0] %}
-                            <i class="fas fa-server"></i> ☁️ {{ category[0] }}
+                            <i class="fas fa-server"></i>  {{ category[0] }}
                             {% elif 'Mobile' in category[0] %}
-                            <i class="fas fa-mobile-alt"></i> 📱 {{ category[0] }}
+                            <i class="fas fa-mobile-alt"></i>  {{ category[0] }}
                             {% else %}
-                            <i class="fas fa-graduation-cap"></i> 🎓 {{ category[0] }}
+                            <i class="fas fa-graduation-cap"></i>  {{ category[0] }}
                             {% endif %}
-                        </h3>
+                        </h3> 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
                             <div class="video-category-card">
                                 <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(37, 99, 235, 0.08); border-radius: 10px; border: 1px solid rgba(37, 99, 235, 0.2);">
-                                    <i class="fas fa-play-circle"></i> 📹 Available Tutorials
+                                    <i class="fas fa-play-circle"></i>  Available Tutorials
                                 </h4>
                                 <div class="video-grid-horizontal">
                                     {% for video in category_videos %}
@@ -3163,7 +3456,7 @@
                     <!-- 2️⃣ Career Guidance Videos Section -->
                     <div id="career-videos" class="video-main-category">
                         <h3 style="color: var(--success); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1)); border-radius: 15px; border-left: 4px solid var(--success);">
-                            <i class="fas fa-compass"></i> 🧭 Career Guidance Videos
+                            <i class="fas fa-compass"></i>  Career Guidance Videos
                         </h3>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
                             {% set career_videos = [] %}
@@ -3175,7 +3468,7 @@
 
                             <div class="video-category-card">
                                 <h4 style="color: var(--success); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(34, 197, 94, 0.08); border-radius: 10px; border: 1px solid rgba(34, 197, 94, 0.2);">
-                                    <i class="fas fa-compass"></i> 🎯 Career Development
+                                    <i class="fas fa-compass"></i>  Career Development
                                 </h4>
                                 <div class="video-grid-horizontal">
                                     {% for video in career_videos %}
@@ -3197,7 +3490,7 @@
                     <!-- 3️⃣ Soft Skills & Placement Prep Videos Section -->
                     <div id="soft-skills-videos" class="video-main-category">
                         <h3 style="color: var(--warning); margin-bottom: 25px; font-size: 1.4rem; text-align: center; padding: 15px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1)); border-radius: 15px; border-left: 4px solid var(--warning);">
-                            <i class="fas fa-users"></i> 🤝 Soft Skills & Placement Prep Videos
+                            <i class="fas fa-users"></i> Soft Skills & Placement Prep Videos
                         </h3>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
                             {% set soft_skills_videos = [] %}
@@ -3209,7 +3502,7 @@
 
                             <div class="video-category-card">
                                 <h4 style="color: var(--warning); margin-bottom: 20px; font-size: 1.1rem; text-align: center; padding: 12px; background: rgba(245, 158, 11, 0.08); border-radius: 10px; border: 1px solid rgba(245, 158, 11, 0.2);">
-                                    <i class="fas fa-handshake"></i> 🎭 Communication & Soft Skills
+                                    <i class="fas fa-handshake"></i> Communication & Soft Skills
                                 </h4>
                                 <div class="video-grid-horizontal">
                                     {% for video in soft_skills_videos %}
@@ -3299,17 +3592,17 @@
                         {% if recommendations %}
                             <div class="recommendations-list">
                                 {% for job in recommendations %}
-                                    {% if job[7] >= 0.25 %}
+                                    {% if job[8] >= 0.25 %}
                                     <div class="recommendation-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">
                                         <div class="rec-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                                             <strong style="color: white;">{{ job[1] }}</strong>
-                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[7]*100)|int }}% Match</span>
+                                            <span class="match-score" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">{{ (job[8]*100)|int }}% Match</span>
                                         </div>
                                         <div class="rec-company" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px;">
                                             🏢 {{ job[4] }}
                                         </div>
                                         <div class="skill-analysis" style="font-size: 0.75rem; color: var(--accent); line-height: 1.3; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;">
-                                            <strong>Analysis:</strong> {{ job[8] }}
+                                            <strong>Analysis:</strong> {{ job[9] }}
                                         </div>
                                     </div>
                                     {% endif %}
@@ -3491,19 +3784,19 @@
                     <i class="fas fa-robot" style="color: var(--primary);"></i>
                     <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
                 </div>
-                <div>Hello! I'm your AI career assistant. How can I help you today? 🚀</div>
+                <div>Welcome to your career guidance assistant! 🎯</div>
                 <div style="margin-top: 8px;">
-                    <strong>Quick options:</strong>
+                    I'm here to help you navigate your career journey. You can ask me about:
                 </div>
-                <ul style="margin: 8px 0; padding-left: 20px; font-size: 0.85rem;">
-                    <li>💼 "What jobs match my skills?"</li>
-                    <li>📚 "What skills should I learn?"</li>
-                    <li>🎓 "Tell me about courses"</li>
-                    <li>📊 "What's trending in jobs?"</li>
-                    <li>👤 "How to improve my profile?"</li>
-                </ul>
+                <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 500;">Job matching</span>
+                    <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 500;">Skill development</span>
+                    <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 500;">Courses & learning</span>
+                    <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 500;">Career guidance</span>
+                    <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 500;">Platform features</span>
+                </div>
                 <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                    Or just type your question below! 💬
+                    💬 Just type your question below and I'll assist you!
                 </div>
             </div>
         </div>
@@ -3529,6 +3822,60 @@
             } else {
                 modal.style.display = 'flex';
                 icon.style.display = 'none';
+            }
+        }
+
+        // Text-to-Speech function for chatbot responses
+        function speakResponse(text) {
+            console.log('Speak button clicked, text:', text);
+
+            // Cancel any ongoing speech
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+
+            // Remove HTML tags and special characters for clean speech
+            const cleanText = text.replace(/<[^>]*>/g, '').replace(/[🚀📚🎓💼📊👤⚙️🌟🎯🔥💡🌐💻☁️📱🎥🤖💬🔄✨🎉🎊⭐💪🛠️🎨🔧📈📉💰🎪]/g, '');
+            console.log('Clean text for speech:', cleanText);
+
+            if ('speechSynthesis' in window && cleanText.trim()) {
+                console.log('Speech synthesis supported, speaking...');
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+
+                // Configure speech settings
+                utterance.rate = 0.9; // Slightly slower for clarity
+                utterance.pitch = 1; // Normal pitch
+                utterance.volume = 0.8; // Slightly softer volume
+
+                // Optional: Choose a female voice if available
+                const voices = window.speechSynthesis.getVoices();
+                const preferredVoice = voices.find(voice =>
+                    voice.name.includes('Female') ||
+                    voice.name.includes('Zira') ||
+                    voice.name.includes('Google') ||
+                    voice.lang.includes('en')
+                );
+                if (preferredVoice) {
+                    utterance.voice = preferredVoice;
+                }
+
+                window.speechSynthesis.speak(utterance);
+
+                // Visual feedback - change button icon temporarily
+                const button = event.target.closest('.speak-btn');
+                if (button) {
+                    const originalIcon = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-volume-off"></i>';
+                    button.style.opacity = '1';
+
+                    utterance.onend = function() {
+                        button.innerHTML = originalIcon;
+                        button.style.opacity = '0.7';
+                    };
+                }
+            } else {
+                console.log('Speech synthesis not supported');
+                alert('Text-to-speech is not supported in your browser. Please try Chrome, Edge, or Safari.');
             }
         }
 
@@ -3574,135 +3921,53 @@
             messages.appendChild(typingDiv);
             messages.scrollTop = messages.scrollHeight;
 
-            // Simulate bot response with enhanced logic
-            setTimeout(() => {
+            // Call backend API for enhanced chatbot responses
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText })
+            })
+            .then(response => response.json())
+            .then(data => {
                 // Remove typing indicator
                 const typingIndicator = document.getElementById('typingIndicator');
                 if (typingIndicator) typingIndicator.remove();
 
                 const botDiv = document.createElement('div');
                 botDiv.className = 'chatbot-message bot';
+                botDiv.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                        <i class="fas fa-robot" style="color: var(--primary);"></i>
+                        <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
+                        <button onclick="speakResponse('${data.response.replace(/'/g, "\\'").replace(/"/g, '\\"')}')" class="speak-btn" title="Listen to response" style="background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); color: var(--primary); cursor: pointer; font-size: 0.7rem; padding: 4px 8px; border-radius: 12px; opacity: 0.8; margin-left: auto; transition: all 0.2s ease;">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                    <div>${data.response}</div>
+                `;
 
-                let response = "";
-                const lowerText = userText.toLowerCase();
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Chatbot error:', error);
+                // Remove typing indicator
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) typingIndicator.remove();
 
-                // Enhanced keyword matching with broader detection
-                const jobKeywords = ['job', 'recommend', 'opportunity', 'position', 'career', 'role'];
-                const skillKeywords = ['skill', 'learn', 'improve', 'develop', 'training', 'education'];
-                const courseKeywords = ['course', 'curriculum', 'program', 'class', 'learning', 'study'];
-                const trendKeywords = ['trend', 'market', 'industry', 'growth', 'future', 'analysis'];
-                const profileKeywords = ['profile', 'update', 'resume', 'cv', 'experience', 'background'];
-
-                const hasJobKeywords = jobKeywords.some(keyword => lowerText.includes(keyword));
-                const hasSkillKeywords = skillKeywords.some(keyword => lowerText.includes(keyword));
-                const hasCourseKeywords = courseKeywords.some(keyword => lowerText.includes(keyword));
-                const hasTrendKeywords = trendKeywords.some(keyword => lowerText.includes(keyword));
-                const hasProfileKeywords = profileKeywords.some(keyword => lowerText.includes(keyword));
-
-                if (hasJobKeywords) {
-                    response = `
-                        <div>Great question about job recommendations! 🚀</div>
-                        <div style="margin-top: 8px;">
-                            <strong>Your personalized job matches are ready!</strong><br>
-                            Check the "Career Path & Jobs" section for AI-powered recommendations tailored to your profile.
-                        </div>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            💡 Tip: Complete your profile for more accurate matches
-                        </div>
-                    `;
-                } else if (hasSkillKeywords) {
-                    response = `
-                        <div>Skill development is key to career growth! 📈</div>
-                        <div style="margin-top: 8px;">
-                            Explore our <strong>Video Modules</strong> for targeted learning:
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px;">
-                            <li>🎓 Recommended Videos (skill gaps)</li>
-                            <li>💬 Communication Training</li>
-                            <li>🎯 Placement Preparation</li>
-                        </ul>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            Focus on the Recommended Videos section for skills you need to develop!
-                        </div>
-                    `;
-                } else if (hasCourseKeywords) {
-                    response = `
-                        <div>Excellent choice for structured learning! 🎓</div>
-                        <div style="margin-top: 8px;">
-                            Our <strong>Courses section</strong> offers specialized learning paths:
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px;">
-                            <li>💻 Programming & Technical Skills</li>
-                            <li>🌐 Web Development</li>
-                            <li>📊 Data Science & ML</li>
-                            <li>☁️ DevOps & Cloud Computing</li>
-                            <li>📱 Mobile Development</li>
-                        </ul>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            Click any category tab to explore courses in that domain!
-                        </div>
-                    `;
-                } else if (hasTrendKeywords) {
-                    response = `
-                        <div>Stay ahead with market insights! 📊</div>
-                        <div style="margin-top: 8px;">
-                            Check the <strong>visual analytics</strong> in the home section showing:
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px;">
-                            <li>🔥 Trending job roles with demand percentages</li>
-                            <li>📈 In-demand skills with circular progress charts</li>
-                            <li>💰 Salary insights and growth projections</li>
-                        </ul>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            Scroll up to see the interactive trend cards above!
-                        </div>
-                    `;
-                } else if (hasProfileKeywords) {
-                    response = `
-                        <div>Profile optimization is crucial! ⚙️</div>
-                        <div style="margin-top: 8px;">
-                            <strong>To get better recommendations:</strong>
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px;">
-                            <li>Add your current skills with proficiency ratings (1-5)</li>
-                            <li>Specify your career interests and goals</li>
-                            <li>Update your experience level and background</li>
-                        </ul>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            Go to "Career Profile" section to update your information!
-                        </div>
-                    `;
-                } else {
-                    // More engaging fallback response
-                    response = `
-                        <div>I'm here to help with your career journey! 🌟</div>
-                        <div style="margin-top: 8px;">
-                            <strong>You can ask me about:</strong>
-                        </div>
-                        <ul style="margin: 8px 0; padding-left: 20px;">
-                            <li>💼 <strong>Jobs:</strong> "What jobs match my skills?" or "Show me opportunities"</li>
-                            <li>📚 <strong>Skills:</strong> "What skills should I learn?" or "How to improve?"</li>
-                            <li>🎓 <strong>Courses:</strong> "What courses are available?" or "Tell me about learning"</li>
-                            <li>📊 <strong>Trends:</strong> "What's trending?" or "Market insights"</li>
-                            <li>👤 <strong>Profile:</strong> "How to improve my profile?" or "Update tips"</li>
-                        </ul>
-                        <div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">
-                            What would you like to explore today?
-                        </div>
-                    `;
-                }
-
+                const botDiv = document.createElement('div');
+                botDiv.className = 'chatbot-message bot';
                 botDiv.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
                         <i class="fas fa-robot" style="color: var(--primary);"></i>
                         <span style="font-weight: 600; color: var(--primary);">CareerBot</span>
                     </div>
-                    <div>${response}</div>
+                    <div>Sorry, I'm having trouble connecting right now. Please try again later! 🤖</div>
                 `;
 
                 messages.appendChild(botDiv);
                 messages.scrollTop = messages.scrollHeight;
-            }, 1500 + Math.random() * 1000); // Random delay for more natural feel
+            });
         }
 
         // Close chatbot when clicking outside
@@ -3965,9 +4230,450 @@
             }
         });
 
+        // Interactive Platform Tour using Shepherd.js
+        function startTour() {
+            // Check if Shepherd is available
+            if (typeof Shepherd === 'undefined') {
+                alert('Tour functionality is loading. Please try again in a moment.');
+                return;
+            }
+
+            // Create the tour
+            const tour = new Shepherd.Tour({
+                useModalOverlay: false, // Remove dark overlay to keep dashboard visible
+                defaultStepOptions: {
+                    classes: 'shepherd-theme-light', // Use light theme for better visibility
+                    scrollTo: true,
+                    cancelIcon: {
+                        enabled: true
+                    },
+                    modalOverlayOpeningPadding: 0,
+                    modalOverlayOpeningRadius: 0,
+                    // Ensure proper sizing
+                    popperOptions: {
+                        modifiers: [
+                            {
+                                name: 'preventOverflow',
+                                options: {
+                                    boundary: 'viewport'
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+
+            // Tour Steps with Progress Indicators
+            tour.addStep({
+                id: 'welcome',
+                title: '🎉 Welcome to Your Career Journey!',
+                text: 'Welcome to the Smart Career Guidance & Employment Portal! This quick tour will help you navigate and make the most of our AI-powered platform. You\'ll learn about all major sections and features.',
+                buttons: [
+                    {
+                        text: 'Skip Tour',
+                        action: tour.cancel,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Start Tour',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'profile',
+                title: '📝 Complete Your Profile',
+                text: 'Your career journey starts here! Complete your profile with skills, experience, and interests to get personalized AI recommendations.',
+                attachTo: {
+                    element: '.profile-summary',
+                    on: 'bottom'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'navigation',
+                title: '🧭 Navigation Menu',
+                text: 'Use this sidebar to navigate between different sections: Home, Profile, Jobs, Courses, Videos, and Reports.',
+                attachTo: {
+                    element: '.sidebar',
+                    on: 'right'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'jobs-section',
+                title: '💼 Career Path & Jobs Section',
+                text: 'Click here to explore the "Career Path & Jobs" section. This is where you\'ll find AI-matched job opportunities based on your profile. Each job shows a match percentage and detailed analysis to help you understand why it\'s recommended for you.',
+                attachTo: {
+                    element: '#nav-jobs',
+                    on: 'right'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true,
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'courses-section',
+                title: '🎓 Professional Learning',
+                text: 'Access 50+ courses across 8 categories including Programming, Web Development, Data Science, and more. Click any category tab to explore.',
+                attachTo: {
+                    element: '#nav-courses',
+                    on: 'right'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'videos-section',
+                title: '🎥 Skill Development Videos',
+                text: 'Watch categorized learning videos for communication skills, placement preparation, and technical training. Videos are organized by skill gaps identified from your job matches.',
+                attachTo: {
+                    element: '#nav-videos',
+                    on: 'right'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'chatbot',
+                title: '🤖 AI Career Assistant - CareerBot',
+                text: 'This is CareerBot, your AI assistant! Click the chat icon to get instant help. CareerBot can answer questions about jobs, skills, courses, and platform features. Try asking questions like "What jobs match my skills?", "How does job matching work?", or "What courses should I take?"',
+                attachTo: {
+                    element: '.chatbot-icon',
+                    on: 'left'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true,
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'report',
+                title: '📊 Career Report',
+                text: 'Generate comprehensive career readiness reports. Get insights into your profile completeness, job match analysis, and personalized recommendations.',
+                attachTo: {
+                    element: '#nav-report',
+                    on: 'right'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back,
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                showProgress: true
+            });
+
+            tour.addStep({
+                id: 'final',
+                title: '🚀 You\'re All Set to Start Your Career Journey!',
+                text: 'Congratulations! You now know how to navigate all the major sections of the platform. Remember to update your profile regularly for better AI recommendations. You can always click "Take Tour" again from the header to revisit this guide. Happy career exploration and best of luck with your professional journey!',
+                buttons: [
+                    {
+                        text: 'Take Tour Again',
+                        action: function() {
+                            tour.cancel();
+                            setTimeout(startTour, 500);
+                        },
+                        classes: 'shepherd-button-secondary'
+                    },
+                    {
+                        text: 'Finish Tour',
+                        action: tour.complete
+                    }
+                ],
+                showProgress: true
+            });
+
+            // Start the tour
+            tour.start();
+
+            // Track tour completion
+            tour.on('complete', function() {
+                localStorage.setItem('tourCompleted', 'true');
+                console.log('Tour completed successfully!');
+            });
+
+            tour.on('cancel', function() {
+                console.log('Tour cancelled by user');
+            });
+        }
+
+            // Video Demo Functionality
+            function toggleDemoVideo() {
+                const video = document.getElementById('demoVideo');
+                const fallback = document.getElementById('demoFallback');
+
+                if (video.style.display === 'none') {
+                    // Video not available, show fallback
+                    showDemoSteps();
+                    return;
+                }
+
+                const playBtn = document.querySelector('.demo-play-btn');
+                const icon = playBtn.querySelector('i');
+                const text = playBtn.querySelector('span');
+
+                if (video.paused) {
+                    video.play();
+                    icon.className = 'fas fa-pause';
+                    text.textContent = 'Pause Demo';
+                } else {
+                    video.pause();
+                    icon.className = 'fas fa-play';
+                    text.textContent = 'Watch Demo';
+                }
+            }
+
+            // Show demo steps when video is not available
+            function showDemoSteps() {
+                const steps = [
+                    { icon: 'fas fa-sign-in-alt', title: 'Student Login', desc: 'Secure login with email and password' },
+                    { icon: 'fas fa-user-edit', title: 'Profile Setup', desc: 'Add skills, experience, and career goals' },
+                    { icon: 'fas fa-search', title: 'AI Job Matching', desc: 'Get personalized job recommendations' },
+                    { icon: 'fas fa-graduation-cap', title: 'Course Recommendations', desc: 'Explore skill development courses' },
+                    { icon: 'fas fa-video', title: 'Video Learning', desc: 'Watch placement and skill videos' },
+                    { icon: 'fas fa-robot', title: 'AI Chat Assistant', desc: 'Get instant help from CareerBot' },
+                    { icon: 'fas fa-file-alt', title: 'Career Reports', desc: 'Download comprehensive progress reports' }
+                ];
+
+                let stepHtml = '<div style="text-align: left; max-width: 600px; margin: 0 auto;">';
+                stepHtml += '<h4 style="color: var(--accent); margin-bottom: 20px; text-align: center;">Platform Demo Steps</h4>';
+
+                steps.forEach((step, index) => {
+                    stepHtml += `
+                        <div style="display: flex; align-items: center; margin-bottom: 16px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid var(--accent);">
+                            <div style="background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 0.8rem; font-weight: bold;">
+                                ${index + 1}
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-light); margin-bottom: 2px;">
+                                    <i class="${step.icon}" style="margin-right: 6px; color: var(--accent);"></i>
+                                    ${step.title}
+                                </div>
+                                <div style="font-size: 0.85rem; opacity: 0.8; color: var(--text-light);">
+                                    ${step.desc}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                stepHtml += '<div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">';
+                stepHtml += '<button onclick="startTour()" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-right: 10px;">Take Interactive Tour</button>';
+                stepHtml += '<button onclick="this.parentElement.parentElement.remove()" style="background: rgba(255,255,255,0.1); color: var(--text-light); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">Close</button>';
+                stepHtml += '</div></div>';
+
+                // Create modal overlay
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    padding: 20px;
+                `;
+                modal.innerHTML = stepHtml;
+                modal.onclick = function(e) {
+                    if (e.target === modal) modal.remove();
+                };
+
+                document.body.appendChild(modal);
+            }
+
+            // Video progress tracking
+            const demoVideo = document.getElementById('demoVideo');
+            const demoProgressBar = document.getElementById('demoProgressBar');
+            const demoTime = document.getElementById('demoTime');
+
+            if (demoVideo) {
+                demoVideo.addEventListener('timeupdate', function() {
+                    const progress = (demoVideo.currentTime / demoVideo.duration) * 100;
+                    demoProgressBar.style.width = progress + '%';
+
+                    const currentMinutes = Math.floor(demoVideo.currentTime / 60);
+                    const currentSeconds = Math.floor(demoVideo.currentTime % 60);
+                    const totalMinutes = Math.floor(demoVideo.duration / 60) || 2;
+                    const totalSeconds = Math.floor(demoVideo.duration % 60) || 15;
+
+                    demoTime.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+                });
+
+                demoVideo.addEventListener('ended', function() {
+                    const playBtn = document.querySelector('.demo-play-btn');
+                    const icon = playBtn.querySelector('i');
+                    const text = playBtn.querySelector('span');
+
+                    icon.className = 'fas fa-play';
+                    text.textContent = 'Watch Again';
+                    demoProgressBar.style.width = '0%';
+                });
+            }
+
+            // Auto-show tour for first-time users
+            window.addEventListener('load', function() {
+                const tourCompleted = localStorage.getItem('tourCompleted');
+                const isFirstVisit = !tourCompleted;
+
+                if (isFirstVisit) {
+                    // Show welcome modal first
+                    setTimeout(function() {
+                        const shouldTakeTour = confirm('🎉 Welcome to the Smart Career Portal!\n\nWould you like to take a quick guided tour to learn about all the features?');
+                        if (shouldTakeTour) {
+                            startTour();
+                        }
+                    }, 2000);
+                }
+            });
+
     </script>
 
     <style>
+        /* Video Demo Responsive */
+        @media (max-width: 768px) {
+            .video-demo-section {
+                padding: 16px;
+                margin: 15px 0;
+            }
+
+            .demo-video-container {
+                border-radius: 8px;
+            }
+
+            .demo-controls {
+                bottom: 8px;
+                left: 8px;
+                right: 8px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .demo-play-btn {
+                align-self: flex-start;
+            }
+
+            .demo-progress {
+                margin: 0;
+                width: 100%;
+            }
+
+            /* Tour responsive styling */
+            .shepherd-content {
+                max-width: 350px !important;
+                margin: 10px !important;
+            }
+
+            .shepherd-title {
+                font-size: 1.1rem !important;
+            }
+
+            .shepherd-text {
+                font-size: 0.9rem !important;
+                padding: 12px 16px !important;
+            }
+
+            .shepherd-header {
+                padding: 12px 16px !important;
+            }
+
+            .shepherd-footer {
+                padding: 12px 16px !important;
+            }
+        }
+
+        /* Prevent tour text overflow on all devices */
+        @media (max-width: 480px) {
+            .shepherd-content {
+                max-width: 300px !important;
+                margin: 5px !important;
+            }
+
+            .shepherd-title {
+                font-size: 1rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
         /* Video Section Responsive */
         @media (max-width: 768px) {
             .video-grid-horizontal {
