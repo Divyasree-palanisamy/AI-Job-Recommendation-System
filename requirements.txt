@@ -1,7 +1,11 @@
-# Essential packages for Smart Career Portal
-Flask
-joblib
-scikit-learn
-pandas
-numpy
-reportlab
+Flask==3.0.3
+gunicorn==23.0.0
+joblib==1.4.2
+scikit-learn==1.5.2
+pandas==2.2.3
+numpy==1.26.4
+reportlab==4.2.5
+Flask-Mail==0.10.0
+python-dotenv==1.0.1
+PyPDF2==3.0.1
+docx2txt==0.8

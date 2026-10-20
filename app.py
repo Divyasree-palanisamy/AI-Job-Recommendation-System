@@ -17,7 +17,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # --- Logging Configuration ---
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+LOG_LEVEL = logging.DEBUG if os.getenv("FLASK_DEBUG", "false").lower() == "true" else logging.INFO
+logging.basicConfig(level=LOG_LEVEL, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 APP_DIR = os.path.dirname(__file__)
@@ -25,7 +26,7 @@ DB_PATH = os.path.join(APP_DIR, "data.db")
 MODEL_PATH = os.path.join(APP_DIR, "models", "job_recommendation_type_knn.pkl")
 
 app = Flask(__name__)
-app.secret_key = "kkit_secret_key_123" # Use a stable secret key
+app.secret_key = os.getenv("SECRET_KEY", "kkit_secret_key_123")
 
 # Email Configuration
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
@@ -851,6 +852,10 @@ def test_email():
     else:
         return "Failed to send test email. Check Flask console for error details."
 
+@app.route("/health")
+def health():
+    return {"status": "ok"}, 200
+
 @app.route("/logout")
 def logout():
     session.clear()
@@ -883,4 +888,6 @@ def debug_session():
     """
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5007)
+    debug = os.getenv("FLASK_DEBUG", "false").lower() == "true"
+    port = int(os.getenv("PORT", 5007))
+    app.run(debug=debug, host="0.0.0.0", port=port)
